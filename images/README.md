@@ -1,1 +1,1 @@
-"Freshly Baked, Made With Heart," Bread, Pastries, Hommade Goodnes
+"Freshly Baked, Made With Heart," Bread, Pastries, Hommade Goodness
