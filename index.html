@@ -155,18 +155,7 @@ button:hover{
   box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 /* CHECKOUT */
-.checkout {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.checkout a{
-  background:#C79A5D;
-  color:white;
-  padding:15px 25px;
-  border-radius:10px;
-  text-decoration:none;
-}
+<a href="#" onclick="checkout()">Checkout via Messenger</a>
 
 footer{
   background:#5A3E2B;
@@ -313,10 +302,63 @@ function renderCart() {
   document.getElementById("checkoutBtn").href =
     "https://m.me/yourpage?ref=" + message;
 }
-</script>
+<script>
+let cart = [];
 
-</body>
-</html>
+function addItem(name, price) {
+  cart.push({name, price});
+  renderCart();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+
+function renderCart() {
+  let cartDiv = document.getElementById("cartItems");
+  let total = 0;
+  cartDiv.innerHTML = "";
+
+  cart.forEach((item, index) => {
+    total += item.price;
+
+    cartDiv.innerHTML += `
+      <div class="item">
+        ${item.name} - ₱${item.price}
+        <span class="remove" onclick="removeItem(${index})">X</span>
+      </div>
+    `;
+  });
+
+  document.getElementById("total").innerText = total;
+
+  // build order message
+  let message =
+    "🍞 BRIE HAUS ORDER\n\n" +
+    cart.map(i => "• " + i.name + " - ₱" + i.price).join("\n") +
+    "\n\nTOTAL: ₱" + total;
+
+  // store message for checkout
+  window.orderMessage = message;
+}
+
+// COPY + OPEN MESSENGER CHECKOUT
+function checkout() {
+  if (cart.length === 0) {
+    alert("Your cart is empty!");
+    return;
+  }
+
+// copy to clipboard
+  navigator.clipboard.writeText(window.orderMessage);
+
+  // open messenger
+  window.open("https://m.me/BRIEHAUSBakery", "_blank");
+
+  alert("Order copied! Just paste it in Messenger.");
+}
+</script>
 
 <footer>
   © 2026 Brie Haus Bakery
