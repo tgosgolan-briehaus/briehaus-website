@@ -306,7 +306,7 @@ function renderCart() {
 let cart = [];
 
 function addItem(name, price) {
-  cart.push({name, price});
+  cart.push({ name, price });
   renderCart();
 }
 
@@ -316,8 +316,9 @@ function removeItem(index) {
 }
 
 function renderCart() {
-  let cartDiv = document.getElementById("cartItems");
+  const cartDiv = document.getElementById("cartItems");
   let total = 0;
+
   cartDiv.innerHTML = "";
 
   cart.forEach((item, index) => {
@@ -333,30 +334,50 @@ function renderCart() {
 
   document.getElementById("total").innerText = total;
 
-  // build order message
-  let message =
-    "🍞 BRIE HAUS ORDER\n\n" +
-    cart.map(i => "• " + i.name + " - ₱" + i.price).join("\n") +
-    "\n\nTOTAL: ₱" + total;
+  window.orderMessage =
+`🍞 BRIE HAUS ORDER
 
-  // store message for checkout
-  window.orderMessage = message;
+` +
+cart.map(i => `• ${i.name} - ₱${i.price}`).join("\n") +
+`\n\nTOTAL: ₱${total}`;
 }
 
-// COPY + OPEN MESSENGER CHECKOUT
+
+// 🔥 BULLETPROOF CHECKOUT
 function checkout() {
-  if (cart.length === 0) {
+  if (!cart.length) {
     alert("Your cart is empty!");
     return;
   }
 
-// copy to clipboard
-  navigator.clipboard.writeText(window.orderMessage);
+  try {
+    // 1. Copy order (primary safety)
+    navigator.clipboard.writeText(window.orderMessage);
 
-  // open messenger
-  window.open("https://m.me/BRIEHAUSBakery", "_blank");
+    // 2. Your Messenger Page (CHANGE THIS!)
+    const pageUsername = "briehausbakery";
 
-  alert("Order copied! Just paste it in Messenger.");
+    const messengerApp = `https://m.me/${pageUsername}`;
+    const messengerWeb = `https://www.facebook.com/messages/t/${pageUsername}`;
+
+    // 3. Try opening Messenger app first
+    const win = window.open(messengerApp, "_blank");
+
+    // 4. Fallback if popup blocked
+    if (!win || win.closed || typeof win.closed === "undefined") {
+      window.location.href = messengerWeb;
+    }
+
+    alert("Order copied! Paste it in Messenger.");
+  } catch (err) {
+    console.log(err);
+
+    // FINAL fallback
+    window.location.href =
+      "https://www.facebook.com/messages/t/briehausbakery";
+
+    alert("Opening Messenger fallback. Order copied!");
+  }
 }
 </script>
 
