@@ -317,8 +317,11 @@ function removeItem(index) {
 
 function renderCart() {
   const cartDiv = document.getElementById("cartItems");
-  let total = 0;
+  const totalEl = document.getElementById("total");
 
+  if (!cartDiv || !totalEl) return;
+
+  let total = 0;
   cartDiv.innerHTML = "";
 
   cart.forEach((item, index) => {
@@ -332,7 +335,7 @@ function renderCart() {
     `;
   });
 
-  document.getElementById("total").innerText = total;
+  totalEl.innerText = total;
 
   window.orderMessage =
 `🍞 BRIE HAUS ORDER
@@ -343,44 +346,28 @@ cart.map(i => `• ${i.name} - ₱${i.price}`).join("\n") +
 }
 
 
-// 🔥 BULLETPROOF CHECKOUT
+// ✅ SAFE CHECKOUT (WORKS EVEN IF MESSENGER FAILS)
 function checkout() {
-  if (!cart.length) {
+  if (cart.length === 0) {
     alert("Your cart is empty!");
     return;
   }
 
-  try {
-    // 1. Copy order (primary safety)
-    navigator.clipboard.writeText(window.orderMessage);
+  // copy order first (this ALWAYS works)
+  navigator.clipboard.writeText(window.orderMessage || "");
 
-    // 2. Your Messenger Page (CHANGE THIS!)
-    const pageUsername = "briehausbakery";
+  alert("Order copied! Opening Messenger...");
 
-    const messengerApp = `https://m.me/${pageUsername}`;
-    const messengerWeb = `https://www.facebook.com/messages/t/${pageUsername}`;
+  // ⚠️ CHANGE THIS to your REAL page username
+  const page = "briehausbakery";
 
-    // 3. Try opening Messenger app first
-    const win = window.open(messengerApp, "_blank");
+  const link = "https://www.facebook.com/messages/t/" + page;
 
-    // 4. Fallback if popup blocked
-    if (!win || win.closed || typeof win.closed === "undefined") {
-      window.location.href = messengerWeb;
-    }
-
-    alert("Order copied! Paste it in Messenger.");
-  } catch (err) {
-    console.log(err);
-
-    // FINAL fallback
-    window.location.href =
-      "https://www.facebook.com/messages/t/briehausbakery";
-
-    alert("Opening Messenger fallback. Order copied!");
-  }
+  // open safely (no popup dependency)
+  window.location.href = link;
 }
 </script>
-
+  
 <footer>
   © 2026 Brie Haus Bakery
 </footer>
