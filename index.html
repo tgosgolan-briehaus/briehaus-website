@@ -9,141 +9,163 @@
 
 <style>
 
-body {
-  margin:0;
-  font-family: 'Arial', sans-serif;
-  background:#F7F1E8;
-  color:#5A3E2B;
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#F7F1E8;
+color:#5A3E2B;
 }
+
 
 /* HEADER */
-header {
-  text-align:center;
-  padding:30px 20px;
+
+header{
+text-align:center;
+padding:35px 20px;
+background:#fffaf3;
 }
 
-header img {
-  width:220px;
-  max-width:90%;
+
+header img{
+width:220px;
+max-width:90%;
 }
 
-h1 {
-  font-size:40px;
-  margin:15px 0;
+
+h1{
+font-size:42px;
+margin:15px 0;
 }
 
-.subtitle {
-  font-size:18px;
+
+.subtitle{
+font-size:18px;
+color:#8b6045;
 }
+
 
 
 /* PRODUCTS */
 
-.products {
+.products{
 
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  padding:30px;
-  max-width:1100px;
-  margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+padding:35px;
+max-width:1100px;
+margin:auto;
 
 }
 
 
-.card {
+
+.card{
 
 background:white;
-padding:20px;
-border-radius:18px;
+padding:25px;
+border-radius:20px;
 text-align:center;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
+box-shadow:0 6px 15px rgba(0,0,0,.12);
+transition:.3s;
 
 }
 
 
-.card h3 {
 
-margin:10px;
+.card:hover{
+
+transform:translateY(-6px);
 
 }
 
 
-.price {
 
-font-size:20px;
+.icon{
+
+font-size:60px;
+
+}
+
+
+
+.price{
+
+font-size:22px;
 font-weight:bold;
 color:#A5673F;
 
 }
 
 
-button {
+
+button{
 
 background:#5A3E2B;
 color:white;
 border:none;
-padding:12px 20px;
-border-radius:10px;
-cursor:pointer;
+padding:12px;
+border-radius:12px;
 width:100%;
+cursor:pointer;
+font-size:16px;
+
 }
 
 
-button:hover {
+button:hover{
 
 background:#7A563E;
 
 }
 
 
+
+
 /* CART */
 
-.cart {
+.cart{
 
 background:white;
 max-width:600px;
 margin:40px auto;
 padding:25px;
 border-radius:20px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
+box-shadow:0 6px 15px rgba(0,0,0,.1);
 
 }
 
 
-.item {
 
-padding:10px;
+.item{
+
+padding:12px;
 border-bottom:1px solid #ddd;
 
 }
 
 
-.remove {
 
-color:red;
+.remove{
+
 float:right;
+color:red;
 cursor:pointer;
 
 }
 
 
-.checkout {
 
-margin-top:20px;
-
-}
-
-
-.checkout a {
+.checkout a{
 
 display:block;
-text-align:center;
 background:#5A3E2B;
 color:white;
 padding:15px;
-border-radius:10px;
+text-align:center;
+border-radius:12px;
 text-decoration:none;
+margin-top:20px;
 
 }
 
@@ -151,7 +173,7 @@ text-decoration:none;
 
 /* FOOTER */
 
-footer {
+footer{
 
 background:#5A3E2B;
 color:white;
@@ -183,18 +205,23 @@ Freshly Baked • Premium Coffee • Made With Heart
 
 
 
-<h2 style="text-align:center;">
+
+<h2 style="text-align:center">
 🍞 Our Bakery
 </h2>
+
 
 
 
 <div class="products">
 
 
+
 <div class="card">
 
-<h3>🥔 Potato Ensaymada</h3>
+<div class="icon">🥔</div>
+
+<h3>Potato Ensaymada</h3>
 
 <p class="price">₱45</p>
 
@@ -206,9 +233,12 @@ Add to Cart
 
 
 
+
 <div class="card">
 
-<h3>☕ Coffee Bun</h3>
+<div class="icon">☕</div>
+
+<h3>Coffee Bun</h3>
 
 <p class="price">₱40</p>
 
@@ -220,9 +250,12 @@ Add to Cart
 
 
 
+
 <div class="card">
 
-<h3>🧄 Garlic Bun</h3>
+<div class="icon">🧄</div>
+
+<h3>Garlic Bun</h3>
 
 <p class="price">₱35</p>
 
@@ -234,9 +267,12 @@ Add to Cart
 
 
 
+
 <div class="card">
 
-<h3>🥖 Classic Pandesal</h3>
+<div class="icon">🥖</div>
+
+<h3>Classic Pandesal</h3>
 
 <p class="price">₱25</p>
 
@@ -247,9 +283,13 @@ Add to Cart
 </div>
 
 
+
+
 <div class="card">
 
-<h3>☕ Flat White</h3>
+<div class="icon">☕</div>
+
+<h3>Flat White</h3>
 
 <p class="price">₱120</p>
 
@@ -264,9 +304,12 @@ Add to Cart
 
 
 
+
+
 <div class="cart">
 
-<h2>Your Cart</h2>
+
+<h2>🛒 Your Cart</h2>
 
 
 <div id="cartItems">
@@ -286,10 +329,12 @@ Total: ₱<span id="total">0</span>
 Checkout via Messenger
 </a>
 
+
 </div>
 
 
 </div>
+
 
 
 
@@ -310,8 +355,8 @@ Checkout via Messenger
 let cart=[];
 
 
-function addItem(name,price){
 
+function addItem(name,price){
 
 cart.push({
 
@@ -320,23 +365,21 @@ price:price
 
 });
 
-
 showCart();
 
-
 }
+
 
 
 
 function removeItem(index){
 
-
 cart.splice(index,1);
 
 showCart();
 
-
 }
+
 
 
 
@@ -363,14 +406,16 @@ box.innerHTML += `
 
 ${item.name} - ₱${item.price}
 
-<span class="remove" onclick="removeItem(${index})">
-X
+
+<span class="remove"
+onclick="removeItem(${index})">
+✖
 </span>
+
 
 </div>
 
 `;
-
 
 });
 
@@ -379,6 +424,8 @@ document.getElementById("total").innerHTML=total;
 
 
 }
+
+
 
 
 
@@ -394,8 +441,9 @@ return;
 }
 
 
+let message =
+"Hello Brie Haus Bakery!%0AI want to order:%0A";
 
-let message="Hello Brie Haus! I want to order:%0A";
 
 
 cart.forEach(item=>{
@@ -405,7 +453,10 @@ message += "- "+item.name+" ₱"+item.price+"%0A";
 });
 
 
-message += "Total ₱"+document.getElementById("total").innerHTML;
+
+message +=
+"Total ₱"+
+document.getElementById("total").innerHTML;
 
 
 
@@ -419,5 +470,8 @@ window.open(
 }
 
 
-
 </script>
+
+
+</body>
+</html>
