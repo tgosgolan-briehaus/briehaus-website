@@ -186,12 +186,17 @@ button {
 <!-- CART -->
 <div class="cart">
   <h2>Your Cart</h2>
+
   <div id="cartItems"></div>
+
   <h3>Total: ₱<span id="total">0</span></h3>
 
   <div class="checkout">
-   https://www.facebook.com/profile.php?id=61590094065747
+    <a id="checkoutBtn" href="#" target="_blank">
+      Checkout via Messenger
+    </a>
   </div>
+
 </div>
 
 <script>
@@ -231,8 +236,7 @@ function renderCart() {
   );
 
   document.getElementById("checkoutBtn").href =
-    "https://m.me/yourpage?ref=" + message;
-}
+    "https://m.me/61590094065747?ref=" + message;
 </script>
 
 </body>
