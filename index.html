@@ -216,13 +216,85 @@ Checkout via Messenger
 </div>
 
 <script>
-@@ -240,7 +113,8 @@ <h3>Total: ₱<span id="total">0</span></h3>
-  );
 
-  document.getElementById("checkoutBtn").href =
-    "https://m.me/61590094065747?ref=" + message;
-"https://m.me/61590094065747?ref=" + message;
-    
+let cart = [];
+
+
+function addItem(name, price){
+
+cart.push({
+name:name,
+price:price
+});
+
+renderCart();
+
+}
+
+
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+renderCart();
+
+}
+
+
+
+function renderCart(){
+
+let cartDiv = document.getElementById("cartItems");
+
+let total = 0;
+
+cartDiv.innerHTML = "";
+
+
+cart.forEach((item,index)=>{
+
+
+total += item.price;
+
+
+cartDiv.innerHTML += `
+
+<div class="item">
+
+${item.name} - ₱${item.price}
+
+<span class="remove" onclick="removeItem(${index})">
+X
+</span>
+
+</div>
+
+`;
+
+});
+
+
+document.getElementById("total").innerText = total;
+
+
+let message = encodeURIComponent(
+
+"Hello Brie Haus! I want to order:\n" +
+
+cart.map(i => "- "+i.name+" ₱"+i.price).join("\n") +
+
+"\nTotal: ₱"+total
+
+);
+
+
+document.getElementById("checkoutBtn").href =
+
+"https://m.me/61590094065747?text=" + message;
+
+
+}
+
+
 </script>
-
-</body>
