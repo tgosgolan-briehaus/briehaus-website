@@ -1,51 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brie Haus Bakery</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #F7F1E8;
-  color: #5A3E2B;
-}
-
-/* HEADER */
-header {
-  background: #5A3E2B;
-  color: white;
-  text-align: center;
-  padding: 40px;
-}
-
-/* PRODUCTS */
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 30px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-button {
-  background: #5A3E2B;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 8px;
-  cursor: pointer;
+@@ -49,18 +49,157 @@
   margin-top: 10px;
 }
 
@@ -53,140 +6,6 @@ button {
 .cart {
   background: white;
   max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.cart h2 {
-  text-align: center;
-}
-
-.item {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-}
-
-.remove {
-  color: red;
-  cursor: pointer;
-}
-
-/* CHECKOUT */
-.checkout {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.checkout a {
-  background: #C79A5D;
-  color: white;
-  padding: 12px 20px;
-  display: inline-block;
-  border-radius: 8px;
-  text-decoration: none;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <img src="logo.png" alt="Brie Haus Logo" width="200">
-  <p>Freshly Baked, Made with Heart</p>
-</header>
-
-<!-- PRODUCTS -->
-<div class="products">
-
-  <div class="card">
-    <h3>🥔 Potato Ensaymada</h3>
-    <p>₱45</p>
-    <button onclick="addItem('Potato Ensaymada',45)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>☕ Coffee Bun</h3>
-    <p>₱40</p>
-    <button onclick="addItem('Coffee Bun',40)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>🌸 Spring in the City</h3>
-    <p>₱50</p>
-    <button onclick="addItem('Spring in the City',50)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>🧄 Garlic Bun</h3>
-    <p>₱35</p>
-    <button onclick="addItem('Garlic Bun',35)">Add to Cart</button>
-  </div>
-
-</div>
-
-</div>
-
-<div class="card">
-  <h3>🥖 Hot Classic Pandesal</h3>
-  <p>₱25</p>
-  <button onclick="addItem('Hot Classic Pandesal',25)">
-    Add to Cart
-  </button>
-</div>
-
-<!-- COFFEE SECTION -->
-<h2 style="text-align:center;">☕ Hot & Cold Coffee</h2>
-
-<div class="products">
-
-  <div class="card">
-    <h3>☕ Americano</h3>
-    <p>Hot or Cold</p>
-    <p>₱90</p>
-    <button onclick="addItem('Americano',90)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>🥛 Latte</h3>
-    <p>Hot or Cold</p>
-    <p>₱120</p>
-    <button onclick="addItem('Latte',120)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>🍫 Mocha</h3>
-    <p>Hot or Cold</p>
-    <p>₱130</p>
-    <button onclick="addItem('Mocha',130)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>☕ Flat White</h3>
-    <p>Hot or Cold</p>
-    <p>₱120</p>
-    <button onclick="addItem('Flat White',120)">Add to Cart</button>
-  </div>
-
-<!-- LOCATION -->
-<div class="cta">
-  <h2>📍 Visit or Pick Up Your Order</h2>
-  <p>
-    Brie Haus Bakery<br>
-    31-H West Rembo, Taguig City
-  </p>
-  <p>
-    📞 09455918913<br>
-    ☎️ 02-86565869
-  </p>
-</div>
-
-/* CART */
-.cart {
-  background: white;
-  max-width:600px;
   margin: 20px auto;
   padding: 20px;
   border-radius: 15px;
@@ -337,106 +156,67 @@ Total: ₱<span id="total">0</span>
 <div class="checkout">
 
 <a id="checkoutBtn"
-href="https://m.me/61590094065747"
-target="_blank">
-
-Checkout via Messenger
-
-</a>
-
-</div>
-
-
+@@ -77,125 +216,13 @@ <h3>
 </div>
 
 <script>
+let cart = [];
+
+function addItem(name, price) {
+  cart.push({name, price});
+  renderCart();
+}
+
+function removeItem(index) {
+  cart.splice(index,1);
+  renderCart();
+}
+
+function renderCart() {
+  let cartDiv = document.getElementById("cartItems");
+  let total = 0;
+  cartDiv.innerHTML = "";
+
+  cart.forEach((item, index) => {
+    total += item.price;
+    cartDiv.innerHTML += `
+      <div class="item">
+        ${item.name} - ₱${item.price}
+        <span class="remove" onclick="removeItem(${index})">X</span>
+      </div>
+    `;
+  });
+
+  document.getElementById("total").innerText = total;
+
+  let message = encodeURIComponent(
+    "Hello Brie Haus! I want to order:\n" +
+    cart.map(i => "- " + i.name + " ₱" + i.price).join("\n") +
+    "\nTotal: ₱" + total
 @@ -240,7 +113,8 @@ <h3>Total: ₱<span id="total">0</span></h3>
   );
 
+@@ -115,7 +115,87 @@ <h3>
   document.getElementById("checkoutBtn").href =
     "https://m.me/61590094065747?ref=" + message;
 "https://m.me/61590094065747?ref=" + message;
-    
+
+</script>
 <script>
 
 let cart = [];
+@@ -222,6 +25,8 @@ <h3>
 
+  cart.splice(index,1);
 
-function addItem(name, price){
-
-cart.push({
-name:name,
-price:price
-});
-
-renderCart();
+</body>
+</html>
+  renderCart();
 
 }
-
-
-
-function removeItem(index){
-
-cart.splice(index,1);
-
-renderCart();
-
-}
-
-
-
-function renderCart(){
-
-let cartDiv = document.getElementById("cartItems");
-
-let total = 0;
-
-cartDiv.innerHTML = "";
-
-
-cart.forEach((item,index)=>{
-
-
-total += item.price;
-
-
-cartDiv.innerHTML += `
-
-<div class="item">
-
-${item.name} - ₱${item.price}
-
-<span class="remove" onclick="removeItem(${index})">
-X
-</span>
-
-</div>
-
-`;
-
-});
-
-
-document.getElementById("total").innerText = total;
-
-
-let message = encodeURIComponent(
-
-"Hello Brie Haus! I want to order:\n" +
-
-cart.map(i => "- "+i.name+" ₱"+i.price).join("\n") +
-
-"\nTotal: ₱"+total
-
-);
-
-
-document.getElementById("checkoutBtn").href =
-
-"https://m.me/61590094065747?text=" + message;
-
-
-}
+@@ -284,5 +89,3 @@ <h3>
 
 
 </script>
+
+</body>
