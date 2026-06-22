@@ -1,482 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Brie Haus Bakery</title>
 
-<head>
-
-<meta charset="UTF-8">
-
 <style>
-
-body{
- margin: 0;
+body {
+  margin: 0;
   font-family: Arial, sans-serif;
   background: #F7F1E8;
   color: #5A3E2B;
-  margin:0;
-  font-family: 'Arial', sans-serif;
-  background:#F7F1E8;
-  color:#5A3E2B;
 }
-
-/* all your CSS here */
-
-</style>
-
-</head>
-
 
 /* HEADER */
-
-header{
-text-align:center;
-padding:35px 20px;
-background:#fffaf3;
+header {
+  background: #5A3E2B;
+  color: white;
+  text-align: center;
+  padding: 40px;
 }
-
-
-header img{
-width:220px;
-max-width:90%;
-}
-
-
-h1{
-font-size:42px;
-margin:15px 0;
-}
-
-
-.subtitle{
-font-size:18px;
-color:#8b6045;
-}
-
-
 
 /* PRODUCTS */
-
-.products{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-padding:35px;
-max-width:1100px;
-margin:auto;
-
-}
-
-
-
-.card{
-
-background:white;
-padding:25px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 6px 15px rgba(0,0,0,.12);
-transition:.3s;
-
-}
-
-
-
-.card:hover{
-
-transform:translateY(-6px);
-
-}
-
-
-
-.icon{
-
-font-size:60px;
-
-}
-
-
-
-.price{
-
-font-size:22px;
-font-weight:bold;
-color:#A5673F;
-
-}
-
-
-
-button{
-
-background:#5A3E2B;
-color:white;
-border:none;
-padding:12px;
-border-radius:12px;
-width:100%;
-cursor:pointer;
-font-size:16px;
-
-}
-
-
-button:hover{
-
-background:#7A563E;
-
-}
-
-
-
-
-/* CART */
-
-.cart{
-
-background:white;
-max-width:600px;
-margin:40px auto;
-padding:25px;
-border-radius:20px;
-box-shadow:0 6px 15px rgba(0,0,0,.1);
-
-}
-
-
-
-.item{
-
-padding:12px;
-border-bottom:1px solid #ddd;
-
-}
-
-
-
-.remove{
-
-float:right;
-color:red;
-cursor:pointer;
-
-}
-
-
-
-.checkout a{
-
-display:block;
-background:#5A3E2B;
-color:white;
-padding:15px;
-text-align:center;
-border-radius:12px;
-text-decoration:none;
-margin-top:20px;
-
-}
-
-
-
-/* FOOTER */
-
-footer{
-
-background:#5A3E2B;
-color:white;
-text-align:center;
-padding:20px;
-
-}
-
-
-</style>
-
-</head>
-
-
-body {
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#F7F1E8;
-  color:#5A3E2B;
-}
-
-header {
-  text-align:center;
-  padding:40px 20px;
-  background:#fffaf3;
-}
-
-header img {
-  width:220px;
-  max-width:90%;
-}
-
-h1 {
-  font-size:42px;
-}
-
-.subtitle {
-  font-size:18px;
-  color:#8b6045;
-}
-
 .products {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-  padding:30px;
-  max-width:1100px;
-  margin:auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 30px;
+  max-width: 1000px;
+  margin: auto;
 }
 
 .card {
-  background:white;
-  padding:25px;
-  border-radius:20px;
-  text-align:center;
-  box-shadow:0 6px 15px rgba(0,0,0,.12);
-}
-
-.card:hover {
-  transform:translateY(-5px);
-}
-
-.price {
-  font-size:22px;
-  font-weight:bold;
-  color:#A5673F;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 button {
-  background:#5A3E2B;
-  color:white;
-  border:none;
-  padding:12px;
-  border-radius:12px;
-  cursor:pointer;
-  width:100%;
+  background: #5A3E2B;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
-button:hover {
-  background:#7A563E;
-}
-
+/* CART */
 .cart {
-  background:white;
-  max-width:600px;
-  margin:40px auto;
-  padding:25px;
-  border-radius:20px;
+  background: white;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.cart h2 {
+  text-align: center;
 }
 
 .item {
-  padding:10px;
-  border-bottom:1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
 }
 
 .remove {
-  color:red;
-  float:right;
+  color: red;
+  cursor: pointer;
+}
+
+/* CHECKOUT */
+.checkout {
+  text-align: center;
+  margin-top: 20px;
 }
 
 .checkout a {
-  display:block;
-  background:#5A3E2B;
-  color:white;
-  padding:15px;
-  text-align:center;
-  border-radius:10px;
-  text-decoration:none;
+  background: #C79A5D;
+  color: white;
+  padding: 12px 20px;
+  display: inline-block;
+  border-radius: 8px;
+  text-decoration: none;
 }
+</style>
+</head>
 
-footer {
-  background:#5A3E2B;
-  color:white;
-  text-align:center;
-  padding:20px;
-}
+<body>
 
+<header>
+  <img src="logo.png" alt="Brie Haus Logo" width="200">
+  <p>Freshly Baked, Made with Heart</p>
+</header>
 
+<!-- PRODUCTS -->
+<div class="products">
 
+  <div class="card">
+    <h3>🥔 Potato Ensaymada</h3>
+    <p>₱45</p>
+    <button onclick="addItem('Potato Ensaymada',45)">Add to Cart</button>
+  </div>
 
+  <div class="card">
+    <h3>☕ Coffee Bun</h3>
+    <p>₱40</p>
+    <button onclick="addItem('Coffee Bun',40)">Add to Cart</button>
+  </div>
 
-<script>
+  <div class="card">
+    <h3>🌸 Spring in the City</h3>
+    <p>₱50</p>
+    <button onclick="addItem('Spring in the City',50)">Add to Cart</button>
+  </div>
 
-
-let cart=[];
-
-
-
-function addItem(name,price){
-
-cart.push({
-
-name:name,
-price:price
-
-});
-
-showCart();
-
-}
-
-
-
-
-function removeItem(index){
-
-cart.splice(index,1);
-
-showCart();
-
-}
-
-
-
-
-function showCart(){
-
-
-let box=document.getElementById("cartItems");
-
-let total=0;
-
-
-box.innerHTML="";
-
-
-cart.forEach((item,index)=>{
-
-
-total += item.price;
-
-
-box.innerHTML += `
-
-<div class="item">
-
-${item.name} - ₱${item.price}
-
-
-<span class="remove"
-onclick="removeItem(${index})">
-✖
-</span>
-
+  <div class="card">
+    <h3>🧄 Garlic Bun</h3>
+    <p>₱35</p>
+    <button onclick="addItem('Garlic Bun',35)">Add to Cart</button>
+  </div>
 
 </div>
 
-`;
+</div>
 
-});
+<div class="card">
+  <h3>🥖 Hot Classic Pandesal</h3>
+  <p>₱25</p>
+  <button onclick="addItem('Hot Classic Pandesal',25)">
+    Add to Cart
+  </button>
+</div>
+
+<!-- COFFEE SECTION -->
+<h2 style="text-align:center;">☕ Hot & Cold Coffee</h2>
 
 <div class="products">
 
+  <div class="card">
+    <h3>☕ Americano</h3>
+    <p>Hot or Cold</p>
+    <p>₱90</p>
+    <button onclick="addItem('Americano',90)">Add to Cart</button>
+  </div>
 
-<div class="card">
+  <div class="card">
+    <h3>🥛 Latte</h3>
+    <p>Hot or Cold</p>
+    <p>₱120</p>
+    <button onclick="addItem('Latte',120)">Add to Cart</button>
+  </div>
 
-<h3>🥔 Potato Ensaymada</h3>
+  <div class="card">
+    <h3>🍫 Mocha</h3>
+    <p>Hot or Cold</p>
+    <p>₱130</p>
+    <button onclick="addItem('Mocha',130)">Add to Cart</button>
+  </div>
 
-<p class="price">₱45</p>
+  <div class="card">
+    <h3>☕ Flat White</h3>
+    <p>Hot or Cold</p>
+    <p>₱120</p>
+    <button onclick="addItem('Flat White',120)">Add to Cart</button>
+  </div>
 
-<button onclick="addItem('Potato Ensaymada',45)">
-Add to Cart
-</button>
-
+<!-- LOCATION -->
+<div class="cta">
+  <h2>📍 Visit or Pick Up Your Order</h2>
+  <p>
+    Brie Haus Bakery<br>
+    31-H West Rembo, Taguig City
+  </p>
+  <p>
+    📞 09455918913<br>
+    ☎️ 02-86565869
+  </p>
 </div>
 
+<!-- CART -->
+<div class="cart">
+  <h2>Your Cart</h2>
+  <div id="cartItems"></div>
+  <h3>Total: ₱<span id="total">0</span></h3>
 
-<div class="card">
-
-<h3>☕ Coffee Bun</h3>
-
-<p class="price">₱40</p>
-
-<button onclick="addItem('Coffee Bun',40)">
-Add to Cart
-</button>
-
+  <div class="checkout">
+    <a id="checkoutBtn" href="#" target="_blank">Checkout via Messenger</a>
+  </div>
 </div>
 
+<script>
+let cart = [];
 
-<!-- PUT THE FLAT WHITE HERE -->
-
-
-<div class="card">
-
-<h3>☕ Flat White</h3>
-
-<p class="price">₱120</p>
-
-<button onclick="addItem('Flat White',120)">
-Add to Cart
-</button>
-
-</div>
-
-
-</div>
-
-document.getElementById("total").innerHTML=total;
-
-
+function addItem(name, price) {
+  cart.push({name, price});
+  renderCart();
 }
 
-
-
-
-
-function checkout(){
-
-
-if(cart.length==0){
-
-alert("Your cart is empty");
-
-return;
-
+function removeItem(index) {
+  cart.splice(index,1);
+  renderCart();
 }
 
+function renderCart() {
+  let cartDiv = document.getElementById("cartItems");
+  let total = 0;
+  cartDiv.innerHTML = "";
 
-let message =
-"Hello Brie Haus Bakery!%0AI want to order:%0A";
+  cart.forEach((item, index) => {
+    total += item.price;
+    cartDiv.innerHTML += `
+      <div class="item">
+        ${item.name} - ₱${item.price}
+        <span class="remove" onclick="removeItem(${index})">X</span>
+      </div>
+    `;
+  });
 
+  document.getElementById("total").innerText = total;
 
+  let message = encodeURIComponent(
+    "Hello Brie Haus! I want to order:\n" +
+    cart.map(i => "- " + i.name + " ₱" + i.price).join("\n") +
+    "\nTotal: ₱" + total
+  );
 
-cart.forEach(item=>{
-
-message += "- "+item.name+" ₱"+item.price+"%0A";
-
-});
-
-
-
-message +=
-"Total ₱"+
-document.getElementById("total").innerHTML;
-
-
-
-window.open(
-
-"https://m.me/BrieHausBakery?text="+message
-
-);
-
+  document.getElementById("checkoutBtn").href =
+    "https://m.me/yourpage?ref=" + message;
 }
-
-
 </script>
-
 
 </body>
 </html>
