@@ -115,7 +115,87 @@ function renderCart() {
   document.getElementById("checkoutBtn").href =
 "https://m.me/61590094065747?ref=" + message;
     
-</script>
+<script>
 
-</body>
-</html>
+let cart = [];
+
+
+function addItem(name, price) {
+
+  cart.push({
+    name: name,
+    price: price
+  });
+
+  renderCart();
+
+}
+
+
+
+function removeItem(index) {
+
+  cart.splice(index,1);
+
+  renderCart();
+
+}
+
+
+
+function renderCart() {
+
+  let cartDiv = document.getElementById("cartItems");
+
+  let total = 0;
+
+  cartDiv.innerHTML = "";
+
+
+  cart.forEach((item,index)=>{
+
+
+    total += item.price;
+
+
+    cartDiv.innerHTML += `
+
+    <div class="item">
+
+    ${item.name} - ₱${item.price}
+
+    <span class="remove" onclick="removeItem(${index})">
+    X
+    </span>
+
+    </div>
+
+    `;
+
+
+  });
+
+
+  document.getElementById("total").innerText = total;
+
+
+  let message = encodeURIComponent(
+
+    "Hello Brie Haus! I want to order:\n" +
+
+    cart.map(i => "- " + i.name + " ₱" + i.price).join("\n") +
+
+    "\nTotal: ₱" + total
+
+  );
+
+
+  document.getElementById("checkoutBtn").href =
+
+  "https://m.me/61590094065747?text=" + message;
+
+
+}
+
+
+</script>
