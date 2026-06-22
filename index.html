@@ -9,6 +9,185 @@
 
 <style>
 
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#F7F1E8;
+color:#5A3E2B;
+}
+
+
+/* HEADER */
+
+header{
+text-align:center;
+padding:35px 20px;
+background:#fffaf3;
+}
+
+
+header img{
+width:220px;
+max-width:90%;
+}
+
+
+h1{
+font-size:42px;
+margin:15px 0;
+}
+
+
+.subtitle{
+font-size:18px;
+color:#8b6045;
+}
+
+
+
+/* PRODUCTS */
+
+.products{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+padding:35px;
+max-width:1100px;
+margin:auto;
+
+}
+
+
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 6px 15px rgba(0,0,0,.12);
+transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-6px);
+
+}
+
+
+
+.icon{
+
+font-size:60px;
+
+}
+
+
+
+.price{
+
+font-size:22px;
+font-weight:bold;
+color:#A5673F;
+
+}
+
+
+
+button{
+
+background:#5A3E2B;
+color:white;
+border:none;
+padding:12px;
+border-radius:12px;
+width:100%;
+cursor:pointer;
+font-size:16px;
+
+}
+
+
+button:hover{
+
+background:#7A563E;
+
+}
+
+
+
+
+/* CART */
+
+.cart{
+
+background:white;
+max-width:600px;
+margin:40px auto;
+padding:25px;
+border-radius:20px;
+box-shadow:0 6px 15px rgba(0,0,0,.1);
+
+}
+
+
+
+.item{
+
+padding:12px;
+border-bottom:1px solid #ddd;
+
+}
+
+
+
+.remove{
+
+float:right;
+color:red;
+cursor:pointer;
+
+}
+
+
+
+.checkout a{
+
+display:block;
+background:#5A3E2B;
+color:white;
+padding:15px;
+text-align:center;
+border-radius:12px;
+text-decoration:none;
+margin-top:20px;
+
+}
+
+
+
+/* FOOTER */
+
+footer{
+
+background:#5A3E2B;
+color:white;
+text-align:center;
+padding:20px;
+
+}
+
+
+</style>
+
+</head>
+
+
 body {
   margin:0;
   font-family:Arial,sans-serif;
@@ -111,175 +290,6 @@ footer {
   text-align:center;
   padding:20px;
 }
-background:#5A3E2B;
-color:white;
-text-align:center;
-padding:20px;
-
-}
-
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<header>
-
-<img src="logo.png" alt="Brie Haus Logo">
-
-<h1>Brie Haus Bakery</h1>
-
-<p class="subtitle">
-Freshly Baked • Premium Coffee • Made With Heart
-</p>
-
-</header>
-
-
-
-
-<h2 style="text-align:center">
-🍞 Our Bakery
-</h2>
-
-
-
-
-<div class="products">
-
-
-
-<div class="card">
-
-<div class="icon">🥔</div>
-
-<h3>Potato Ensaymada</h3>
-
-<p class="price">₱45</p>
-
-<button onclick="addItem('Potato Ensaymada',45)">
-Add to Cart
-</button>
-
-</div>
-
-
-
-
-<div class="card">
-
-<div class="icon">☕</div>
-
-<h3>Coffee Bun</h3>
-
-<p class="price">₱40</p>
-
-<button onclick="addItem('Coffee Bun',40)">
-Add to Cart
-</button>
-
-</div>
-
-
-
-
-<div class="card">
-
-<div class="icon">🧄</div>
-
-<h3>Garlic Bun</h3>
-
-<p class="price">₱35</p>
-
-<button onclick="addItem('Garlic Bun',35)">
-Add to Cart
-</button>
-
-</div>
-
-
-
-
-<div class="card">
-
-<div class="icon">🥖</div>
-
-<h3>Classic Pandesal</h3>
-
-<p class="price">₱25</p>
-
-<button onclick="addItem('Classic Pandesal',25)">
-Add to Cart
-</button>
-
-</div>
-
-
-
-
-<div class="card">
-
-<div class="icon">☕</div>
-
-<h3>Flat White</h3>
-
-<p class="price">₱120</p>
-
-<button onclick="addItem('Flat White',120)">
-Add to Cart
-</button>
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="cart">
-
-
-<h2>🛒 Your Cart</h2>
-
-
-<div id="cartItems">
-
-</div>
-
-
-<h3>
-Total: ₱<span id="total">0</span>
-</h3>
-
-
-
-<div class="checkout">
-
-<a href="#" onclick="checkout()">
-Checkout via Messenger
-</a>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<footer>
-
-© 2026 Brie Haus Bakery
-
-</footer>
 
 
 
@@ -355,6 +365,52 @@ onclick="removeItem(${index})">
 
 });
 
+<div class="products">
+
+
+<div class="card">
+
+<h3>🥔 Potato Ensaymada</h3>
+
+<p class="price">₱45</p>
+
+<button onclick="addItem('Potato Ensaymada',45)">
+Add to Cart
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>☕ Coffee Bun</h3>
+
+<p class="price">₱40</p>
+
+<button onclick="addItem('Coffee Bun',40)">
+Add to Cart
+</button>
+
+</div>
+
+
+<!-- PUT THE FLAT WHITE HERE -->
+
+
+<div class="card">
+
+<h3>☕ Flat White</h3>
+
+<p class="price">₱120</p>
+
+<button onclick="addItem('Flat White',120)">
+Add to Cart
+</button>
+
+</div>
+
+
+</div>
 
 document.getElementById("total").innerHTML=total;
 
