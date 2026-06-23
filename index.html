@@ -6,36 +6,52 @@
   <title>Brie Haus Bakery</title>
 
   <style>
-html {
-  scroll-behavior: smooth;
-}
+    html { scroll-behavior: smooth; }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #F7F1E8;
-  color: #5A3E2B;
-}
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #F7F1E8;
+      color: #5A3E2B;
+    }
 
-/* PRODUCT CARD */
-.card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+    header {
+      background: linear-gradient(135deg, #5A3E2B, #7A5740);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
+    .logo {
+      width: 180px;
+      max-width: 80%;
+    }
 
-/* BUTTON */
-button {
-  transition: 0.2s;
-}
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-button:hover {
-  transform: scale(1.05);
-}
-</style>
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    button {
+      background: #5A3E2B;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
 
     /* HEADER */
     header {
