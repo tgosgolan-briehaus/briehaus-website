@@ -8,7 +8,7 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       background: #F7F1E8;
       color: #5A3E2B;
     }
@@ -25,66 +25,6 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
       padding: 30px;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
-      text-align: center;
-    }
-
-    button {
-      background: #5A3E2B;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 8px;
-    }
-  </style>
-</head>
-
-    /* HEADER */
-    header {
-      background: linear-gradient(135deg, #5A3E2B, #7A5740);
-      color: white;
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    .logo {
-      width: 180px;
-      max-width: 80%;
-      margin-bottom: 15px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    .tagline {
-      margin-top: 10px;
-      font-size: 1.1rem;
-    }
-
-    .hero-btn {
-      display: inline-block;
-      margin-top: 20px;
-      background: #C79A5D;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    /* PRODUCTS */
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 30px;
       max-width: 1000px;
       margin: auto;
     }
@@ -94,51 +34,30 @@
       padding: 20px;
       border-radius: 15px;
       text-align: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     }
 
     button {
       background: #5A3E2B;
       color: white;
       border: none;
-      padding: 10px 15px;
+      padding: 10px;
       border-radius: 8px;
       cursor: pointer;
     }
 
-    /* COFFEE */
-    .coffee-section {
-      max-width: 1000px;
-      margin: 40px auto;
-    }
-
-    .coffee-section h2 {
-      text-align: center;
-    }
-
-    /* LOCATION */
-    .cta {
-      text-align: center;
-      background: white;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 30px;
-      border-radius: 15px;
-    }
-
-    /* CART */
     .cart {
       background: white;
       max-width: 700px;
       margin: 40px auto;
-      padding: 25px;
+      padding: 20px;
       border-radius: 15px;
     }
 
     .item {
       display: flex;
       justify-content: space-between;
-      margin: 10px 0;
+      margin: 8px 0;
     }
 
     .remove {
@@ -154,158 +73,109 @@
     .checkout a {
       background: #C79A5D;
       color: white;
-      padding: 12px 20px;
-      display: inline-block;
+      padding: 12px 18px;
       border-radius: 8px;
       text-decoration: none;
+      display: inline-block;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <img src="logo.png" class="logo" alt="Logo">
+<header>
+  <h1>Brie Haus Bakery</h1>
+  <p>Freshly Baked, Made with Heart</p>
+</header>
 
-    <h1>Brie Haus Bakery</h1>
+<div class="products">
 
-    <p class="tagline">Freshly Baked, Made with Heart</p>
-
-    <a href="#menu" class="hero-btn">Order Now</a>
-  </header>
-
-  <!-- PRODUCTS -->
-  <div id="menu" class="products">
-
-    <div class="card">
-      <h3>🥔 Potato Ensaymada</h3>
-      <p>₱45</p>
-      <button onclick="addItem('Potato Ensaymada',45)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <h3>☕ Coffee Bun</h3>
-      <p>₱40</p>
-      <button onclick="addItem('Coffee Bun',40)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <h3>🌸 Spring in the City</h3>
-      <p>₱50</p>
-      <button onclick="addItem('Spring in the City',50)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <h3>🧄 Garlic Bun</h3>
-      <p>₱35</p>
-      <button onclick="addItem('Garlic Bun',35)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <h3>🥖 Hot Pandesal</h3>
-      <p>₱25</p>
-      <button onclick="addItem('Pandesal',25)">Add to Cart</button>
-    </div>
-
+  <div class="card">
+    <h3>🥔 Potato Ensaymada</h3>
+    <p>₱45</p>
+    <button onclick="addItem('Potato Ensaymada',45)">Add to Cart</button>
   </div>
 
-  <!-- COFFEE -->
-  <section class="coffee-section">
-
-    <h2>☕ Hot & Cold Coffee</h2>
-
-    <div class="products">
-
-      <div class="card">
-        <h3>Americano</h3>
-        <p>₱90</p>
-        <button onclick="addItem('Americano',90)">Add to Cart</button>
-      </div>
-
-      <div class="card">
-        <h3>Latte</h3>
-        <p>₱120</p>
-        <button onclick="addItem('Latte',120)">Add to Cart</button>
-      </div>
-
-      <div class="card">
-        <h3>Mocha</h3>
-        <p>₱130</p>
-        <button onclick="addItem('Mocha',130)">Add to Cart</button>
-      </div>
-
-      <div class="card">
-        <h3>Flat White</h3>
-        <p>₱120</p>
-        <button onclick="addItem('Flat White',120)">Add to Cart</button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- LOCATION -->
-  <div class="cta">
-    <h2>📍 Visit Us</h2>
-    <p>31-H West Rembo, Taguig City</p>
-    <p>📞 09455918913</p>
+  <div class="card">
+    <h3>☕ Coffee Bun</h3>
+    <p>₱40</p>
+    <button onclick="addItem('Coffee Bun',40)">Add to Cart</button>
   </div>
 
-  <!-- CART -->
-  <div class="cart">
-    <h2>Your Cart</h2>
-
-    <div id="cartItems"></div>
-
-    <h3>Total: ₱<span id="total">0</span></h3>
-
-    <div class="checkout">
-      <a id="checkoutBtn" href="#">Checkout via Messenger</a>
-    </div>
+  <div class="card">
+    <h3>🌸 Spring in the City</h3>
+    <p>₱50</p>
+    <button onclick="addItem('Spring in the City',50)">Add to Cart</button>
   </div>
 
-  <script>
-    let cart = [];
+  <div class="card">
+    <h3>🧄 Garlic Bun</h3>
+    <p>₱35</p>
+    <button onclick="addItem('Garlic Bun',35)">Add to Cart</button>
+  </div>
 
-    function addItem(name, price) {
-      cart.push({ name, price });
-      renderCart();
-    }
+  <div class="card">
+    <h3>🥖 Hot Pandesal</h3>
+    <p>₱25</p>
+    <button onclick="addItem('Hot Pandesal',25)">Add to Cart</button>
+  </div>
 
-    function removeItem(index) {
-      cart.splice(index, 1);
-      renderCart();
-    }
+</div>
 
-    function renderCart() {
-      let cartDiv = document.getElementById("cartItems");
-      let total = 0;
+<div class="cart">
+  <h2>Your Cart</h2>
+  <div id="cartItems"></div>
+  <h3>Total: ₱<span id="total">0</span></h3>
 
-      cartDiv.innerHTML = "";
+  <div class="checkout">
+    <a id="checkoutBtn" href="https://m.me/61590094065747" target="_blank">
+      Checkout via Messenger
+    </a>
+  </div>
+</div>
 
-      cart.forEach((item, index) => {
-        total += item.price;
+<script>
+let cart = [];
 
-        cartDiv.innerHTML += `
-          <div class="item">
-            ${item.name} - ₱${item.price}
-            <span class="remove" onclick="removeItem(${index})">✕</span>
-          </div>
-        `;
-      });
+function addItem(name, price) {
+  cart.push({ name, price });
+  renderCart();
+}
 
-      document.getElementById("total").innerText = total;
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
 
-      let message = encodeURIComponent(
-        "Hello! I want to order:\n" +
-        cart.map(i => "- " + i.name + " ₱" + i.price).join("\n") +
-        "\nTotal: ₱" + total
-      );
+function renderCart() {
+  let cartDiv = document.getElementById("cartItems");
+  let total = 0;
 
-      document.getElementById("checkoutBtn").href =
-        "https://m.me/61590094065747?text=" + message;
-    }
-  </script>
+  cartDiv.innerHTML = "";
+
+  cart.forEach((item, index) => {
+    total += item.price;
+
+    cartDiv.innerHTML += `
+      <div class="item">
+        ${item.name} - ₱${item.price}
+        <span class="remove" onclick="removeItem(${index})">✕</span>
+      </div>
+    `;
+  });
+
+  document.getElementById("total").innerText = total;
+
+  let message = encodeURIComponent(
+    "Hello! I want to order:\n" +
+    cart.map(i => "- " + i.name + " ₱" + i.price).join("\n") +
+    "\nTotal: ₱" + total
+  );
+
+  document.getElementById("checkoutBtn").href =
+    "https://m.me/61590094065747?text=" + message;
+}
+</script>
 
 </body>
 </html>
