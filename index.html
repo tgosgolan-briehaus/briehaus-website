@@ -95,20 +95,23 @@ button:hover {
       text-decoration: none;
       display: inline-block;
     }
-.coffee-section {
-  background: linear-gradient(135deg, #ffffff, #fff7ed);
-  max-width: 1000px;
-  margin: 60px auto;
-  padding: 40px 20px;
-  border-radius: 25px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
-  border-top: 4px solid #C79A5D;
-}
-
-.coffee-section h2 {
+.coffee-title {
   text-align: center;
   font-size: 30px;
-  margin-bottom: 25px;
+  margin: 20px 0;
+  position: relative;
+}
+
+/* optional nice lines on both sides */
+.coffee-title::before,
+.coffee-title::after {
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  background: #C79A5D;
+  margin: 0 10px;
+  vertical-align: middle;
 }
   
   </style>
@@ -157,8 +160,8 @@ button:hover {
 
 <div class="coffee-products">
 
-  <h2>☕ Hot & Cold Coffee</h2>
-
+  <h2 class="coffee-title">☕ Hot & Cold Coffee</h2>
+  
   <div class="products">
 
     <div class="card">
