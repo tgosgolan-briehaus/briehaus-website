@@ -271,10 +271,30 @@ footer{
 
 <script>
 
+const prices = {
+  "Potato Ensaymada": 45,
+  "Coffee Bun": 40,
+  "Garlic Bun": 35,
+  "Spring in the City": 50,
+  "Ube Bun": 45,
+  "Monggo Bun": 40,
+  "Pandesal (Classic)": 25,
+  "Pandesal (Special)": 30,
+  "Americano": 100,
+  "Latte": 120,
+  "Mocha": 130,
+  "Flat White": 110
+};
+
 let cart = [];
 
 function addItem(name){
   const price = prices[name];
+
+  if(!price){
+    alert("Price not found for: " + name);
+    return;
+  }
 
   cart.push({name, price});
   renderCart();
@@ -288,6 +308,8 @@ function removeItem(index){
 function renderCart(){
   const cartDiv = document.getElementById("cartItems");
   const totalEl = document.getElementById("total");
+
+  if(!cartDiv || !totalEl) return;
 
   let total = 0;
   cartDiv.innerHTML = "";
@@ -321,7 +343,7 @@ cart.map(i => `• ${i.name} - ₱${i.price}`).join("\n") +
 
   navigator.clipboard.writeText(message);
 
-  alert("Order copied! Paste into Messenger.");
+  alert("Order copied!");
 }
 
 </script>
