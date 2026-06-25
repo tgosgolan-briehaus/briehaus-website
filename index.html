@@ -29,17 +29,49 @@ header img{
   margin-bottom:15px;
 }
 
+.hero{
+  position:relative;
+  text-align:center;
+  padding:90px 20px;
+  color:#F5E9DD;
+
+  /* BACKGROUND IMAGE */
+  background-image:url("https://images.unsplash.com/photo-1509440159596-0249088772ff");
+  background-size:cover;
+  background-position:center;
+}
+
+/* DARK OVERLAY */
+.hero .overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(75,46,42,0.75); /* coffee brown overlay */
+}
+
+/* CONTENT ABOVE OVERLAY */
+.hero img,
+.hero h1,
+.hero p{
+  position:relative;
+  z-index:2;
+}
+
+.hero img{
+  width:170px;
+  margin-bottom:10px;
+}
+
 .hero-title{
   font-size:3rem;
   margin:10px 0;
-  color:#F5E9DD;
 }
 
 .hero-text{
   font-size:1.2rem;
-  margin-bottom:20px;
-  color:#F5E9DD;
-  opacity:0.9;
+  opacity:0.95;
 }
 
 /* SECTION TITLE */
@@ -169,8 +201,9 @@ footer{
 
 <body>
 
-<!-- HEADER -->
-<header>
+<header class="hero">
+  <div class="overlay"></div>
+
   <img src="logo.png" alt="Brie Haus">
 
   <h1 class="hero-title">Brie Haus Bake Shop</h1>
