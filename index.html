@@ -1,40 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-
-<header class="hero-header">
-
-  <img src="logo.png" class="logo">
-
-  <h1>BAKE SHOP</h1>
-
-  <p class="tagline">Freshly Baked, Made with Heart</p>
-
-  <a href="#menu" class="hero-btn">Order Now</a>
-
-</header>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brie Haus Bake Shop</title>
 
 <style>
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #F7F1E8;
-  color: #5A3E2B;
-}
-
-.about {
-  max-width: 900px;
-  margin: 60px auto;
-  text-align: center;
-  padding: 20px;
 /* BASE */
 body{
   margin:0;
@@ -44,465 +16,78 @@ body{
   line-height:1.6;
 }
 
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 10px;
-/* HEADER */
 header{
   text-align:center;
   padding:70px 20px;
+  background:#4B2E2A;   /* coffee brown */
+  color:#F5E9DD;
 }
 
 header img{
-@@ -48,33 +29,45 @@ <h1>BAKE SHOP</h1>
-
-.hero-title{
-  font-size:3rem;
-  margin:15px 0;
-  margin:20px 0 10px;
+  width:180px;
+  max-width:90%;
+  margin-bottom:15px;
 }
 
-.hero-text{
-  font-size:1.1rem;
-  font-size:1.2rem;
-  margin-bottom:20px;
-}
-
-/* SECTION TITLE */
-.section-title{
+.hero{
+  position:relative;
   text-align:center;
-  margin:50px 0 20px;
-  margin:80px 0 30px;
-  font-size:2rem;
+  padding:90px 20px;
+  color:#F5E9DD;
+
+  /* BACKGROUND IMAGE */
+  background-image:url("https://images.unsplash.com/photo-1509440159596-0249088772ff");
+  background-size:cover;
+  background-position:center;
 }
 
-/* ABOUT */
-.about{
-  max-width:900px;
-  margin:80px auto;
-  padding:20px 40px;
-  text-align:center;
-}
-
-/* PRODUCTS GRID */
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-  gap:30px;
-  max-width:1200px;
-  margin:auto;
-  padding:20px;
-  margin:0 auto 80px;
-  padding:0 30px;
-}
-
-/* CARD */
-.card{
-  background:white;
-  border-radius:18px;
-  overflow:hidden;
-  padding:25px;
-  text-align:center;
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
-  transition:.3s;
-}
-@@ -83,91 +76,81 @@ <h1>BAKE SHOP</h1>
-  transform:translateY(-6px);
-}
-
-button {
-  background: #5A3E2B;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #7A563E;
-}
-
-.card img{
+/* DARK OVERLAY */
+.hero .overlay{
+  position:absolute;
+  top:0;
+  left:0;
   width:100%;
-  height:220px;
-  object-fit:cover;
+  height:100%;
+  background:rgba(75,46,42,0.75); /* coffee brown overlay */
 }
 
-.card-content{
-  padding:20px;
-  text-align:center;
-.card h3{
+/* CONTENT ABOVE OVERLAY */
+.hero img,
+.hero h1,
+.hero p{
+  position:relative;
+  z-index:2;
+}
+
+.hero img{
+  width:170px;
   margin-bottom:10px;
 }
 
-.price{
-  font-size:1.2rem;
-  font-weight:600;
-  color:#A5673F;
-.card p{
+.hero-title{
+  font-size:3rem;
   margin:10px 0;
+  color:#F5E9DD;
 }
 
-/* BUTTON */
-button{
-  background:#5A3E2B;
-  color:white;
-  border:none;
-  padding:12px 20px;
-  padding:12px;
-  border-radius:10px;
-  cursor:pointer;
-  width:100%;
-  font-weight:600;
-  margin-top:10px;
+.hero-text{
+  font-size:1.2rem;
+  margin-bottom:20px;
+  color:#F5E9DD;
+  opacity:0.9;
+  opacity:0.95;
 }
 
-button:hover{
-  background:#7A563E;
-}
-
-.about{
-  max-width:900px;
-  margin:60px auto;
-  text-align:center;
-  padding:20px;
-}
-
-/* CTA */
-.cta{
-  background:white;
-  max-width:800px;
-  margin:40px auto;
-  padding:30px;
-  margin:80px auto;
-  padding:40px;
-  border-radius:20px;
-  text-align:center;
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
-}
-
-/* CART */
-.cart {
-  background: white;
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.cart{
-  background:white;
-  max-width:700px;
-  margin:40px auto;
-  padding:25px;
-  margin:80px auto;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
-}
-
-.item{
-  display:flex;
-  justify-content:space-between;
-  padding:15px 0;
-  border-bottom:1px solid #eee;
-}
-
-.remove{
-  color:red;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-/* CHECKOUT */
-<a href="#" onclick="checkout()">Checkout via Messenger</a>
-.checkout a{
-  display:block;
-  text-align:center;
-  background:#5A3E2B;
-  color:white;
-  padding:15px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.checkout a:hover{
-  background:#7A563E;
-}
-
-/* FOOTER */
-footer{
-  background:#5A3E2B;
-  color:white;
-@@ -181,28 +164,27 @@ <h1>BAKE SHOP</h1>
+/* SECTION TITLE */
+@@ -169,8 +201,9 @@
 
 <body>
 
 <!-- HEADER -->
 <header>
-  <img src="logo.png" alt="Brie Haus Bakery">
+<header class="hero">
+  <div class="overlay"></div>
+
   <img src="logo.png" alt="Brie Haus">
 
-  <h1 class="hero-title">
-    Brie Haus Bake Shop
-  </h1>
   <h1 class="hero-title">Brie Haus Bake Shop</h1>
-
-  <p class="hero-text">
-    Freshly Baked • Premium Coffee • Made With Heart
-  </p>
-</header>
-
-<!-- ABOUT -->
-<section class="about">
-  <h2>Welcome to Brie Haus</h2>
-
-  <p>
-    We serve freshly baked breads,
-    artisan pastries, and handcrafted coffee
-    made daily with quality ingredients and care.
-    We serve freshly baked breads, artisan pastries,
-    and handcrafted coffee made daily with love and care.
-  </p>
-</section>
-
-<h2 class="section-title">🍞 Bakery Favorites</h2>
-
-<!-- PRODUCTS -->
-<div class="products">
-@@ -220,9 +202,9 @@ <h3>☕ Coffee Bun</h3>
-  </div>
-
-  <div class="card">
-    <h3>🌸 Spring in the City</h3>
-    <h3>🌸 Spring Bun</h3>
-    <p>₱50</p>
-    <button onclick="addItem('Spring in the City',50)">Add to Cart</button>
-    <button onclick="addItem('Spring Bun',50)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-@@ -232,121 +214,96 @@ <h3>🧄 Garlic Bun</h3>
-  </div>
-
-  <div class="card">
-    <h3>🥖 Hot Classic Pandesal</h3>
-    <h3>🥖 Pandesal</h3>
-    <p>₱25</p>
-    <button onclick="addItem('Hot Classic Pandesal',25)">
-      Add to Cart
-    </button>
-    <button onclick="addItem('Pandesal',25)">Add to Cart</button>
-  </div>
-
-</div>
-<!-- COFFEE SECTION -->
-<h2 style="text-align:center;">☕ Hot & Cold Coffee</h2>
-
-<h2 class="section-title">☕ Coffee Menu</h2>
-
-<div class="products">
-  Americano
-  Latte
-  Mocha
-  Flat White
-</div>
-
-<div class="card">
-  <h3>☕ Flat White</h3>
-  <p>Hot or Cold</p>
-  <p>₱120</p>
-  <button onclick="addItem('Flat White',120)">Add to Cart</button>
-</div>
-  <div class="card">
-    <h3>Americano</h3>
-    <p>₱100</p>
-    <button onclick="addItem('Americano',100)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>Latte</h3>
-    <p>₱120</p>
-    <button onclick="addItem('Latte',120)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>Mocha</h3>
-    <p>₱130</p>
-    <button onclick="addItem('Mocha',130)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>Flat White</h3>
-    <p>₱120</p>
-    <button onclick="addItem('Flat White',120)">Add to Cart</button>
-  </div>
-
-<div class="cta">
-  ...
-</div>
-
-<!-- LOCATION -->
-<div class="cta">
-  <h2>📍 Visit or Pick Up Your Order</h2>
-  <h2>📍 Visit Us</h2>
-  <p>
-    Brie Haus Bakery<br>
-    31-H West Rembo, Taguig City
-  </p>
-  <p>
-    📞 09455918913<br>
-    ☎️ 02-86565869
-    📞 09455918913
-  </p>
-</div>
-
-<!-- CART -->
-<div class="cart">
-  <h2>Your Cart</h2>
-
-  <div id="cartItems"></div>
-
-  <h3>Total: ₱<span id="total">0</span></h3>
-
-  <div class="checkout">
-    <a id="checkoutBtn" href="#" target="_blank">Checkout via Messenger</a>
-    <a href="#" onclick="checkout(); return false;">
-      Checkout via Messenger
-    </a>
-  </div>
-</div>
-
-<script>
-let cart = [];
-
-function addItem(name, price) {
-  cart.push({name, price});
-  renderCart();
-}
-
-function removeItem(index) {
-  cart.splice(index,1);
-  renderCart();
-}
-
-function renderCart() {
-  let cartDiv = document.getElementById("cartItems");
-  let total = 0;
-  cartDiv.innerHTML = "";
-
-  cart.forEach((item, index) => {
-    total += item.price;
-    cartDiv.innerHTML += `
-      <div class="item">
-        ${item.name} - ₱${item.price}
-        <span class="remove" onclick="removeItem(${index})">X</span>
-      </div>
-    `;
-  });
-
-  document.getElementById("total").innerText = total;
-
-  let message = encodeURIComponent(
-    "Hello Brie Haus! I want to order:\n" +
-    cart.map(i => "- " + i.name + " ₱" + i.price).join("\n") +
-    "\nTotal: ₱" + total
-  );
-<!-- FOOTER -->
-<footer>
-  © 2026 Brie Haus Bakery
-</footer>
-
-  document.getElementById("checkoutBtn").href =
-    "https://m.me/yourpage?ref=" + message;
-}
-<script>
-let cart = [];
-
-function addItem(name, price) {
-  cart.push({ name, price });
-function addItem(name, price){
-  cart.push({name,price});
-  renderCart();
-}
-
-function removeItem(index) {
-  cart.splice(index, 1);
-function removeItem(index){
-  cart.splice(index,1);
-  renderCart();
-}
-
-function renderCart() {
-function renderCart(){
-  const cartDiv = document.getElementById("cartItems");
-  const totalEl = document.getElementById("total");
-
-  if (!cartDiv || !totalEl) return;
-
-  let total = 0;
-  cartDiv.innerHTML = "";
-
-  cart.forEach((item, index) => {
-  cart.forEach((item,index)=>{
-    total += item.price;
-
-    cartDiv.innerHTML += `
-@@ -358,38 +315,26 @@ <h3>Total: ₱<span id="total">0</span></h3>
-  });
-
-  totalEl.innerText = total;
-
-  window.orderMessage =
-`🍞 BRIE HAUS ORDER
-
-` +
-cart.map(i => `• ${i.name} - ₱${i.price}`).join("\n") +
-`\n\nTOTAL: ₱${total}`;
-}
-
-
-// ✅ SAFE CHECKOUT (WORKS EVEN IF MESSENGER FAILS)
-function checkout() {
-  if (cart.length === 0) {
-function checkout(){
-  if(cart.length === 0){
-    alert("Your cart is empty!");
-    return;
-  }
-
-  // copy order first (this ALWAYS works)
-  navigator.clipboard.writeText(window.orderMessage || "");
-
-  alert("Order copied! Opening Messenger...");
-  let message =
-`🍞 BRIE HAUS ORDER
-
-  // ⚠️ CHANGE THIS to your REAL page username
-  const page = "briehausbakery";
-` +
-cart.map(i => `• ${i.name} - ₱${i.price}`).join("\n") +
-`\n\nTOTAL: ₱${cart.reduce((a,b)=>a+b.price,0)}`;
-
-  const link = "https://www.facebook.com/messages/t/" + page;
-  navigator.clipboard.writeText(message);
-
-  // open safely (no popup dependency)
-  window.location.href = link;
-  alert("Order copied! Paste it in Messenger.");
-}
-</script>
-
-<footer>
-  © 2026 Brie Haus Bakery
-</footer>
-</body>
-</html>
