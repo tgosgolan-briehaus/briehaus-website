@@ -15,12 +15,33 @@ body{
   line-height:1.6;
 }
 
-/* HERO */
+/* HERO (FIRST UPGRADE STYLE) */
 .hero{
+  position:relative;
   text-align:center;
-  padding:80px 20px;
-  background:#4B2E2A;
+  padding:100px 20px;
   color:#F5E9DD;
+
+  background-image:url("https://images.unsplash.com/photo-1509440159596-0249088772ff");
+  background-size:cover;
+  background-position:center;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(75,46,42,0.75);
+}
+
+.hero img,
+.hero h1,
+.hero p{
+  position:relative;
+  z-index:2;
 }
 
 .hero img{
@@ -35,13 +56,12 @@ body{
 
 .hero p{
   font-size:1.2rem;
-  opacity:0.9;
 }
 
 /* SECTIONS */
 .section-title{
   text-align:center;
-  margin:60px 0 20px;
+  margin:70px 0 20px;
 }
 
 .about, .cta, .cart{
@@ -69,6 +89,7 @@ body{
   box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
+/* BUTTON */
 button{
   background:#5A3E2B;
   color:white;
@@ -108,6 +129,7 @@ footer{
   color:#F5E9DD;
   text-align:center;
   padding:20px;
+  margin-top:50px;
 }
 
 </style>
@@ -125,37 +147,61 @@ footer{
 <!-- ABOUT -->
 <section class="about">
   <h2>Welcome to Brie Haus</h2>
-  <p>We serve freshly baked breads and artisan coffee made with love.</p>
+  <p>
+    We serve freshly baked breads, artisan pastries,
+    and premium coffee made daily with love.
+  </p>
 </section>
 
-<!-- PRODUCTS -->
-<h2 class="section-title">Bakery Favorites</h2>
+<h2 class="section-title">🍞 Bakery Favorites</h2>
 
 <div class="products">
 
   <div class="card">
-    <h3>Potato Ensaymada</h3>
+    <h3>🥔 Potato Ensaymada</h3>
     <p>₱45</p>
     <button onclick="addItem('Potato Ensaymada',45)">Add to Cart</button>
   </div>
 
   <div class="card">
-    <h3>Coffee Bun</h3>
+    <h3>☕ Coffee Bun</h3>
     <p>₱40</p>
     <button onclick="addItem('Coffee Bun',40)">Add to Cart</button>
   </div>
 
+  <div class="card">
+    <h3>🧄 Garlic Bun</h3>
+    <p>₱35</p>
+    <button onclick="addItem('Garlic Bun',35)">Add to Cart</button>
+  </div>
+
 </div>
 
-<!-- CTA -->
+<h2 class="section-title">☕ Coffee Menu</h2>
+
+<div class="products">
+
+  <div class="card">
+    <h3>Americano</h3>
+    <p>₱100</p>
+    <button onclick="addItem('Americano',100)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <h3>Latte</h3>
+    <p>₱120</p>
+    <button onclick="addItem('Latte',120)">Add to Cart</button>
+  </div>
+
+</div>
+
+<!-- LOCATION -->
 <div class="cta">
   <h2>📍 Visit Us</h2>
   <p>
     Brie Haus Bakery<br>
     31-H West Rembo, Taguig City
   </p>
-
-  <!-- ✅ PHONE NUMBER FIXED HERE -->
   <p>
     📞 09455918913<br>
     ☎️ 02-86565869
@@ -175,15 +221,17 @@ footer{
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
   © 2026 Brie Haus Bakery
 </footer>
 
 <script>
+
 let cart = [];
 
 function addItem(name, price){
-  cart.push({name,price});
+  cart.push({name, price});
   renderCart();
 }
 
@@ -230,6 +278,7 @@ cart.map(i => `• ${i.name} - ₱${i.price}`).join("\n") +
 
   alert("Order copied! Paste into Messenger.");
 }
+
 </script>
 
 </body>
