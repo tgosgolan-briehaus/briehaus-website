@@ -308,46 +308,6 @@ const prices = {
 
 let cart = [];
 
-function addItem(name){
-  const price = prices[name];
-
-  if(!price){
-    alert("Price not found for: " + name);
-    return;
-  }
-
-  cart.push({name, price});
-  renderCart();
-}
-
-function removeItem(index){
-  cart.splice(index,1);
-  renderCart();
-}
-
-function renderCart(){
-  const cartDiv = document.getElementById("cartItems");
-  const totalEl = document.getElementById("total");
-
-  if(!cartDiv || !totalEl) return;
-
-  let total = 0;
-  cartDiv.innerHTML = "";
-
-  cart.forEach((item,index)=>{
-    total += item.price;
-
-    cartDiv.innerHTML += `
-      <div class="item">
-        ${item.name} - ₱${item.price}
-        <span class="remove" onclick="removeItem(${index})">X</span>
-      </div>
-    `;
-  });
-
-  totalEl.innerText = total;
-}
-
 function checkout(){
   if(cart.length === 0){
     alert("Your cart is empty!");
