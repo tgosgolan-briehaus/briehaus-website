@@ -261,6 +261,26 @@ footer{
       <a href="#" onclick="checkout(); return false;">Checkout</a>
     </div>
   </div>
+  <div id="orderBox" class="cart" style="display:none;">
+  <h2>📦 Order Confirmation</h2>
+
+  <div id="orderPreview"></div>
+
+  <h3 id="orderTotal"></h3>
+
+  <button onclick="sendToMessenger()" style="
+    background:#4B2E2A;
+    color:#F5E9DD;
+    padding:12px;
+    width:100%;
+    border:none;
+    border-radius:10px;
+    margin-top:10px;
+    cursor:pointer;
+  ">
+    Send to Messenger
+  </button>
+</div>
 
 </div>
 
@@ -333,6 +353,29 @@ function checkout(){
     alert("Your cart is empty!");
     return;
   }
+
+  const orderBox = document.getElementById("orderBox");
+  const preview = document.getElementById("orderPreview");
+  const totalText = document.getElementById("orderTotal");
+
+  let total = cart.reduce((a,b)=>a+b.price,0);
+
+  preview.innerHTML = cart.map(i =>
+    `<div class="item">${i.name} - ₱${i.price}</div>`
+  ).join("");
+
+  totalText.innerText = "Total: ₱" + total;
+
+  orderBox.style.display = "block";
+
+  window.orderMessage =
+`🍞 BRIE HAUS ORDER
+
+` +
+cart.map(i => `• ${i.name} - ₱${i.price}`).join("\n") +
+`\n\nTOTAL: ₱${total}
+\nI would like to place this order.`;
+}
 
   let message =
 `🍞 BRIE HAUS ORDER
