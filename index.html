@@ -7,6 +7,12 @@
 
 <style>
 
+  .container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
+
 body{
   margin:0;
   font-family:Arial,sans-serif;
@@ -14,7 +20,12 @@ body{
   color:#5A3E2B;
   line-height:1.6;
 }
-
+/* MAIN LAYOUT WRAPPER */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
 /* HERO (FIRST UPGRADE STYLE) */
 .hero{
   position:relative;
@@ -140,94 +151,51 @@ footer{
 
 <body>
 
-<!-- HERO -->
-<header class="hero">
-  <img src="logo.png" alt="Brie Haus">
-  <h1>Brie Haus Bake Shop</h1>
-  <p>Freshly Baked • Premium Coffee • Made With Heart</p>
-</header>
+<div class="container">
 
-<!-- ABOUT -->
-<section class="about">
-  <h2>Welcome to Brie Haus</h2>
-  <p>
-    We serve freshly baked breads, artisan pastries,
-    and premium coffee made daily with love.
-  </p>
-</section>
+  <!-- HERO -->
+  <header class="hero">
+    <img src="logo.png">
+    <h1>Brie Haus Bake Shop</h1>
+    <p>Freshly Baked • Premium Coffee • Made With Heart</p>
+  </header>
 
-<h2 class="section-title">🍞 Bakery Favorites</h2>
-<div class="products">
-  ...
-</div>
+  <!-- ABOUT -->
+  <section class="about">
+    <h2>Welcome to Brie Haus</h2>
+    <p>We serve freshly baked breads and artisan coffee made daily.</p>
+  </section>
 
+  <!-- BAKERY -->
   <h2 class="section-title">🍞 Bakery Favorites</h2>
-
-<div class="products">
-
-  <div class="card">
-    <h3>🥔 Potato Ensaymada</h3>
-    <p>₱45</p>
-    <button onclick="addItem('Potato Ensaymada',45)">Add to Cart</button>
+  <div class="products">
+    <!-- cards here -->
   </div>
 
-  <div class="card">
-    <h3>☕ Coffee Bun</h3>
-    <p>₱40</p>
-    <button onclick="addItem('Coffee Bun',40)">Add to Cart</button>
+  <!-- COFFEE -->
+  <h2 class="section-title">☕ Coffee Menu</h2>
+  <div class="products">
+    <!-- cards here -->
   </div>
 
-  <div class="card">
-    <h3>🌸 Spring in the City</h3>
-    <p>₱50</p>
-    <button onclick="addItem('Spring in the City',50)">Add to Cart</button>
+  <!-- CONTACT -->
+  <div class="cta">
+    <h2>📍 Visit Us</h2>
+    <p>31-H West Rembo, Taguig City</p>
+    <p>📞 09455918913</p>
   </div>
 
-  <div class="card">
-    <h3>🧄 Garlic Bun</h3>
-    <p>₱35</p>
-    <button onclick="addItem('Garlic Bun',35)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>🥖 Hot Classic Pandesal</h3>
-    <p>₱25</p>
-    <button onclick="addItem('Hot Classic Pandesal',25)">Add to Cart</button>
+  <!-- CART -->
+  <div class="cart">
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <h3>Total: ₱<span id="total">0</span></h3>
+    <a href="#" onclick="checkout(); return false;">Checkout</a>
   </div>
 
 </div>
 
-<h2 class="section-title">☕ Coffee Menu</h2>
-
-<div class="products">
-
-  <div class="card">
-    <h3>Americano</h3>
-    <p>₱100</p>
-    <button onclick="addItem('Americano',100)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>Latte</h3>
-    <p>₱120</p>
-    <button onclick="addItem('Latte',120)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>Mocha</h3>
-    <p>₱130</p>
-    <button onclick="addItem('Mocha',130)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>Flat White</h3>
-    <p>₱120</p>
-    <button onclick="addItem('Flat White',120)">Add to Cart</button>
-  </div>
-
-</div>
-
-</div>
+</body>
 
 <!-- LOCATION -->
 <div class="cta">
