@@ -273,7 +273,9 @@ footer{
 
 let cart = [];
 
-function addItem(name, price){
+function addItem(name){
+  const price = prices[name];
+
   cart.push({name, price});
   renderCart();
 }
