@@ -163,19 +163,57 @@ footer{
   <!-- ABOUT -->
   <section class="about">
     <h2>Welcome to Brie Haus</h2>
-    <p>We serve freshly baked breads and artisan coffee made daily.</p>
+    <p>We serve freshly baked breads, pastries, and coffee made daily.</p>
   </section>
 
   <!-- BAKERY -->
   <h2 class="section-title">🍞 Bakery Favorites</h2>
+
   <div class="products">
-    <!-- cards here -->
+
+    <div class="card">
+      <h3>Potato Ensaymada</h3>
+      <p>₱45</p>
+      <button onclick="addItem('Potato Ensaymada',45)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <h3>Coffee Bun</h3>
+      <p>₱40</p>
+      <button onclick="addItem('Coffee Bun',40)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <h3>Garlic Bun</h3>
+      <p>₱35</p>
+      <button onclick="addItem('Garlic Bun',35)">Add to Cart</button>
+    </div>
+
   </div>
 
   <!-- COFFEE -->
   <h2 class="section-title">☕ Coffee Menu</h2>
+
   <div class="products">
-    <!-- cards here -->
+
+    <div class="card">
+      <h3>Americano</h3>
+      <p>₱100</p>
+      <button onclick="addItem('Americano',100)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <h3>Latte</h3>
+      <p>₱120</p>
+      <button onclick="addItem('Latte',120)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <h3>Mocha</h3>
+      <p>₱130</p>
+      <button onclick="addItem('Mocha',130)">Add to Cart</button>
+    </div>
+
   </div>
 
   <!-- CONTACT -->
@@ -190,6 +228,7 @@ footer{
     <h2>Your Cart</h2>
     <div id="cartItems"></div>
     <h3>Total: ₱<span id="total">0</span></h3>
+
     <a href="#" onclick="checkout(); return false;">Checkout</a>
   </div>
 
