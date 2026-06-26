@@ -280,24 +280,28 @@ function renderCart(){
   totalEl.innerText = total;
 }
 
-function checkout(){
-  if(cart.length === 0){
+function checkout() {
+  if (cart.length === 0) {
     alert("Your cart is empty!");
     return;
   }
 
-  let message =
-`🍞 BRIE HAUS ORDER
+  let message = "🍞 BRIE HAUS ORDER\n\n";
 
-` +
-cart.map(i => `• ${i.name} - ₱${i.price}`).join("\n") +
-`\n\nTOTAL: ₱${cart.reduce((a,b)=>a+b.price,0)}`;
+  cart.forEach(item => {
+    message += `• ${item.name} - ₱${item.price}\n`;
+  });
 
-  navigator.clipboard.writeText(message);
+  let total = cart.reduce((sum, item) => sum + item.price, 0);
+  message += `\nTOTAL: ₱${total}`;
 
-  alert("Order copied! Paste into Messenger.");
+  const encoded = encodeURIComponent(message);
+
+  window.open(
+    "https://m.me/briehaus",
+    "_blank"
+  );
 }
-
 </script>
 
 </body>
