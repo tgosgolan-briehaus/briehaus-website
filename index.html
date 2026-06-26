@@ -295,12 +295,21 @@ function checkout() {
   let total = cart.reduce((sum, item) => sum + item.price, 0);
   message += `\nTOTAL: ₱${total}`;
 
-  const encoded = encodeURIComponent(message);
+  // Copy to clipboard
+  navigator.clipboard.writeText(message).then(() => {
+    alert(
+      "✅ Order copied!\n\nNow open Messenger and paste your order to send it."
+    );
 
-  window.open(
-    "https://m.me/briehaus?text=" + encoded,
-    "_blank"
-  );
+    // Open your Facebook Page
+    window.open("https://www.facebook.com/briehaus", "_blank");
+  }).catch(() => {
+    alert(
+      "Could not auto-copy.\nPlease copy your order manually:\n\n" + message
+    );
+
+    window.open("https://www.facebook.com/briehaus", "_blank");
+  });
 }
 </script>
 
