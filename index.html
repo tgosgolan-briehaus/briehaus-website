@@ -447,17 +447,21 @@ footer{
 </footer>
 
 <script>
-<script>
 let cart = [];
 
 function addToCart(name, price){
-  cart.push({name, price});
+  cart.push({ name, price });
   renderCart();
 }
 
 function renderCart(){
-  let cartItems = document.getElementById("cartItems");
-  let total = document.getElementById("total");
+  const cartItems = document.getElementById("cartItems");
+  const total = document.getElementById("total");
+
+  if (!cartItems || !total) {
+    console.log("Cart elements missing!");
+    return;
+  }
 
   cartItems.innerHTML = "";
 
@@ -467,9 +471,9 @@ function renderCart(){
     sum += item.price;
 
     cartItems.innerHTML += `
-      <div>
-        ${item.name} - ₱${item.price}
-        <button onclick="removeItem(${index})">Remove</button>
+      <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+        <span>${item.name} - ₱${item.price}</span>
+        <button onclick="removeItem(${index})">X</button>
       </div>
     `;
   });
@@ -480,23 +484,6 @@ function renderCart(){
 function removeItem(index){
   cart.splice(index, 1);
   renderCart();
-}
-</script>
-let cart = [];
-
-function addToCart(name, price){
-  cart.push({name, price});
-  alert(name + " added to cart!");
-}
-
-function checkout(){
-  let message = "Hello, I want to order:%0A";
-
-  cart.forEach(item => {
-    message += "- " + item.name + " (₱" + item.price + ")%0A";
-  });
-
-  window.open("https://m.me/YOURPAGEUSERNAME?text=" + message, "_blank");
 }
 </script>
 </body>
