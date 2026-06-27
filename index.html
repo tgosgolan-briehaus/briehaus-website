@@ -450,8 +450,6 @@ footer{
 let cart = [];
 
 function addToCart(name, price){
-  console.log("Added:", name, price);
-
   cart.push({ name, price });
   renderCart();
 }
@@ -460,10 +458,7 @@ function renderCart(){
   const cartItems = document.getElementById("cartItems");
   const total = document.getElementById("total");
 
-  if(!cartItems || !total){
-    console.log("Missing cart elements");
-    return;
-  }
+  if(!cartItems || !total) return;
 
   cartItems.innerHTML = "";
 
@@ -473,8 +468,8 @@ function renderCart(){
     sum += item.price;
 
     cartItems.innerHTML += `
-      <div>
-        ${item.name} - ₱${item.price}
+      <div style="display:flex;justify-content:space-between;padding:5px 0;">
+        <span>${item.name} - ₱${item.price}</span>
         <button onclick="removeItem(${index})">X</button>
       </div>
     `;
@@ -504,6 +499,7 @@ function checkout(){
 
   message += "\nTotal: ₱" + total;
 
+  // THIS IS THE FIX (your previous issue)
   const url = "https://m.me/briehaus?ref=" + encodeURIComponent(message);
 
   window.location.href = url;
