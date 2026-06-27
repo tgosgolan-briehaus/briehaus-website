@@ -413,87 +413,22 @@ footer{
 
 <script>
 
-    let cart = [];
-
-function addItem(name, price){
-  cart.push({name, price});
-  renderCart();
-}
-
-function removeItem(index){
-  cart.splice(index,1);
-  renderCart();
-}
-
-function renderCart(){
-  console.log(cart);
-}
-</script>
-
 let cart = [];
 
-function addItem(name, price){
-  cart.push({name, price});
+function addToCart(name, price){
+  cart.push({ name, price });
   renderCart();
 }
 
 function removeItem(index){
-  cart.splice(index,1);
+  cart.splice(index, 1);
   renderCart();
 }
 
 function renderCart(){
-  const cartDiv = document.getElementById("cartItems");
-  const totalEl = document.getElementById("total");
-
-  let total = 0;
-  cartDiv.innerHTML = "";
-
-  cart.forEach((item,index)=>{
-    total += item.price;
-
-    cartDiv.innerHTML += `
-      <div class="item">
-        ${item.name} - ₱${item.price}
-        <span class="remove" onclick="removeItem(${index})">X</span>
-      </div>
-    `;
-  });
-
-  totalEl.innerText = total;
+  console.log("Cart:", cart);
 }
 
-function checkout() {
-  if (cart.length === 0) {
-    alert("Your cart is empty!");
-    return;
-  }
-
-  let message = "🍞 BRIE HAUS ORDER\n\n";
-
-  cart.forEach(item => {
-    message += `• ${item.name} - ₱${item.price}\n`;
-  });
-
-  let total = cart.reduce((sum, item) => sum + item.price, 0);
-  message += `\nTOTAL: ₱${total}`;
-
-  // Copy to clipboard
-  navigator.clipboard.writeText(message).then(() => {
-    alert(
-      "✅ Order copied!\n\nNow open Messenger and paste your order to send it."
-    );
-
-    // Open your Facebook Page
-    window.open("https://www.facebook.com/briehaus", "_blank");
-  }).catch(() => {
-    alert(
-      "Could not auto-copy.\nPlease copy your order manually:\n\n" + message
-    );
-
-    window.open("https://www.facebook.com/briehaus", "_blank");
-  });
-}
 </script>
 
 </body>
