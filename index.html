@@ -508,6 +508,27 @@ function removeItem(index){
 
   window.open(url, "_blank");
 }
+    function checkout(){
+  let message = "Hello, I want to order:%0A";
+
+  if(cart.length === 0){
+    alert("Cart is empty!");
+    return;
+  }
+
+  let total = 0;
+
+  cart.forEach(item => {
+    message += "- " + item.name + " (₱" + item.price + ")%0A";
+    total += item.price;
+  });
+
+  message += "%0ATotal: ₱" + total;
+
+  let url = "https://m.me/YOURPAGEUSERNAME?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
 </script>
 </body>
 </html>
