@@ -462,6 +462,9 @@ footer{
 <script>
 let cart = [];
 
+<script>
+let cart = [];
+
 function addToCart(name, price){
   cart.push({ name, price });
   renderCart();
@@ -470,13 +473,8 @@ function addToCart(name, price){
 function renderCart(){
   const cartItems = document.getElementById("cartItems");
   const total = document.getElementById("total");
-    console.log(document.getElementById("cartItems"));
-console.log(document.getElementById("total"));
 
-  if (!cartItems || !total) {
-    console.log("Cart elements missing!");
-    return;
-  }
+  if(!cartItems || !total) return;
 
   cartItems.innerHTML = "";
 
@@ -486,7 +484,7 @@ console.log(document.getElementById("total"));
     sum += item.price;
 
     cartItems.innerHTML += `
-      <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+      <div style="display:flex; justify-content:space-between; padding:5px 0;">
         <span>${item.name} - ₱${item.price}</span>
         <button onclick="removeItem(${index})">X</button>
       </div>
@@ -500,48 +498,24 @@ function removeItem(index){
   cart.splice(index, 1);
   renderCart();
 }
-    function checkout(){
-  let message = `Hello, I want to order:\n`;
 
-cart.forEach(item => {
-  message += `- ${item.name} (₱${item.price})\n`;
-});
-
-message += `\nTotal: ₱${total}`;
-
-let url = "https://m.me/briehaus?text=" + encodeURIComponent(message);
-window.open(url, "_blank");
-
-  let total = 0;
-
-  cart.forEach(item => {
-    message += "- " + item.name + " (₱" + item.price + ")%0A";
-    total += item.price;
-  });
-
-  message += "%0ATotal: ₱" + total;
-
-  let url = "https://m.me/YOURPAGEUSERNAME?text=" + encodeURIComponent(message);
-
-  window.open(url, "_blank");
-}
-    function checkout(){
+function checkout(){
   if(cart.length === 0){
     alert("Cart is empty!");
     return;
   }
 
-  let message = "Hello, I want to order:%0A";
+  let message = "Hello, I want to order:\n\n";
   let total = 0;
 
   cart.forEach(item => {
-    message += "- " + item.name + " (₱" + item.price + ")%0A";
+    message += "- " + item.name + " (₱" + item.price + ")\n";
     total += item.price;
   });
 
-  message += "%0ATotal: ₱" + total;
+  message += "\nTotal: ₱" + total;
 
-  const url = "https://m.me/briehaus?text=" + encodeURIComponent(message);
+  let url = "https://m.me/briehaus?text=" + encodeURIComponent(message);
 
   window.open(url, "_blank");
 }
