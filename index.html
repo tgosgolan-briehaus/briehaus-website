@@ -413,6 +413,23 @@ footer{
 
 <script>
 
+    let cart = [];
+
+function addItem(name, price){
+  cart.push({name, price});
+  renderCart();
+}
+
+function removeItem(index){
+  cart.splice(index,1);
+  renderCart();
+}
+
+function renderCart(){
+  console.log(cart);
+}
+</script>
+
 let cart = [];
 
 function addItem(name, price){
