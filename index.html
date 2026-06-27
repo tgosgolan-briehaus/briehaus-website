@@ -412,7 +412,6 @@ footer{
 </footer>
 
 <script>
-
 let cart = [];
 
 function addToCart(name, price){
@@ -426,7 +425,6 @@ function removeItem(index){
   console.log(cart);
 }
 
-// FIX: your checkout button calls checkout()
 function checkout(){
   let message = "Hello, I want to order:%0A";
 
@@ -435,10 +433,8 @@ function checkout(){
   });
 
   let url = "https://m.me/YOURPAGEUSERNAME?text=" + message;
-
   window.open(url, "_blank");
 }
-
 </script>
 
 </body>
