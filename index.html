@@ -449,10 +449,9 @@ footer{
 <script>
 let cart = [];
 
-<script>
-let cart = [];
-
 function addToCart(name, price){
+  console.log("Added:", name, price);
+
   cart.push({ name, price });
   renderCart();
 }
@@ -461,7 +460,10 @@ function renderCart(){
   const cartItems = document.getElementById("cartItems");
   const total = document.getElementById("total");
 
-  if(!cartItems || !total) return;
+  if(!cartItems || !total){
+    console.log("Missing cart elements");
+    return;
+  }
 
   cartItems.innerHTML = "";
 
@@ -471,8 +473,8 @@ function renderCart(){
     sum += item.price;
 
     cartItems.innerHTML += `
-      <div style="display:flex; justify-content:space-between; padding:5px 0;">
-        <span>${item.name} - ₱${item.price}</span>
+      <div>
+        ${item.name} - ₱${item.price}
         <button onclick="removeItem(${index})">X</button>
       </div>
     `;
@@ -502,9 +504,7 @@ function checkout(){
 
   message += "\nTotal: ₱" + total;
 
-  let url = "https://m.me/briehaus?text=" + encodeURIComponent(message);
-
-  window.open(url, "_blank");
+  window.open("https://m.me/briehaus?text=" + encodeURIComponent(message));
 }
 </script>
 </body>
