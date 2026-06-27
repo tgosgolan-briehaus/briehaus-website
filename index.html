@@ -426,6 +426,19 @@ function removeItem(index){
   console.log(cart);
 }
 
+// FIX: your checkout button calls checkout()
+function checkout(){
+  let message = "Hello, I want to order:%0A";
+
+  cart.forEach(item => {
+    message += `- ${item.name} (₱${item.price})%0A`;
+  });
+
+  let url = "https://m.me/YOURPAGEUSERNAME?text=" + message;
+
+  window.open(url, "_blank");
+}
+
 </script>
 
 </body>
