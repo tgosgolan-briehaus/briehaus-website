@@ -417,16 +417,12 @@ let cart = [];
 
 function addToCart(name, price){
   cart.push({ name, price });
-  renderCart();
+  console.log(cart);
 }
 
 function removeItem(index){
   cart.splice(index, 1);
-  renderCart();
-}
-
-function renderCart(){
-  console.log("Cart:", cart);
+  console.log(cart);
 }
 
 </script>
