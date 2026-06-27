@@ -447,6 +447,41 @@ footer{
 </footer>
 
 <script>
+<script>
+let cart = [];
+
+function addToCart(name, price){
+  cart.push({name, price});
+  renderCart();
+}
+
+function renderCart(){
+  let cartItems = document.getElementById("cartItems");
+  let total = document.getElementById("total");
+
+  cartItems.innerHTML = "";
+
+  let sum = 0;
+
+  cart.forEach((item, index) => {
+    sum += item.price;
+
+    cartItems.innerHTML += `
+      <div>
+        ${item.name} - ₱${item.price}
+        <button onclick="removeItem(${index})">Remove</button>
+      </div>
+    `;
+  });
+
+  total.innerText = sum;
+}
+
+function removeItem(index){
+  cart.splice(index, 1);
+  renderCart();
+}
+</script>
 let cart = [];
 
 function addToCart(name, price){
