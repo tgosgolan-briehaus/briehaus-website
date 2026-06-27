@@ -509,13 +509,12 @@ function removeItem(index){
   window.open(url, "_blank");
 }
     function checkout(){
-  let message = "Hello, I want to order:%0A";
-
   if(cart.length === 0){
     alert("Cart is empty!");
     return;
   }
 
+  let message = "Hello, I want to order:%0A";
   let total = 0;
 
   cart.forEach(item => {
@@ -525,8 +524,7 @@ function removeItem(index){
 
   message += "%0ATotal: ₱" + total;
 
-  let url = "https://m.me/briehaus?text=" + encodeURIComponent(message);
-window.open(url, "_blank");
+  const url = "https://m.me/briehaus?text=" + encodeURIComponent(message);
 
   window.open(url, "_blank");
 }
