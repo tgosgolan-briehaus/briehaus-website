@@ -558,33 +558,36 @@ footer{
 <script>
 let cart = [];
 
-function addToCart(name, price){
-  cart.push({ name, price });
+function addToCart(name, price, size){
+  cart.push({ name, price, size });
+
+  alert(`${name} (${size}) ₱${price}`);
+
   renderCart();
 }
 
 function renderCart(){
   const cartItems = document.getElementById("cartItems");
-  const total = document.getElementById("total");
+  const totalEl = document.getElementById("total");
 
-  if(!cartItems || !total) return;
+  if(!cartItems || !totalEl) return;
 
   cartItems.innerHTML = "";
 
-  let sum = 0;
+  let total = 0;
 
   cart.forEach((item, index) => {
-    sum += item.price;
+    total += item.price;
 
     cartItems.innerHTML += `
       <div style="display:flex;justify-content:space-between;padding:5px 0;">
-        <span>${item.name} - ₱${item.price}</span>
+        <span>${item.name} (${item.size}) - ₱${item.price}</span>
         <button onclick="removeItem(${index})">X</button>
       </div>
     `;
   });
 
-  total.innerText = sum;
+  totalEl.innerText = total;
 }
 
 function removeItem(index){
@@ -592,34 +595,6 @@ function removeItem(index){
   renderCart();
 }
 
-function checkout(){
-  if(cart.length === 0){
-    alert("Cart is empty!");
-    return;
-  }
-
-  let message = "Hello, I want to order:\n\n";
-  let total = 0;
-
-  cart.forEach(item => {
-    message += "- " + item.name + " (₱" + item.price + ")\n";
-    total += item.price;
-  });
-
-  message += "\nTotal: ₱" + total;
-
-  // THIS IS THE FIX (your previous issue)
-  const url = "https://m.me/briehaus?ref=" + encodeURIComponent(message);
-
-  window.location.href = url;
-}
-<script>
-// ================= CART FUNCTION =================
-function addToCart(name, price, size) {
-  console.log("Added:", name, size, price);
-}
-
-// ================= PRODUCTS =================
 const products = [
   {
     name: "Americano (Cold)",
@@ -633,66 +608,8 @@ const products = [
   }
 ];
 
-// ================= RENDER MENU =================
-function renderProducts() {
+function renderProducts(){
   const container = document.getElementById("menu");
-
-  if (!container) {
-    console.error("Missing <div id='menu'>");
-    return;
-  }
-
-  container.innerHTML = "";
-
-  products.forEach(product => {
-    container.innerHTML += `
-      <div class="card">
-        <img src="${product.image}" class="product-img">
-
-        <h3>${product.name}</h3>
-
-        <p>₱${product.sizes.Small} - ₱${product.sizes.Large}</p>
-
-        <div class="sizes">
-          <button onclick="addToCart('${product.name}', ${product.sizes.Small}, 'Small')">Small</button>
-          <button onclick="addToCart('${product.name}', ${product.sizes.Medium}, 'Medium')">Medium</button>
-          <button onclick="addToCart('${product.name}', ${product.sizes.Large}, 'Large')">Large</button>
-        </div>
-      </div>
-    `;
-  });
-}
-
-// ================= RUN =================
-renderProducts();
-</script>
- <script>
-function addToCart(name, price, size) {
-  console.log({ name, price, size });
-
-  alert(`${name} ${size} ₱${price}`);
-}
-
-const products = [
-  {
-    name: "Americano (Cold)",
-    image: "images/placeholder.jpg",
-    sizes: { Small: 110, Medium: 130, Large: 150 }
-  },
-  {
-    name: "Latte (Hot)",
-    image: "images/placeholder.jpg",
-    sizes: { Small: 120, Medium: 140, Large: 160 }
-  }
-];
-
-function renderProducts() {
-  const container = document.getElementById("menu");
-
-  if (!container) {
-    console.error("Missing #menu div");
-    return;
-  }
 
   container.innerHTML = "";
 
