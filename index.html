@@ -657,3 +657,61 @@ function checkout(){
  
 </body>
 </html>
+<script>
+let cart = [];
+
+function addToCart(name, price, size = "Single"){
+  cart.push({ name, price, size });
+  alert(`${name} (${size}) ₱${price}`);
+  renderCart();
+}
+
+function renderCart(){
+  const cartItems = document.getElementById("cartItems");
+  const totalEl = document.getElementById("total");
+
+  if(!cartItems || !totalEl) return;
+
+  cartItems.innerHTML = "";
+
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    total += item.price;
+
+    cartItems.innerHTML += `
+      <div>
+        ${item.name} (${item.size}) - ₱${item.price}
+        <button onclick="removeItem(${index})">X</button>
+      </div>
+    `;
+  });
+
+  totalEl.innerText = total;
+}
+
+function removeItem(index){
+  cart.splice(index, 1);
+  renderCart();
+}
+
+function checkout(){
+  if(cart.length === 0){
+    alert("Cart is empty!");
+    return;
+  }
+
+  let message = "Hello, I want to order:\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    message += `- ${item.name} (${item.size}) ₱${item.price}\n`;
+    total += item.price;
+  });
+
+  message += `\nTotal: ₱${total}`;
+
+  const url = "https://m.me/briehaus?ref=" + encodeURIComponent(message);
+  window.location.href = url;
+}
+</script>
