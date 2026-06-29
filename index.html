@@ -674,14 +674,9 @@ function checkout(){
 
   message += `\nTotal: ₱${total}`;
 
-  // ✅ FIXED MESSENGER LINK
-  const url = "https://www.messenger.com/t/briehaus";
+  // ✅ REAL ONE-CLICK MESSENGER LINK
+  const url = "https://m.me/briehaus?text=" + encodeURIComponent(message);
 
-  // save order in clipboard (backup method)
-  navigator.clipboard.writeText(message);
-
-  alert("Opening Messenger... Your order was copied!");
-
-  window.open(url, "_blank");
+  window.location.href = url;
 }
 </script>
