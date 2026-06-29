@@ -614,5 +614,50 @@ function checkout(){
   window.location.href = url;
 }
 </script>
+
+ <script>
+const products = [
+  {
+    name: "Americano (Cold)",
+    image: "images/placeholder.jpg",
+    sizes: { Small: 110, Medium: 130, Large: 150 }
+  },
+  {
+    name: "Latte (Hot)",
+    image: "images/placeholder.jpg",
+    sizes: { Small: 120, Medium: 140, Large: 160 }
+  }
+];
+
+function renderProducts() {
+  const container = document.getElementById("menu");
+
+  container.innerHTML = "";
+
+  products.forEach(product => {
+    container.innerHTML += `
+      <div class="card">
+        <img src="${product.image}" class="product-img">
+
+        <h3>${product.name}</h3>
+
+        <p>₱${product.sizes.Small} - ₱${product.sizes.Large}</p>
+
+        <div class="sizes">
+          <button onclick="addToCart('${product.name}', ${product.sizes.Small}, 'Small')">Small</button>
+          <button onclick="addToCart('${product.name}', ${product.sizes.Medium}, 'Medium')">Medium</button>
+          <button onclick="addToCart('${product.name}', ${product.sizes.Large}, 'Large')">Large</button>
+        </div>
+      </div>
+    `;
+  });
+}
+
+function addToCart(name, price, size) {
+  console.log("Added:", name, size, price);
+}
+
+renderProducts();
+</script>
 </body>
 </html>
