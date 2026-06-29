@@ -658,25 +658,55 @@ function checkout(){
 </body>
 </html>
 <script>
+let cart = [];
+
+function addToCart(name, price, size){
+  cart.push({ name, price, size });
+
+  alert(name + " " + size + " ₱" + price);
+
+  renderCart();
+}
+
+function renderCart(){
+  const cartItems = document.getElementById("cartItems");
+  const totalEl = document.getElementById("total");
+
+  if(!cartItems || !totalEl) return;
+
+  cartItems.innerHTML = "";
+
+  let total = 0;
+
+  cart.forEach(item => {
+    total += item.price;
+
+    cartItems.innerHTML += `
+      <div>
+        ${item.name} (${item.size}) - ₱${item.price}
+      </div>
+    `;
+  });
+
+  totalEl.innerText = total;
+}
+
 function checkout(){
   if(cart.length === 0){
     alert("Cart is empty!");
     return;
   }
 
-  let message = "Hello, I want to order:\n\n";
+  let message = "Order:\n\n";
   let total = 0;
 
   cart.forEach(item => {
-    message += `- ${item.name} (${item.size}) ₱${item.price}\n`;
+    message += item.name + " (" + item.size + ") ₱" + item.price + "\n";
     total += item.price;
   });
 
-  message += `\nTotal: ₱${total}`;
+  message += "\nTotal: ₱" + total;
 
-  // ✅ REAL ONE-CLICK MESSENGER LINK
-  const url = "https://m.me/briehaus?text=" + encodeURIComponent(message);
-
-  window.location.href = url;
+  window.location.href = "https://m.me/briehaus";
 }
 </script>
