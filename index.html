@@ -668,7 +668,9 @@ renderProducts();
 </script>
  <script>
 function addToCart(name, price, size) {
-  alert(name + " " + size + " ₱" + price);
+  console.log({ name, price, size });
+
+  alert(`${name} ${size} ₱${price}`);
 }
 
 const products = [
