@@ -613,9 +613,13 @@ function checkout(){
 
   window.location.href = url;
 }
-</script>
+<script>
+// ================= CART FUNCTION =================
+function addToCart(name, price, size) {
+  console.log("Added:", name, size, price);
+}
 
- <script>
+// ================= PRODUCTS =================
 const products = [
   {
     name: "Americano (Cold)",
@@ -629,8 +633,14 @@ const products = [
   }
 ];
 
+// ================= RENDER MENU =================
 function renderProducts() {
   const container = document.getElementById("menu");
+
+  if (!container) {
+    console.error("Missing <div id='menu'>");
+    return;
+  }
 
   container.innerHTML = "";
 
@@ -653,10 +663,7 @@ function renderProducts() {
   });
 }
 
-function addToCart(name, price, size) {
-  console.log("Added:", name, size, price);
-}
-
+// ================= RUN =================
 renderProducts();
 </script>
 </body>
