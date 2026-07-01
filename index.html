@@ -557,7 +557,17 @@ footer{
 let cart = [];
 
 function addToCart(name, price, size = "Regular") {
-  cart.push({ name, price, size });
+  // check if item already exists
+  let existing = cart.find(item =>
+    item.name === name && item.size === size
+  );
+
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ name, price, size, qty: 1 });
+  }
+
   renderCart();
 }
 
