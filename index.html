@@ -590,7 +590,7 @@ footer{
     <h3>Total: ₱<span id="total">0</span></h3>
 
     <div class="checkout">
-      <button onclick="checkout()">Checkout via Messenger</button>
+      <button type="button" id="checkoutBtn">Checkout via Messenger</button>
     </div>
   </div>
 
@@ -681,6 +681,13 @@ function checkout() {
     "_blank"
   );
 }
+ document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("checkoutBtn");
+
+  if (btn) {
+    btn.addEventListener("click", checkout);
+  }
+});
 </script>
 </body>
 </html>
