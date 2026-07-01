@@ -677,9 +677,7 @@ function checkout() {
   message += "\nTotal: ₱" + total;
 
   window.open(
-    "https://m.me/briehaus?ref=" + encodeURIComponent(message),
-    "_blank"
-  );
+    openMessenger("https://m.me/briehaus?ref=" + encodeURIComponent(message));
 }
  document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("checkoutBtn");
