@@ -635,55 +635,34 @@ function renderProducts(){
 renderProducts();
 </script>
 function checkout(){
-  if(cart.length === 0){
-    alert("Cart is empty!");
-    return;
-  }
-
-  let message = "Hello, I want to order:\n\n";
-  let total = 0;
-
-  cart.forEach(item => {
-    message += `- ${item.name} (${item.size}) ₱${item.price}\n`;
-    total += item.price;
-  });
-
-  message += `\nTotal: ₱${total}`;
-
-  const url = "https://m.me/briehaus?ref=" + encodeURIComponent(message);
-
-  window.location.href = url;
-}
- 
-</body>
-</html>
-<script>
+ <script>
 let cart = [];
 
-function addToCart(name, price, size){
+function addToCart(name, price, size = "Regular") {
   cart.push({ name, price, size });
-
-  alert(name + " " + size + " ₱" + price);
-
   renderCart();
 }
 
-function renderCart(){
+function renderCart() {
   const cartItems = document.getElementById("cartItems");
   const totalEl = document.getElementById("total");
-
-  if(!cartItems || !totalEl) return;
 
   cartItems.innerHTML = "";
 
   let total = 0;
 
-  cart.forEach(item => {
+  cart.forEach((item, index) => {
     total += item.price;
 
     cartItems.innerHTML += `
-      <div>
-        ${item.name} (${item.size}) - ₱${item.price}
+      <div style="display:flex;justify-content:space-between;padding:5px 0;">
+        <span>
+          ${item.name}
+          ${item.size !== "Regular" ? "(" + item.size + ")" : ""}
+          - ₱${item.price}
+        </span>
+
+        <button onclick="removeItem(${index})">X</button>
       </div>
     `;
   });
@@ -691,22 +670,38 @@ function renderCart(){
   totalEl.innerText = total;
 }
 
-function checkout(){
-  if(cart.length === 0){
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+
+function checkout() {
+  if (cart.length === 0) {
     alert("Cart is empty!");
     return;
   }
 
-  let message = "Order:\n\n";
+  let message = "Hello! I want to order:\n\n";
   let total = 0;
 
   cart.forEach(item => {
-    message += item.name + " (" + item.size + ") ₱" + item.price + "\n";
+    message +=
+      "- " +
+      item.name +
+      (item.size !== "Regular" ? " (" + item.size + ")" : "") +
+      " - ₱" +
+      item.price +
+      "\n";
+
     total += item.price;
   });
 
   message += "\nTotal: ₱" + total;
 
-  window.location.href = "https://m.me/briehaus";
+  const url =
+    "https://m.me/briehaus?ref=" +
+    encodeURIComponent(message);
+
+  window.open(url, "_blank");
 }
 </script>
