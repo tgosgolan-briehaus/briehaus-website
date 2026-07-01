@@ -713,4 +713,29 @@ function checkout() {
 
   window.open(url, "_blank");
 }
+  function checkout() {
+  alert("Checkout clicked");
+
+  if (cart.length === 0) {
+    alert("Cart is empty!");
+    return;
+  }
+
+  let message = "Hello! I want to order:\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    message += "- " + item.name + " (" + item.size + ") ₱" + item.price + "\n";
+    total += item.price;
+  });
+
+  message += "\nTotal: ₱" + total;
+
+  window.location.href = "https://m.me/briehaus";
+}
+
+// connect button to function
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("checkoutBtn").addEventListener("click", checkout);
+});
 </script>
