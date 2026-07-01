@@ -542,9 +542,7 @@ footer{
     <h3>Total: ₱<span id="total">0</span></h3>
 
     <div class="checkout">
-      <a href="javascript:void(0)" onclick="checkout()">
-  Checkout via Messenger
-</a>
+      <button onclick="checkout()">Checkout via Messenger</button>
     </div>
   </div>
 
@@ -685,16 +683,20 @@ function checkout() {
   let total = 0;
 
   cart.forEach(item => {
-    message +=
-      "- " +
-      item.name +
+    message += "- " + item.name +
       (item.size !== "Regular" ? " (" + item.size + ")" : "") +
-      " - ₱" +
-      item.price +
-      "\n";
+      " - ₱" + item.price + "\n";
 
     total += item.price;
   });
+
+  message += "\nTotal: ₱" + total;
+
+  window.open(
+    "https://m.me/briehaus?ref=" + encodeURIComponent(message),
+    "_blank"
+  );
+}
 
   message += "\nTotal: ₱" + total;
 
