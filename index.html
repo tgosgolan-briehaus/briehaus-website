@@ -552,88 +552,12 @@ footer{
 <footer>
   © 2026 Brie Haus Bakery
 </footer>
+ <script>
+
+</body>
+</html>
 
 <script>
-let cart = [];
-
-function addToCart(name, price, size){
-  cart.push({ name, price, size });
-
-  alert(`${name} (${size}) ₱${price}`);
-
-  renderCart();
-}
-
-function renderCart(){
-  const cartItems = document.getElementById("cartItems");
-  const totalEl = document.getElementById("total");
-
-  if(!cartItems || !totalEl) return;
-
-  cartItems.innerHTML = "";
-
-  let total = 0;
-
-  cart.forEach((item, index) => {
-    total += item.price;
-
-    cartItems.innerHTML += `
-      <div style="display:flex;justify-content:space-between;padding:5px 0;">
-        <span>${item.name} (${item.size}) - ₱${item.price}</span>
-        <button onclick="removeItem(${index})">X</button>
-      </div>
-    `;
-  });
-
-  totalEl.innerText = total;
-}
-
-function removeItem(index){
-  cart.splice(index, 1);
-  renderCart();
-}
-
-const products = [
-  {
-    name: "Americano (Cold)",
-    image: "images/placeholder.jpg",
-    sizes: { Small: 110, Medium: 130, Large: 150 }
-  },
-  {
-    name: "Latte (Hot)",
-    image: "images/placeholder.jpg",
-    sizes: { Small: 120, Medium: 140, Large: 160 }
-  }
-];
-
-function renderProducts(){
-  const container = document.getElementById("menu");
-
-  container.innerHTML = "";
-
-  products.forEach(product => {
-    container.innerHTML += `
-      <div class="card">
-        <img src="${product.image}" class="product-img">
-
-        <h3>${product.name}</h3>
-
-        <p>₱${product.sizes.Small} - ₱${product.sizes.Large}</p>
-
-        <div class="sizes">
-          <button onclick="addToCart('${product.name}', ${product.sizes.Small}, 'Small')">Small</button>
-          <button onclick="addToCart('${product.name}', ${product.sizes.Medium}, 'Medium')">Medium</button>
-          <button onclick="addToCart('${product.name}', ${product.sizes.Large}, 'Large')">Large</button>
-        </div>
-      </div>
-    `;
-  });
-}
-
-renderProducts();
-</script>
-function checkout(){
- <script>
 let cart = [];
 
 function addToCart(name, price, size = "Regular") {
@@ -644,6 +568,8 @@ function addToCart(name, price, size = "Regular") {
 function renderCart() {
   const cartItems = document.getElementById("cartItems");
   const totalEl = document.getElementById("total");
+
+  if (!cartItems || !totalEl) return;
 
   cartItems.innerHTML = "";
 
@@ -683,19 +609,12 @@ function checkout() {
   let total = 0;
 
   cart.forEach(item => {
-    message += "- " + item.name + " (" + item.size + ") ₱" + item.price + "\n";
+    message += "- " + item.name +
+      (item.size !== "Regular" ? " (" + item.size + ")" : "") +
+      " - ₱" + item.price + "\n";
+
     total += item.price;
   });
-
-  message += "\nTotal: ₱" + total;
-
-  const url = "https://m.me/briehaus";
-
-  // backup: show message first
-  alert(message);
-
-  window.location.href = url;
-}
 
   message += "\nTotal: ₱" + total;
 
@@ -704,38 +623,4 @@ function checkout() {
     "_blank"
   );
 }
-
-  message += "\nTotal: ₱" + total;
-
-  const url =
-    "https://m.me/briehaus?ref=" +
-    encodeURIComponent(message);
-
-  window.open(url, "_blank");
-}
-  function checkout() {
-  alert("Checkout clicked");
-
-  if (cart.length === 0) {
-    alert("Cart is empty!");
-    return;
-  }
-
-  let message = "Hello! I want to order:\n\n";
-  let total = 0;
-
-  cart.forEach(item => {
-    message += "- " + item.name + " (" + item.size + ") ₱" + item.price + "\n";
-    total += item.price;
-  });
-
-  message += "\nTotal: ₱" + total;
-
-  window.location.href = "https://m.me/briehaus";
-}
-
-// connect button to function
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("checkoutBtn").addEventListener("click", checkout);
-});
 </script>
