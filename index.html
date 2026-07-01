@@ -552,10 +552,6 @@ footer{
 <footer>
   © 2026 Brie Haus Bakery
 </footer>
- <script>
-
-</body>
-</html>
 
 <script>
 let cart = [];
@@ -600,8 +596,10 @@ function removeItem(index) {
 }
 
 function checkout() {
-  alert("CHECKOUT WORKS");
-}
+  if (cart.length === 0) {
+    alert("Cart is empty!");
+    return;
+  }
 
   let message = "Hello! I want to order:\n\n";
   let total = 0;
@@ -621,4 +619,3 @@ function checkout() {
     "_blank"
   );
 }
-</script>
