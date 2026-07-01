@@ -557,18 +557,94 @@ footer{
 let cart = [];
 
 function addToCart(name, price, size = "Regular") {
-  // check if item already exists
-  let existing = cart.find(item =>
-    item.name === name && item.size === size
-  );
+  size = size || "Regular";
+
+  // stable key (VERY IMPORTANT)
+  let key = name + "-" + size;
+
+  let existing = cart.find(item => item.key === key);
 
   if (existing) {
     existing.qty += 1;
   } else {
-    cart.push({ name, price, size, qty: 1 });
+    cart.push({
+      key,
+      name,
+      price,
+      size,
+      qty: 1
+    });
   }
 
   renderCart();
+}
+
+function renderCart() {
+  const cartItems = document.getElementById("cartItems");
+  const totalEl = document.getElementById("total");
+
+  if (!cartItems || !totalEl) return;
+
+  cartItems.innerHTML = "";
+
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    let itemTotal = item.price * item.qty;
+    total += itemTotal;
+
+    cartItems.innerHTML += `
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;">
+        <div>
+          ${item.name} ${item.size !== "Regular" ? "(" + item.size + ")" : ""}
+          <br>
+          <small>Qty: ${item.qty}</small>
+        </div>
+
+        <div>
+          ₱${itemTotal}
+          <button onclick="removeItem(${index})">X</button>
+        </div>
+      </div>
+    `;
+  });
+
+  totalEl.innerText = total;
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+
+function checkout() {
+  if (cart.length === 0) {
+    alert("Cart is empty!");
+    return;
+  }
+
+  let message = "🧾 Order Summary\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    let itemTotal = item.price * item.qty;
+
+    message += `• ${item.name}`;
+    if (item.size !== "Regular") {
+      message += ` (${item.size})`;
+    }
+
+    message += ` x${item.qty} = ₱${itemTotal}\n`;
+
+    total += itemTotal;
+  });
+
+  message += `\nTotal: ₱${total}`;
+
+  window.open(
+    "https://m.me/briehaus?ref=" + encodeURIComponent(message),
+    "_blank"
+  );
 }
 
 function renderCart() {
