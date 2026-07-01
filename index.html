@@ -683,12 +683,19 @@ function checkout() {
   let total = 0;
 
   cart.forEach(item => {
-    message += "- " + item.name +
-      (item.size !== "Regular" ? " (" + item.size + ")" : "") +
-      " - ₱" + item.price + "\n";
-
+    message += "- " + item.name + " (" + item.size + ") ₱" + item.price + "\n";
     total += item.price;
   });
+
+  message += "\nTotal: ₱" + total;
+
+  const url = "https://m.me/briehaus";
+
+  // backup: show message first
+  alert(message);
+
+  window.location.href = url;
+}
 
   message += "\nTotal: ₱" + total;
 
