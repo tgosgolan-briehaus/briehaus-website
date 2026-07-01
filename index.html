@@ -601,18 +601,23 @@ function checkout() {
     return;
   }
 
-  let message = "Hello! I want to order:\n\n";
+  let message = "🧾 *Brie Haus Order*\n\n";
   let total = 0;
 
   cart.forEach(item => {
-    message += "- " + item.name +
-      (item.size !== "Regular" ? " (" + item.size + ")" : "") +
-      " - ₱" + item.price + "\n";
+    message += "• " + item.name;
+
+    if (item.size !== "Regular") {
+      message += " (" + item.size + ")";
+    }
+
+    message += " - ₱" + item.price + "\n";
 
     total += item.price;
   });
 
-  message += "\nTotal: ₱" + total;
+  message += "\n💰 *Total: ₱" + total + "*\n\n";
+  message += "Please confirm my order. Thank you! 🙏";
 
   window.open(
     "https://m.me/briehaus?ref=" + encodeURIComponent(message),
