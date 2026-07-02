@@ -652,20 +652,52 @@ function checkout() {
     return;
   }
 
-  let message = "Hello! I would like to order:%0A%0A";
+  const name = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
+  const orderType = document.getElementById("orderType").value;
+  const address = document.getElementById("customerAddress").value.trim();
+
+  if (name === "" || phone === "") {
+    alert("Please enter your name and phone number.");
+    return;
+  }
+
+  if (orderType === "Delivery" && address === "") {
+    alert("Please enter your delivery address.");
+    return;
+  }
+
+  let message = "Hello! I would like to order:\n\n";
+
+  message += "Name: " + name + "\n";
+  message += "Phone: " + phone + "\n";
+  message += "Order Type: " + orderType + "\n";
+
+  if (orderType === "Delivery") {
+    message += "Address: " + address + "\n";
+  }
+
+  message += "\nOrder:\n";
+
   let total = 0;
 
   cart.forEach(item => {
     const itemTotal = item.price * item.qty;
     total += itemTotal;
 
-    message += `• ${item.name} x${item.qty} - ₱${itemTotal}%0A`;
+    message += "• " + item.name;
+
+    if (item.size !== "Regular") {
+      message += " (" + item.size + ")";
+    }
+
+    message += " x" + item.qty + " - ₱" + itemTotal + "\n";
   });
 
-  message += `%0ATotal: ₱${total}`;
+  message += "\nTotal: ₱" + total;
 
   window.location.href =
-    "https://m.me/briehaus?ref=" + message;
+    "https://m.me/briehaus?ref=" + encodeURIComponent(message);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
