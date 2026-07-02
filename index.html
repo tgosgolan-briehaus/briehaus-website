@@ -607,17 +607,12 @@ footer{
 let cart = [];
 
 function addToCart(name, price, size = "Regular") {
-  const existing = cart.find(item => item.name === name && item.size === size);
+  const existing = cart.find(i => i.name === name && i.size === size);
 
   if (existing) {
     existing.qty++;
   } else {
-    cart.push({
-      name: name,
-      price: price,
-      size: size,
-      qty: 1
-    });
+    cart.push({ name, price, size, qty: 1 });
   }
 
   renderCart();
@@ -627,8 +622,9 @@ function renderCart() {
   const cartItems = document.getElementById("cartItems");
   const totalEl = document.getElementById("total");
 
-  cartItems.innerHTML = "";
+  if (!cartItems || !totalEl) return;
 
+  cartItems.innerHTML = "";
   let total = 0;
 
   cart.forEach((item, index) => {
@@ -636,14 +632,14 @@ function renderCart() {
     total += itemTotal;
 
     cartItems.innerHTML += `
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;">
+      <div style="display:flex;justify-content:space-between;">
         <span>${item.name} x${item.qty} - ₱${itemTotal}</span>
-        <button onclick="removeItem(${index})" style="width:auto;padding:5px 10px;">X</button>
+        <button onclick="removeItem(${index})">X</button>
       </div>
     `;
   });
 
-  totalEl.textContent = total;
+  totalEl.innerText = total;
 }
 
 function removeItem(index) {
@@ -657,33 +653,24 @@ function checkout() {
     return;
   }
 
-  const name = document.getElementById("customerName").value;
-  const phone = document.getElementById("customerPhone").value;
-
-  if (!name || !phone) {
-    alert("Please enter name and phone");
-    return;
-  }
-
   let message = "Hello! I want to order:\n\n";
   let total = 0;
 
   cart.forEach(item => {
-    let itemTotal = item.price * item.qty;
+    const itemTotal = item.price * item.qty;
     total += itemTotal;
 
     message += "• " + item.name + " x" + item.qty + " - ₱" + itemTotal + "\n";
   });
 
-  message += "\nName: " + name;
-  message += "\nPhone: " + phone;
   message += "\nTotal: ₱" + total;
 
   const url =
-  "https://www.facebook.com/messages/t/briehaus?text=" +
-  encodeURIComponent(message);
+    "https://www.facebook.com/messages/t/briehaus?text=" +
+    encodeURIComponent(message);
 
-window.open(url, "_blank");
+  window.open(url, "_blank");
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("checkoutBtn");
