@@ -679,9 +679,11 @@ function checkout() {
   message += "\nPhone: " + phone;
   message += "\nTotal: ₱" + total;
 
-  window.location.href =
-    "https://m.me/briehaus?ref=" + encodeURIComponent(message);
-}
+  const url =
+  "https://www.facebook.com/messages/t/briehaus?text=" +
+  encodeURIComponent(message);
+
+window.open(url, "_blank");
 
 document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("checkoutBtn");
