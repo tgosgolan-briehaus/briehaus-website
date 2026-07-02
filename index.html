@@ -660,6 +660,47 @@ function checkout() {
     return;
   }
 
+  let name = document.getElementById("customerName").value;
+  let phone = document.getElementById("customerPhone").value;
+  let orderType = document.getElementById("orderType").value;
+  let address = document.getElementById("customerAddress").value;
+
+  if (name === "" || phone === "") {
+    alert("Please enter your name and phone number.");
+    return;
+  }
+
+  let message = "Hello Brie Haus Bakery! I want to order:\n\n";
+
+  message += "Name: " + name + "\n";
+  message += "Phone: " + phone + "\n";
+  message += "Order Type: " + orderType + "\n";
+
+  if (orderType === "Delivery") {
+    message += "Address: " + address + "\n";
+  }
+
+  message += "\nOrder:\n";
+
+  let total = 0;
+
+  cart.forEach(item => {
+    let itemTotal = item.price * item.qty;
+
+    message += "- " + item.name +
+      (item.size !== "Regular" ? " (" + item.size + ")" : "") +
+      " x" + item.qty +
+      " - ₱" + itemTotal + "\n";
+
+    total += itemTotal;
+  });
+
+  message += "\nTotal: ₱" + total;
+
+  window.location.href =
+    "https://m.me/briehaus?ref=" + encodeURIComponent(message);
+}
+
   let message = "Hello! I want to order:\n\n";
   let total = 0;
 
@@ -684,13 +725,15 @@ function checkout() {
   window.location.href =
     "https://m.me/briehaus?ref=" + encodeURIComponent(message);
 }
- document.addEventListener("DOMContentLoaded", function () {
+
+document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("checkoutBtn");
 
   if (btn) {
     btn.addEventListener("click", checkout);
   }
 });
+
 </script>
 </body>
 </html>
