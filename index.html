@@ -672,10 +672,13 @@ function removeItem(index) {
 }
 
 function checkout() {
-  if (cart.length === 0) {
-    alert("Cart is empty!");
-    return;
-  }
+  ...
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("checkoutBtn");
+  if (btn) btn.addEventListener("click", checkout);
+});
 
   let message = "Hello! I want to order:\n\n";
   let total = 0;
