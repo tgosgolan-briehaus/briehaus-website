@@ -666,18 +666,23 @@ function checkout() {
   cart.forEach(item => {
     const itemTotal = item.price * item.qty;
 
-    message += "- " + item.name +
+    message +=
+      "- " +
+      item.name +
       (item.size !== "Regular" ? " (" + item.size + ")" : "") +
-      " x" + item.qty +
-      " - ₱" + itemTotal + "\n";
+      " x" +
+      item.qty +
+      " - ₱" +
+      itemTotal +
+      "\n";
 
     total += itemTotal;
   });
 
   message += "\nTotal: ₱" + total;
 
-  window.open(
-    openMessenger("https://m.me/briehaus?ref=" + encodeURIComponent(message));
+  window.location.href =
+    "https://m.me/briehaus?ref=" + encodeURIComponent(message);
 }
  document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("checkoutBtn");
