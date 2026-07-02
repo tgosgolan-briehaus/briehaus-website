@@ -606,15 +606,8 @@ footer{
 <script>
 let cart = [];
 
-function addToCart(name, price, size = "Regular") {
-  const existing = cart.find(i => i.name === name && i.size === size);
-
-  if (existing) {
-    existing.qty++;
-  } else {
-    cart.push({ name, price, size, qty: 1 });
-  }
-
+function addToCart(name, price) {
+  cart.push({ name, price, qty: 1 });
   renderCart();
 }
 
@@ -622,18 +615,15 @@ function renderCart() {
   const cartItems = document.getElementById("cartItems");
   const totalEl = document.getElementById("total");
 
-  if (!cartItems || !totalEl) return;
-
-  cartItems.innerHTML = "";
   let total = 0;
+  cartItems.innerHTML = "";
 
   cart.forEach((item, index) => {
-    const itemTotal = item.price * item.qty;
-    total += itemTotal;
+    total += item.price;
 
     cartItems.innerHTML += `
-      <div style="display:flex;justify-content:space-between;">
-        <span>${item.name} x${item.qty} - ₱${itemTotal}</span>
+      <div>
+        ${item.name} - ₱${item.price}
         <button onclick="removeItem(${index})">X</button>
       </div>
     `;
@@ -649,7 +639,7 @@ function removeItem(index) {
 
 function checkout() {
   if (cart.length === 0) {
-    alert("Your cart is empty");
+    alert("Cart is empty");
     return;
   }
 
@@ -657,27 +647,17 @@ function checkout() {
   let total = 0;
 
   cart.forEach(item => {
-    const itemTotal = item.price * item.qty;
-    total += itemTotal;
-
-    message += "• " + item.name + " x" + item.qty + " - ₱" + itemTotal + "\n";
+    total += item.price;
+    message += "- " + item.name + " - ₱" + item.price + "\n";
   });
 
   message += "\nTotal: ₱" + total;
 
-  const url =
-    "https://www.facebook.com/messages/t/briehaus?text=" +
-    encodeURIComponent(message);
-
-  window.open(url, "_blank");
+  alert(message); // TEMP TEST (important)
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("checkoutBtn");
-
-  if (btn) {
-    btn.addEventListener("click", checkout);
-  }
+  document.getElementById("checkoutBtn").onclick = checkout;
 });
 
 </script>
