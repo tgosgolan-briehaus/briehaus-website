@@ -605,7 +605,14 @@ footer{
 let cart = [];
 
 function addToCart(name, price, size = "Regular") {
-  cart.push({ name, price, size, qty: 1 });
+  const existing = cart.find(i => i.name === name && i.size === size);
+
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ name, price, size, qty: 1 });
+  }
+
   renderCart();
 }
 
@@ -615,16 +622,16 @@ function renderCart() {
 
   if (!cartItems || !totalEl) return;
 
-  let total = 0;
   cartItems.innerHTML = "";
+  let total = 0;
 
   cart.forEach((item, index) => {
     let itemTotal = item.price * item.qty;
     total += itemTotal;
 
     cartItems.innerHTML += `
-      <div>
-        ${item.name} - ₱${itemTotal}
+      <div style="display:flex;justify-content:space-between;">
+        <span>${item.name} x${item.qty} - ₱${itemTotal}</span>
         <button onclick="removeItem(${index})">X</button>
       </div>
     `;
@@ -639,8 +646,10 @@ function removeItem(index) {
 }
 
 function checkout() {
-  alert("Checkout clicked");
-}
+  if (cart.length === 0) {
+    alert("Cart is empty!");
+    return;
+  }
 
   let message = "Hello! I want to order:\n\n";
   let total = 0;
