@@ -605,15 +605,10 @@ footer{
 let cart = [];
 
 function addToCart(name, price, size = "Regular") {
-  const existing = cart.find(item =>
-    item.name === name && item.size === size
-  );
+  const existing = cart.find(i => i.name === name && i.size === size);
 
-  if (existing) {
-    existing.qty += 1;
-  } else {
-    cart.push({ name, price, size, qty: 1 });
-  }
+  if (existing) existing.qty++;
+  else cart.push({ name, price, size, qty: 1 });
 
   renderCart();
 }
@@ -633,18 +628,46 @@ function renderCart() {
     total += itemTotal;
 
     cartItems.innerHTML += `
-      <div style="display:flex;justify-content:space-between;padding:5px 0;">
-        <span>
-          ${item.name}
-          ${item.size !== "Regular" ? "(" + item.size + ")" : ""}
-          x${item.qty}
-          - ₱${itemTotal}
-        </span>
-
+      <div>
+        ${item.name} x${item.qty} - ₱${itemTotal}
         <button onclick="removeItem(${index})">X</button>
       </div>
     `;
   });
+
+  totalEl.innerText = total;
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+
+function checkout() {
+  if (cart.length === 0) {
+    alert("Cart is empty!");
+    return;
+  }
+
+  let message = "Hello! I want to order:\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    let itemTotal = item.price * item.qty;
+    message += "- " + item.name + " x" + item.qty + " - ₱" + itemTotal + "\n";
+    total += itemTotal;
+  });
+
+  message += "\nTotal: ₱" + total;
+
+  window.location.href =
+    "https://m.me/briehaus?ref=" + encodeURIComponent(message);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("checkoutBtn");
+  if (btn) btn.addEventListener("click", checkout);
+});
 
   totalEl.innerText = total;
 }
