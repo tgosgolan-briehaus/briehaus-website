@@ -660,6 +660,25 @@ function checkout() {
     return;
   }
 
+  let message = "Hello! I want to order:\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    let itemTotal = item.price * item.qty;
+
+    message += "- " + item.name +
+      " x" + item.qty +
+      " - ₱" + itemTotal + "\n";
+
+    total += itemTotal;
+  });
+
+  message += "\nTotal: ₱" + total;
+
+  window.location.href =
+    "https://m.me/briehaus?ref=" + encodeURIComponent(message);
+}
+
   let name = document.getElementById("customerName").value;
   let phone = document.getElementById("customerPhone").value;
   let orderType = document.getElementById("orderType").value;
