@@ -7,7 +7,7 @@
 
 <style>
 
-    .cta,
+.cta,
 .cart {
   background: #ffffff;
   padding: 20px;
@@ -33,9 +33,6 @@
   border-bottom: 1px solid #eee;
   padding: 5px 0;
 }
-
-    <style>
-
 .cart,
 .cta {
   background: #ffffff;
@@ -605,12 +602,17 @@ footer{
 let cart = [];
 
 function addToCart(name, price, size = "Regular") {
-  const existing = cart.find(i => i.name === name && i.size === size);
+  const existing = cart.find(item => item.name === name && item.size === size);
 
   if (existing) {
     existing.qty++;
   } else {
-    cart.push({ name, price, size, qty: 1 });
+    cart.push({
+      name: name,
+      price: price,
+      size: size,
+      qty: 1
+    });
   }
 
   renderCart();
@@ -620,24 +622,23 @@ function renderCart() {
   const cartItems = document.getElementById("cartItems");
   const totalEl = document.getElementById("total");
 
-  if (!cartItems || !totalEl) return;
-
   cartItems.innerHTML = "";
+
   let total = 0;
 
   cart.forEach((item, index) => {
-    let itemTotal = item.price * item.qty;
+    const itemTotal = item.price * item.qty;
     total += itemTotal;
 
     cartItems.innerHTML += `
-      <div style="display:flex;justify-content:space-between;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;">
         <span>${item.name} x${item.qty} - ₱${itemTotal}</span>
-        <button onclick="removeItem(${index})">X</button>
+        <button onclick="removeItem(${index})" style="width:auto;padding:5px 10px;">X</button>
       </div>
     `;
   });
 
-  totalEl.innerText = total;
+  totalEl.textContent = total;
 }
 
 function removeItem(index) {
@@ -647,165 +648,24 @@ function removeItem(index) {
 
 function checkout() {
   if (cart.length === 0) {
-    alert("Cart is empty!");
+    alert("Your cart is empty.");
     return;
   }
 
-  let message = "Hello! I want to order:\n\n";
-  let total = 0;
-
-  cart.forEach(item => {
-    let itemTotal = item.price * item.qty;
-
-    message += "- " + item.name + " x" + item.qty + " - ₱" + itemTotal + "\n";
-    total += itemTotal;
-  });
-
-  message += "\nTotal: ₱" + total;
-
-  window.location.href =
-    "https://m.me/briehaus?ref=" + encodeURIComponent(message);
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("checkoutBtn");
-  if (btn) btn.addEventListener("click", checkout);
-});
-
-  totalEl.innerText = total;
-}
-
-function removeItem(index) {
-  cart.splice(index, 1);
-  renderCart();
-}
-
-function checkout() {
-  ...
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("checkoutBtn");
-  if (btn) btn.addEventListener("click", checkout);
-});
-
-  let message = "Hello! I want to order:\n\n";
-  let total = 0;
-
-  cart.forEach(item => {
-    let itemTotal = item.price * item.qty;
-    message += "- " + item.name + " x" + item.qty + " - ₱" + itemTotal + "\n";
-    total += itemTotal;
-  });
-
-  message += "\nTotal: ₱" + total;
-
-  window.location.href =
-    "https://m.me/briehaus?ref=" + encodeURIComponent(message);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("checkoutBtn");
-  if (btn) btn.addEventListener("click", checkout);
-});
-
-  totalEl.innerText = total;
-}
-
-function removeItem(index) {
-  cart.splice(index, 1);
-  renderCart();
-}
-
-function checkout() {
-  if (cart.length === 0) {
-    alert("Cart is empty!");
-    return;
-  }
-
-  let message = "Hello! I want to order:\n\n";
-  let total = 0;
-
-  cart.forEach(item => {
-    let itemTotal = item.price * item.qty;
-
-    message += "- " + item.name +
-      " x" + item.qty +
-      " - ₱" + itemTotal + "\n";
-
-    total += itemTotal;
-  });
-
-  message += "\nTotal: ₱" + total;
-
-  window.location.href =
-    "https://m.me/briehaus?ref=" + encodeURIComponent(message);
-}
-
-  let name = document.getElementById("customerName").value;
-  let phone = document.getElementById("customerPhone").value;
-  let orderType = document.getElementById("orderType").value;
-  let address = document.getElementById("customerAddress").value;
-
-  if (name === "" || phone === "") {
-    alert("Please enter your name and phone number.");
-    return;
-  }
-
-  let message = "Hello Brie Haus Bakery! I want to order:\n\n";
-
-  message += "Name: " + name + "\n";
-  message += "Phone: " + phone + "\n";
-  message += "Order Type: " + orderType + "\n";
-
-  if (orderType === "Delivery") {
-    message += "Address: " + address + "\n";
-  }
-
-  message += "\nOrder:\n";
-
-  let total = 0;
-
-  cart.forEach(item => {
-    let itemTotal = item.price * item.qty;
-
-    message += "- " + item.name +
-      (item.size !== "Regular" ? " (" + item.size + ")" : "") +
-      " x" + item.qty +
-      " - ₱" + itemTotal + "\n";
-
-    total += itemTotal;
-  });
-
-  message += "\nTotal: ₱" + total;
-
-  window.location.href =
-    "https://m.me/briehaus?ref=" + encodeURIComponent(message);
-}
-
-  let message = "Hello! I want to order:\n\n";
+  let message = "Hello! I would like to order:%0A%0A";
   let total = 0;
 
   cart.forEach(item => {
     const itemTotal = item.price * item.qty;
-
-    message +=
-      "- " +
-      item.name +
-      (item.size !== "Regular" ? " (" + item.size + ")" : "") +
-      " x" +
-      item.qty +
-      " - ₱" +
-      itemTotal +
-      "\n";
-
     total += itemTotal;
+
+    message += `• ${item.name} x${item.qty} - ₱${itemTotal}%0A`;
   });
 
-  message += "\nTotal: ₱" + total;
+  message += `%0ATotal: ₱${total}`;
 
   window.location.href =
-    "https://m.me/briehaus?ref=" + encodeURIComponent(message);
+    "https://m.me/briehaus?ref=" + message;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
