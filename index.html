@@ -294,7 +294,11 @@ function checkout() {
 
   message += "\nTotal: ₱" + total;
 
-  window.open("https://www.facebook.com/messages/t/briehaus", "_blank");
+  const pageUsername = "briehaus"; // your Messenger page username
+  const url = "https://m.me/" + pageUsername + "?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
 
   alert(message);
 }
