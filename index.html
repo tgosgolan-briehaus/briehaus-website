@@ -134,7 +134,7 @@ footer {
 <div class="products">
 
 <div class="card">
- <img src="images/spring-in-the-city.jpg" class="product-img">
+  <img src="images/spring.jpg" class="product-img">
   <h3>Spring in the City</h3>
   <p>₱50</p>
   <button onclick="addToCart('Spring in the City',50)">Add to Cart</button>
@@ -213,7 +213,7 @@ footer {
   <button onclick="addToCart('Pandesal de Coco',35)">Add to Cart</button>
 </div>
 
-  <!-- PIZZA MENU -->
+<!-- PIZZA MENU -->
 <h2 class="section-title">🍕 Pizza Menu</h2>
 
 <div class="products">
@@ -248,7 +248,7 @@ footer {
 
 </div>
 
-  <!-- COFFEE MENU -->
+<!-- COFFEE MENU -->
 <h2 class="section-title">☕ Coffee Menu</h2>
 
 <div class="products">
@@ -297,14 +297,8 @@ footer {
 
 <!-- CONTACT -->
 <div class="cta">
-  <h2>📍 Visit & Contact Us</h2>
-
-  <p>📍 31-H West Rembo, Taguig City</p>
-
-  <p>📞 Mobile: <a href="tel:09455918913">0945 591 8913</a></p>
-  <p>☎️ Landline: <a href="tel:0286565869">02-8656-5869</a></p>
-
-  <p>💬 Facebook: Brie Haus Bake Shop</p>
+  <h2>📍 Visit Us</h2>
+  <p>31-H West Rembo, Taguig City</p>
 </div>
 
 <!-- MAP (FIXED) -->
@@ -338,25 +332,16 @@ function renderCart() {
     total += item.price;
 
     cartItems.innerHTML += `
-      <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee;">
-
-        <div style="display:flex;align-items:center;gap:10px;">
-          <img src="${item.image}" style="width:45px;height:45px;border-radius:8px;object-fit:cover;">
-          <span>${item.name}</span>
-        </div>
-
-        <div>
-          ₱${item.price}
-          <button onclick="removeItem(${index})">X</button>
-        </div>
-
+      <div style="display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid #eee;">
+        <span>${item.name} - ₱${item.price}</span>
+        <button onclick="removeItem(${index})">X</button>
       </div>
     `;
   });
 
   totalEl.innerText = total;
 }
-  
+
 function removeItem(index) {
   cart.splice(index, 1);
   renderCart();
