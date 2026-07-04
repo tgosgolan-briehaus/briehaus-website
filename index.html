@@ -234,9 +234,11 @@ footer {
 
 <!-- MAP (FIXED) -->
 <iframe
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.6847153055155!2d121.05932891185189!3d14.560013685862836!2m3!1f0!2f0!3f0m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c86182266eff%3A0xd4523629d890e208!2s31-H%20G.%20L.%20Jaena%2C%20Street%2C%20Makati%2C%201630%20Kalakhang%20Maynila!5e0!3m2!1sen!2sph!4v1783144586914!5m2!1sen!2sph"
-width="100%" height="250" style="border:0;border-radius:10px;margin-top:15px;"
-loading="lazy"></iframe>
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.6847153055155!2d121.05932891185189!3d14.560013685862836!2m3!1f0!2f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c86182266eff%3A0xd4523629d890e208!2s31-H%20West%20Rembo%2C%20Taguig!5e0!3m2!1sen!2sph"
+width="100%" height="250"
+style="border:0; border-radius:10px; margin-top:15px;"
+loading="lazy">
+</iframe>
 
 </div>
 
@@ -245,9 +247,9 @@ loading="lazy"></iframe>
 <script>
 let cart = [];
 
-function addToCart(name, price){
-  cart.push({name, price});
-  render();
+function addToCart(name, price) {
+  cart.push({ name, price });
+  renderCart();
 }
 
 function renderCart() {
@@ -263,7 +265,7 @@ function renderCart() {
     cartItems.innerHTML += `
       <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #eee;">
         <span>${item.name} - ₱${item.price}</span>
-        <button onclick="removeItem(${index})" style="background:red;padding:3px 8px;border:none;color:white;border-radius:5px;">X</button>
+        <button onclick="removeItem(${index})">X</button>
       </div>
     `;
   });
@@ -271,9 +273,36 @@ function renderCart() {
   totalEl.innerText = total;
 }
 
-function checkout(){
-  alert("Order sent!");
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
 }
+
+function checkout() {
+  if (cart.length === 0) {
+    alert("Cart is empty");
+    return;
+  }
+
+  let message = "Hello! I want to order:\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    total += item.price;
+    message += "- " + item.name + " - ₱" + item.price + "\n";
+  });
+
+  message += "\nTotal: ₱" + total;
+
+  window.open("https://www.facebook.com/messages/t/briehaus", "_blank");
+
+  alert(message);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("checkoutBtn");
+  if (btn) btn.onclick = checkout;
+});
 </script>
 
 </body>
