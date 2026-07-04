@@ -269,10 +269,10 @@ function renderCart() {
     total += item.price;
 
     cartItems.innerHTML += `
-      <div style="display:flex;align-items:center;gap:10px;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee;">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee;">
 
         <div style="display:flex;align-items:center;gap:10px;">
-          <img src="images/default.jpg" style="width:40px;height:40px;border-radius:6px;object-fit:cover;">
+          <img src="${item.image}" style="width:45px;height:45px;border-radius:8px;object-fit:cover;">
           <span>${item.name}</span>
         </div>
 
@@ -287,7 +287,7 @@ function renderCart() {
 
   totalEl.innerText = total;
 }
-
+  
 function removeItem(index) {
   cart.splice(index, 1);
   renderCart();
