@@ -263,9 +263,18 @@ function renderCart() {
     total += item.price;
 
     cartItems.innerHTML += `
-      <div style="display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid #eee;">
-        <span>${item.name} - ₱${item.price}</span>
-        <button onclick="removeItem(${index})">X</button>
+      <div style="display:flex;align-items:center;gap:10px;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee;">
+
+        <div style="display:flex;align-items:center;gap:10px;">
+          <img src="images/default.jpg" style="width:40px;height:40px;border-radius:6px;object-fit:cover;">
+          <span>${item.name}</span>
+        </div>
+
+        <div>
+          ₱${item.price}
+          <button onclick="removeItem(${index})">X</button>
+        </div>
+
       </div>
     `;
   });
