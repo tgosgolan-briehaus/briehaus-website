@@ -263,7 +263,7 @@ function renderCart() {
     total += item.price;
 
     cartItems.innerHTML += `
-      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #eee;">
+      <div style="display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid #eee;">
         <span>${item.name} - ₱${item.price}</span>
         <button onclick="removeItem(${index})">X</button>
       </div>
@@ -294,19 +294,18 @@ function checkout() {
 
   message += "\nTotal: ₱" + total;
 
-  const pageUsername = "brie haus"; // DO NOT include space
+  const pageUsername = "briehaus"; // IMPORTANT: no space
   const url = "https://m.me/" + pageUsername + "?text=" + encodeURIComponent(message);
 
   window.open(url, "_blank");
-}  alert(message);
 }
 
-  alert(message);
-}
-
+// IMPORTANT: ensure button is connected
 document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("checkoutBtn");
-  if (btn) btn.onclick = checkout;
+  if (btn) {
+    btn.onclick = checkout;
+  }
 });
 </script>
 
