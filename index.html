@@ -204,16 +204,8 @@ footer {
   margin-top: 50px;
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
-  .products {
-    grid-template-columns: 1fr;
-  }
 
-  .hero {
-    padding: 60px 15px;
-  }
-}
   body {
     font-size: 14px;
   }
@@ -600,11 +592,7 @@ function checkout() {
  const url = "https://www.facebook.com/messages/t/briehaus";
 
 window.open(url, "_blank");
-
 alert(message);
-
-  alert(message); // TEMP TEST (important)
-}
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("checkoutBtn").onclick = checkout;
