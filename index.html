@@ -212,14 +212,18 @@ footer {
 <!-- CART -->
 <div class="cart">
   <h2>Your Cart</h2>
+
   <div id="cartItems"></div>
+
   <h3>Total: ₱<span id="total">0</span></h3>
 
   <h3>Customer Info</h3>
-  <input id="name" placeholder="Name">
-  <input id="phone" placeholder="Phone">
+  <input type="text" id="customerName" placeholder="Full Name">
+  <input type="tel" id="customerPhone" placeholder="Phone Number">
 
-  <button onclick="checkout()">Checkout via Messenger</button>
+  <div class="checkout">
+    <button id="checkoutBtn" type="button">Checkout via Messenger</button>
+  </div>
 </div>
 
 <!-- CONTACT -->
@@ -246,17 +250,25 @@ function addToCart(name, price){
   render();
 }
 
-function render(){
-  let html = "";
+function renderCart() {
+  const cartItems = document.getElementById("cartItems");
+  const totalEl = document.getElementById("total");
+
+  cartItems.innerHTML = "";
   let total = 0;
 
-  cart.forEach(i=>{
-    total += i.price;
-    html += `<div>${i.name} - ₱${i.price}</div>`;
+  cart.forEach((item, index) => {
+    total += item.price;
+
+    cartItems.innerHTML += `
+      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #eee;">
+        <span>${item.name} - ₱${item.price}</span>
+        <button onclick="removeItem(${index})" style="background:red;padding:3px 8px;border:none;color:white;border-radius:5px;">X</button>
+      </div>
+    `;
   });
 
-  document.getElementById("cartItems").innerHTML = html;
-  document.getElementById("total").innerText = total;
+  totalEl.innerText = total;
 }
 
 function checkout(){
