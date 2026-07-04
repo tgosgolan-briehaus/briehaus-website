@@ -261,7 +261,7 @@ footer {
 
   <!-- HERO -->
   <header class="hero">
-    <img src="logo.png">
+    <img src="logo.png" alt="Logo">
     <h1>Brie Haus Bake Shop</h1>
     <p>Freshly Baked • Premium Coffee • Made With Heart</p>
   </header>
@@ -272,328 +272,101 @@ footer {
     <p>We serve freshly baked breads, pastries, and coffee made daily.</p>
   </section>
 
- <!-- BAKERY -->
-<h2 class="section-title">🍞 Bakery Favorites</h2>
+  <!-- BAKERY -->
+  <h2 class="section-title">🍞 Bakery Favorites</h2>
+  <div class="products">
 
-<div class="products">
+    <div class="card">
+      <img src="images/spring-in-the-city.jpg" class="product-img">
+      <h3>Spring in the City</h3>
+      <p>₱50</p>
+      <button onclick="addToCart('Spring in the City',50)">Add to Cart</button>
+    </div>
 
- <div class="card">
-  <img src="images/spring-in-the-city.jpg" class="product-img" alt="Spring in the City">
-  <h3>Spring in the City</h3>
-  <p>₱50</p>
-  <button onclick="addToCart('Spring in the City',50)">Add to Cart</button>
-</div>
+    <div class="card">
+      <img src="images/ube-bun.jpg" class="product-img">
+      <h3>Ube Buns</h3>
+      <p>₱45</p>
+      <button onclick="addToCart('Ube Buns',45)">Add to Cart</button>
+    </div>
 
-<div class="card">
-  <img src="images/ube-bun.jpg" class="product-img" alt="Ube Bun">
-  <h3>Ube Buns</h3>
-  <p>₱45</p>
-  <button onclick="addToCart('Ube Buns',45)">Add to Cart</button>
-</div>
-
-<div class="card">
-  <img src="images/cheese-roll.jpg" class="product-img" alt="Cheese Roll">
-  <h3>Cheese Roll</h3>
-  <p>₱35</p>
-  <button onclick="addToCart('Cheese Roll',35)">Add to Cart</button>
-</div>
-
-<div class="card">
-  <img src="images/coffee-bun.jpg" class="product-img" alt="Coffee Bun">
-  <h3>Coffee Bun</h3>
-  <p>₱50</p>
-  <button onclick="addToCart('Coffee Bun',50)">Add to Cart</button>
-</div>
-
-<div class="card">
-  <img src="images/garlic-bun.jpg" class="product-img" alt="Garlic Bun">
-  <h3>Garlic Bread</h3>
-  <p>₱60</p>
-  <button onclick="addToCart('Garlic Bread',60)">Add to Cart</button>
-</div>
-
-<div class="card">
-  <img src="images/pizza-bread.jpg" class="product-img" alt="Pizza Bread">
-  <h3>Pizza Bread</h3>
-  <p>₱55</p>
-  <button onclick="addToCart('Pizza Bread',55)">Add to Cart</button>
-</div>
-
-<div class="card">
-  <img src="images/hamandcheese-bun.jpg" class="product-img" alt="Ham and Cheese Bun">
-  <h3>Ham and Cheese Bun</h3>
-  <p>₱60</p>
-  <button onclick="addToCart('Ham and Cheese Bun',60)">Add to Cart</button>
-</div>
-
-<div class="card">
-  <img src="images/polo-pan.jpg" class="product-img" alt="Polo Pan">
-  <h3>Polo Pan</h3>
-  <p>₱??</p>
-  <button onclick="addToCart('Polo Pan',0)">Add to Cart</button>
-</div>
-    
-<!-- PANDESAL SECTION -->
-<h2 class="section-title">🥖 Pandesal</h2>
-
-<div class="products">
-
-  <div class="card">
-  <img src="images/classic-pandesal.jpg" class="product-img" alt="Classic Pandesal">
-  <h3>Classic Pandesal</h3>
-  <p>₱30</p>
-  <button onclick="addToCart('Classic Pandesal',30)">Add to Cart</button>
-</div>
-
-<div class="card">
-  <img src="images/pandesal-de-coco.jpg" class="product-img" alt="Pandesal de Coco">
-  <h3>Pandesal de Coco</h3>
-  <p>₱35</p>
-  <button onclick="addToCart('Pandesal de Coco',35)">Add to Cart</button>
-</div>
-
-<div class="card">
-  <img src="images/pan-de-coco.jpg" class="product-img" alt="Pan de Coco">
-  <h3>Pan de Coco</h3>
-  <p>₱35</p>
-  <button onclick="addToCart('Pan de Coco',35)">Add to Cart</button>
-</div>
-   <!-- Pizza Menu -->
-<h2 class="section-title">🍕 Pizza Menu</h2>
-
-<div class="products">
-
-  <div class="card" style="position:relative;">
-    <div class="badge">Best Seller</div>
-
-    <img src="images/cheese-brie-overload.jpg" class="product-img" alt="Cheese Brie Overload Pizza">
-
-    <h3>Cheese Brie Overload Pizza</h3>
-    <p>Small ₱319 | Medium ₱419 | Large ₱519</p>
-
-    <button onclick="addToCart('Cheese Brie Overload Pizza',319)">
-      Add to Cart
-    </button>
   </div>
 
-  <div class="card">
-    <img src="images/placeholder.jpg" class="product-img" alt="Hawaiian Brie Pizza">
+  <!-- PANDESAL -->
+  <h2 class="section-title">🥖 Pandesal</h2>
+  <div class="products">
 
-    <h3>Hawaiian Brie Pizza</h3>
-    <p>Small ₱299 | Medium ₱399 | Large ₱499</p>
+    <div class="card">
+      <img src="images/classic-pandesal.jpg" class="product-img">
+      <h3>Classic Pandesal</h3>
+      <p>₱30</p>
+      <button onclick="addToCart('Classic Pandesal',30)">Add to Cart</button>
+    </div>
 
-    <button onclick="addToCart('Hawaiian Brie Pizza',299)">
-      Add to Cart
-    </button>
   </div>
 
-  <div class="card">
-    <img src="images/placeholder.jpg" class="product-img" alt="Cheese Brie Overload Pizza">
+  <!-- PIZZA -->
+  <h2 class="section-title">🍕 Pizza Menu</h2>
+  <div class="products">
 
-    <h3>Cheese Brie Overload Pizza</h3>
-    <p>Small ₱319 | Medium ₱419 | Large ₱519</p>
+    <div class="card">
+      <h3>Cheese Brie Overload</h3>
+      <p>₱319</p>
+      <button onclick="addToCart('Cheese Pizza',319)">Add to Cart</button>
+    </div>
 
-    <button onclick="addToCart('Cheese Brie Overload Pizza',319)">
-      Add to Cart
-    </button>
   </div>
 
-  <div class="card">
-    <img src="images/placeholder.jpg" class="product-img" alt="Classic Brie Pizza">
+  <!-- COFFEE -->
+  <h2 class="section-title">☕ Coffee Menu</h2>
+  <div class="products">
 
-    <h3>Classic Brie Pizza</h3>
-    <p>Small ₱289 | Medium ₱389 | Large ₱489</p>
+    <div class="card">
+      <h3>Americano</h3>
+      <p>₱100</p>
+      <button onclick="addToCart('Americano',100)">Add to Cart</button>
+    </div>
 
-    <button onclick="addToCart('Classic Brie Pizza',289)">
-      Add to Cart
-    </button>
   </div>
-
-  <div class="card">
-    <img src="images/placeholder.jpg" class="product-img" alt="Focaccia Brie Pizza">
-
-    <h3>Focaccia Brie Pizza</h3>
-    <p>Small ₱309 | Medium ₱409 | Large ₱509</p>
-
-    <button onclick="addToCart('Focaccia Brie Pizza',309)">
-      Add to Cart
-    </button>
-  </div>
-
-</div>
-
- <!-- Coffee Menu -->
-<h2 class="section-title">☕ Coffee Menu</h2>
-
-<div class="products">
-
-  <div class="card">
-    <img src="images/placeholder.jpg" class="product-img" alt="Americano (Hot)">
-
-    <h3>Americano (Hot)</h3>
-    <p>₱100</p>
-
-    <button onclick="addToCart('Americano (Hot)',100)">
-      Add to Cart
-    </button>
-  </div>
-
-  <div class="card">
-    <img src="images/placeholder.jpg" class="product-img" alt="Americano (Cold)">
-
-    <h3>Americano (Cold)</h3>
-    <p>₱110</p>
-
-    <button onclick="addToCart('Americano (Cold)',110)">
-      Add to Cart
-    </button>
-  </div>
-
-  <div class="card">
-    <img src="images/placeholder.jpg" class="product-img" alt="Latte (Hot)">
-
-    <h3>Latte (Hot)</h3>
-    <p>₱120</p>
-
-    <button onclick="addToCart('Latte (Hot)',120)">
-      Add to Cart
-    </button>
-  </div>
-
-  <div class="card">
-    <img src="images/placeholder.jpg" class="product-img" alt="Latte (Cold)">
-
-    <h3>Latte (Cold)</h3>
-    <p>₱130</p>
-
-    <button onclick="addToCart('Latte (Cold)',130)">
-      Add to Cart
-    </button>
-  </div>
-
-  <div class="card">
-    <img src="images/placeholder.jpg" class="product-img" alt="Mocha (Hot)">
-
-    <h3>Mocha (Hot)</h3>
-    <p>₱130</p>
-
-    <button onclick="addToCart('Mocha (Hot)',130)">
-      Add to Cart
-    </button>
-  </div>
-
-  <div class="card">
-    <img src="images/placeholder.jpg" class="product-img" alt="Mocha (Cold)">
-
-    <h3>Mocha (Cold)</h3>
-    <p>₱140</p>
-
-    <button onclick="addToCart('Mocha (Cold)',140)">
-      Add to Cart
-    </button>
-  </div>
-
-<div class="cta">
-  <h2>📍 Visit Us</h2>
-  <p>31-H West Rembo, Taguig City</p>
-  <p>📞 09455918913</p>
-  <p>☎️ 02-86565869</p>
-</div>
-
-<iframe
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.6847153055155!2d121.05932891185189!3d14.560013685862836!2m3!1f0!2f0!3f0m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c86182266eff%3A0xd4523629d890e208!2s31-H%20G.%20L.%20Jaena%2C%20Street%2C%20Makati%2C%201630%20Kalakhang%20Maynila!5e0!3m2!1sen!2sph!4v1783144586914!5m2!1sen!2sph"
-  width="100%"
-  height="250"
-  style="border:0; border-radius:10px; margin-top:15px;"
-  loading="lazy"
-  allowfullscreen>
-</iframe>
 
   <!-- CART -->
-  <!-- CART -->
- <div class="cart">
-  <h2>Your Cart</h2>
+  <div class="cart">
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
 
-  <div id="cartItems"></div>
+    <h3>Total: ₱<span id="total">0</span></h3>
 
-  <h3>Total: ₱<span id="total">0</span></h3>
+    <h3>Customer Info</h3>
+    <input type="text" id="customerName" placeholder="Full Name">
+    <input type="tel" id="customerPhone" placeholder="Phone Number">
 
-  <h3>Customer Info</h3>
-
-  <input type="text" id="customerName" placeholder="Full Name">
-  <input type="tel" id="customerPhone" placeholder="Phone Number">
-
-  <div class="checkout">
-    <button type="button" id="checkoutBtn">Checkout via Messenger</button>
+    <div class="checkout">
+      <button id="checkoutBtn">Checkout via Messenger</button>
+    </div>
   </div>
-</div>
 
-</div> <!-- container end -->
+  <!-- MAP -->
+  <div class="cta">
+    <h2>📍 Visit Us</h2>
+    <p>31-H West Rembo, Taguig City</p>
+  </div>
+
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.6847153055155!2d121.05932891185189!3d14.560013685862836!2m3!1f0!2f0!3f0m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c86182266eff%3A0xd4523629d890e208!2s31-H%20G.%20L.%20Jaena%2C%20Street%2C%20Makati%2C%201630%20Kalakhang%20Maynila!5e0!3m2!1sen!2sph!4v1783144586914!5m2!1sen!2sph"
+    width="100%"
+    height="250"
+    style="border:0; border-radius:10px; margin-top:15px;"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
+
+</div>
 
 <!-- FOOTER -->
 <footer>
   © 2026 Brie Haus Bakery
 </footer>
 
-<script>
-let cart = [];
-
-function addToCart(name, price) {
-  cart.push({ name, price, qty: 1 });
-  renderCart();
-}
-
-function renderCart() {
-  const cartItems = document.getElementById("cartItems");
-  const totalEl = document.getElementById("total");
-
-  let total = 0;
-  cartItems.innerHTML = "";
-
-  cart.forEach((item, index) => {
-    total += item.price;
-
-    cartItems.innerHTML += `
-      <div>
-        ${item.name} - ₱${item.price}
-        <button onclick="removeItem(${index})">X</button>
-      </div>
-    `;
-  });
-
-  totalEl.innerText = total;
-}
-
-function removeItem(index) {
-  cart.splice(index, 1);
-  renderCart();
-}
-
-function checkout() {
-  if (cart.length === 0) {
-    alert("Cart is empty");
-    return;
-  }
-
-  let message = "Hello! I want to order:\n\n";
-  let total = 0;
-
-  cart.forEach(item => {
-    total += item.price;
-    message += "- " + item.name + " - ₱" + item.price + "\n";
-  });
-
-  message += "\nTotal: ₱" + total;
-
- const url = "https://www.facebook.com/messages/t/briehaus";
-
-window.open(url, "_blank");
-alert(message);
-
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("checkoutBtn").onclick = checkout;
-});
-
-</script>
 </body>
 </html>
+
