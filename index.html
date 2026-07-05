@@ -321,29 +321,23 @@ footer {
 
 <!-- PIZZA -->
 <h2 class="section-title" id="pizza">🍕 Pizza Menu</h2>
+
 <div class="products">
 
-  <div class="products">
-
-  <!-- existing pizzas here -->
-
-  <!-- NEW ONE (your image) -->
   <div class="card">
     <span style="background:#5A3E2B;color:white;padding:3px 8px;border-radius:6px;font-size:12px;">
       New
     </span>
 
-    <img src="images/hawaiian-pizza.jpg" class="product-img">
+    <img src="images/hawaiian-pizza.jpg" class="product-img" alt="Special Pizza" loading="lazy">
 
     <h3>Special Pizza</h3>
     <p>₱299</p>
 
     <button onclick="addToCart('Special Pizza',299)">
-      Add
+      Add to Cart
     </button>
   </div>
-
-</div>
 
   <div class="card">
     <img src="images/cheese-brie-overload.jpg" class="product-img">
@@ -372,9 +366,6 @@ footer {
     <p>₱309</p>
     <button onclick="addToCart('Focaccia Pizza',309)">Add</button>
   </div>
-
-</div>
-
 <!-- COFFEE -->
 <h2 class="section-title" id="coffee">☕ Coffee Menu</h2>
 <div class="products">
@@ -431,14 +422,69 @@ footer {
 <script>
 let cart = [];
 
+/* =========================
+   PRODUCT DATA
+========================= */
+const products = [
+  {
+    name: "Cheese Brie Overload",
+    price: 319,
+    image: "images/cheese-brie-overload.jpg"
+  },
+  {
+    name: "Hawaiian Pizza",
+    price: 299,
+    image: "images/hawaiian.jpg"
+  },
+  {
+    name: "Latte",
+    price: 130,
+    image: "images/latte.jpg"
+  },
+  {
+    name: "Ube Bun",
+    price: 45,
+    image: "images/ube.jpg"
+  },
+  {
+    name: "Cheese Roll",
+    price: 35,
+    image: "images/cheese.jpg"
+  }
+];
+
+/* =========================
+   RENDER PRODUCTS
+========================= */
+function renderProducts() {
+  const container = document.getElementById("productContainer");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  products.forEach(p => {
+    container.innerHTML += `
+      <div class="card">
+        <img src="${p.image}" class="product-img" alt="${p.name}" loading="lazy">
+        <h3>${p.name}</h3>
+        <p>₱${p.price}</p>
+        <button onclick="addToCart('${p.name}', ${p.price})">Add</button>
+      </div>
+    `;
+  });
+}
+
+/* =========================
+   CART SYSTEM
+========================= */
 function addToCart(name, price){
   cart.push({name, price});
   renderCart();
 }
 
 function renderCart(){
-  let cartItems = document.getElementById("cartItems");
-  let totalEl = document.getElementById("total");
+  const cartItems = document.getElementById("cartItems");
+  const totalEl = document.getElementById("total");
 
   cartItems.innerHTML = "";
   let total = 0;
@@ -447,7 +493,7 @@ function renderCart(){
     total += item.price;
 
     cartItems.innerHTML += `
-      <div style="display:flex;justify-content:space-between;">
+      <div style="display:flex;justify-content:space-between;margin:5px 0;">
         <span>${item.name} - ₱${item.price}</span>
         <button onclick="removeItem(${i})">X</button>
       </div>
@@ -462,27 +508,49 @@ function removeItem(i){
   renderCart();
 }
 
-document.getElementById("checkoutBtn").onclick = function(){
-  let name = document.getElementById("customerName").value;
-  let phone = document.getElementById("customerPhone").value;
+/* =========================
+   CHECKOUT
+========================= */
+document.addEventListener("DOMContentLoaded", function(){
 
-  if(!name || !phone){
-    alert("Please complete your details");
-    return;
+  renderProducts();
+
+  const btn = document.getElementById("checkoutBtn");
+
+  if(btn){
+    btn.onclick = function(){
+
+      const name = document.getElementById("customerName").value;
+      const phone = document.getElementById("customerPhone").value;
+
+      if(!name || !phone){
+        alert("Please complete your details");
+        return;
+      }
+
+      if(cart.length === 0){
+        alert("Cart is empty");
+        return;
+      }
+
+      let msg = "Hello! Order from Brie Haus Bake Shop:\n\n";
+      let total = 0;
+
+      cart.forEach(i=>{
+        total += i.price;
+        msg += `- ${i.name} ₱${i.price}\n`;
+      });
+
+      msg += `\nName: ${name}\nPhone: ${phone}\nTotal: ₱${total}`;
+
+      window.open(
+        "https://m.me/briehausbakeshop?text=" + encodeURIComponent(msg),
+        "_blank"
+      );
+    };
   }
 
-  let msg = "Hello! Order:\n\n";
-  let total = 0;
-
-  cart.forEach(i=>{
-    total += i.price;
-    msg += `- ${i.name} ₱${i.price}\n`;
-  });
-
-  msg += `\nName: ${name}\nPhone: ${phone}\nTotal: ₱${total}`;
-
-  window.open("https://m.me/briehausbakeshop?text=" + encodeURIComponent(msg));
-};
+});
 </script>
 
 </body>
