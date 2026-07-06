@@ -7,361 +7,553 @@
 
 <style>
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #F7F1E8;
-  color: #5A3E2B;
+margin: 0;
+font-family: Arial, sans-serif;
+background: #F7F1E8;
+color: #5A3E2B;
 }
 
 .container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px;
+max-width: 1100px;
+margin: auto;
+padding: 20px;
+}
+
+/* NAV */
+.navbar {
+position: sticky;
+top: 0;
+z-index: 999;
+background: #F7F1E8;
+border-bottom: 1px solid #E5D5C5;
+backdrop-filter: blur(6px);
+}
+
+.nav-container {
+max-width: 1100px;
+margin: auto;
+padding: 14px 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo {
+font-weight: bold;
+font-size: 18px;
+color: #5A3E2B;
+letter-spacing: 0.5px;
+}
+
+.nav-links {
+display: flex;
+gap: 18px;
+}
+
+.nav-links a {
+text-decoration: none;
+color: #5A3E2B;
+font-weight: 500;
+position: relative;
+transition: 0.2s ease;
+padding: 4px 2px;
+}
+
+/* hover underline effect */
+.nav-links a::after {
+content: "";
+position: absolute;
+left: 0;
+bottom: -3px;
+width: 0%;
+height: 2px;
+background: #5A3E2B;
+transition: 0.2s;
+}
+
+.nav-links a:hover::after {
+width: 100%;
+}
+
+.nav-links a:hover {
+color: #7A5138;
 }
 
 /* HERO */
 .hero {
-  position: relative;
-  text-align: center;
-  padding: 70px 20px;
-  color: #fff;
-  background: url("https://images.unsplash.com/photo-1509440159596-0249088772ff") center/cover;
-  border-radius: 12px;
+position: relative;
+text-align: center;
+padding: 70px 20px;
+color: #fff;
+background: url("https://images.unsplash.com/photo-1509440159596-0249088772ff") center/cover;
+border-radius: 12px;
 }
 
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
+content: "";
+position: absolute;
+inset: 0;
+background: rgba(0,0,0,0.5);
 }
 
 .hero * {
-  position: relative;
-  z-index: 2;
+position: relative;
+z-index: 2;
 }
 
-.hero img {
-  max-width: 120px;
-  display: block;
-  margin: 0 auto 10px;
+.hero {
+text-align: center;
+position: relative;
+padding: 70px 20px;
+color: #fff;
+background: url("https://images.unsplash.com/photo-1509440159596-0249088772ff") center/cover;
+border-radius: 12px;
 }
 
-/* TITLE */
+/* FIX LOGO ALIGNMENT */
+.hero-logo {
+max-width: 120px;
+height: auto;
+display: block;
+margin: 0 auto 10px;
+}
+
+/* FIX TEXT SPACING */
+.hero h1 {
+margin: 0;
+font-size: 48px;
+}
+
+.hero p {
+margin-top: 8px;
+font-size: 18px;
+}
+/* SECTIONS */
 .section-title {
-  text-align: center;
-  margin: 40px 0 20px;
+text-align: center;
+margin: 40px 0 20px;
 }
 
-/* GRID */
 .products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 20px;
 }
 
 /* CARD */
 .card {
-  background: white;
-  border-radius: 12px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+background: white;
+border-radius: 12px;
+padding: 15px;
+text-align: center;
+box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
-/* IMAGE FIX (NO STRETCH) */
+/* IMAGE */
 .product-img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 10px;
+width: 100%;
+height: 160px;
+object-fit: cover;
+border-radius: 10px;
 }
 
 /* BUTTON */
 button {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  background: #5A3E2B;
-  color: white;
-  cursor: pointer;
+width: 100%;
+margin-top: 10px;
+padding: 10px;
+border: none;
+border-radius: 8px;
+background: #5A3E2B;
+color: white;
+cursor: pointer;
 }
 
-/* CART + CTA (STABLE ONLY) */
+/* CART */
 .cart, .cta {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  margin-top: 25px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+background: white;
+padding: 20px;
+border-radius: 12px;
+margin-top: 25px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* INPUT */
+input {
+width: 100%;
+padding: 12px;
+margin: 8px 0;
+border-radius: 8px;
+border: 1px solid #ddd;
+box-sizing: border-box;
 }
 
 /* FOOTER */
 footer {
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-  background: #4B2E2A;
-  color: white;
+text-align: center;
+padding: 20px;
+margin-top: 40px;
+background: #4B2E2A;
+color: white;
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
+<nav class="navbar">
+<div class="nav-container">
+<div class="logo">Brie Haus</div>
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#bakery">Bakery</a>
+<a href="#pizza">Pizza</a>
+<a href="#coffee">Coffee</a>
+<a href="#cart">Cart</a>
+<a href="#visit">Contact</a>
+</div>
+</div>
+</nav>
+
 <div class="container">
 
-<!-- HERO -->
-<header class="hero">
-  <img src="logo.png">
-  <h1>Brie Haus Bake Shop</h1>
-  <p>Freshly Baked • Premium Coffee • Made With Heart</p>
+<header class="hero" id="home">
+
+<img src="logo.png" alt="Brie Haus Logo" class="hero-logo">
+
+<h1>Brie Haus Bake Shop</h1>
+<p>Freshly Baked • Premium Coffee • Made With Heart</p>
+
 </header>
 
 <!-- ABOUT -->
-<h2 class="section-title">Welcome</h2>
-<p style="text-align:center;">We serve fresh bakery and coffee daily.</p>
+<section>
+<h2 class="section-title">Welcome to Brie Haus</h2>
+<p style="text-align:center;">We serve freshly baked breads, pastries, and coffee made daily.</p>
+</section>
 
-<!-- 🍞 BAKERY -->
+<!-- BAKERY -->
 <h2 class="section-title" id="bakery">🍞 Bakery Favorites</h2>
 <div class="products">
 
-  <div class="card">
-    <img src="images/spring-in-the-city.jpg" class="product-img">
-    <h3>Spring in the City</h3>
-    <p>₱50</p>
-    <button onclick="addToCart('Spring in the City',50)">Add</button>
-  </div>
+<div class="card">
+<img src="images/spring.jpg" class="product-img">
+<h3>Spring in the City</h3>
+<p>₱50</p>
+<button onclick="addToCart('Spring in the City',50)">Add</button>
+</div>
 
-  <div class="card">
-    <img src="images/ube-bun.jpg" class="product-img">
-    <h3>Ube Bun</h3>
-    <p>₱45</p>
-    <button onclick="addToCart('Ube Bun',45)">Add</button>
-  </div>
+<div class="card">
+<img src="images/ube.jpg" class="product-img">
+<h3>Ube Bun</h3>
+<p>₱45</p>
+<button onclick="addToCart('Ube Bun',45)">Add</button>
+</div>
 
-  <div class="card">
-    <img src="images/cheese-roll.jpg" class="product-img">
-    <h3>Cheese Roll</h3>
-    <p>₱35</p>
-    <button onclick="addToCart('Cheese Roll',35)">Add</button>
-  </div>
+<div class="card">
+<img src="images/cheese.jpg" class="product-img">
+<h3>Cheese Roll</h3>
+<p>₱35</p>
+<button onclick="addToCart('Cheese Roll',35)">Add</button>
+</div>
 
-  <div class="card">
-    <img src="images/coffee-bun.jpg" class="product-img">
-    <h3>Coffee Bun</h3>
-    <p>₱50</p>
-    <button onclick="addToCart('Coffee Bun',50)">Add</button>
-  </div>
+<div class="card">
+<img src="images/coffee.jpg" class="product-img">
+<h3>Coffee Bun</h3>
+<p>₱50</p>
+<button onclick="addToCart('Coffee Bun',50)">Add</button>
+</div>
 
-  <div class="card">
-    <img src="images/garlic-bread.jpg" class="product-img">
-    <h3>Garlic Bread</h3>
-    <p>₱60</p>
-    <button onclick="addToCart('Garlic Bread',60)">Add</button>
-  </div>
+<div class="card">
+<img src="images/garlic.jpg" class="product-img">
+<h3>Garlic Bread</h3>
+<p>₱60</p>
+<button onclick="addToCart('Garlic Bread',60)">Add</button>
+</div>
 
-  <div class="card">
-    <img src="images/pizza-bread.jpg" class="product-img">
-    <h3>Pizza Bread</h3>
-    <p>₱55</p>
-    <button onclick="addToCart('Pizza Bread',55)">Add</button>
-  </div>
+<div class="card">
+<img src="images/pizza.jpg" class="product-img">
+<h3>Pizza Bread</h3>
+<p>₱55</p>
+<button onclick="addToCart('Pizza Bread',55)">Add</button>
+</div>
 
-  <div class="card">
-    <img src="images/ham-cheese.jpg" class="product-img">
-    <h3>Ham & Cheese</h3>
-    <p>₱60</p>
-    <button onclick="addToCart('Ham & Cheese',60)">Add</button>
-  </div>
+<div class="card">
+<img src="images/ham.jpg" class="product-img">
+<h3>Ham & Cheese</h3>
+<p>₱60</p>
+<button onclick="addToCart('Ham & Cheese',60)">Add</button>
+</div>
 
-  <div class="card">
-    <img src="images/polo-pan.jpg" class="product-img">
-    <h3>Polo Pan</h3>
-    <p>₱40</p>
-    <button onclick="addToCart('Polo Pan',40)">Add</button>
-  </div>
-
-  <div class="card">
-    <img src="images/potato-ensaymada.jpg" class="product-img">
-    <h3>Potato Ensaymada</h3>
-    <p>₱60</p>
-    <button onclick="addToCart('Potato Ensaymada',60)">Add</button>
-  </div>
+<div class="card">
+<img src="images/polo.jpg" class="product-img">
+<h3>Polo Pan</h3>
+<p>₱40</p>
+<button onclick="addToCart('Polo Pan',40)">Add</button>
+</div>
 
 </div>
 
-
-<!-- 🥖 PANDESAL -->
+<!-- PANDESAL -->
 <h2 class="section-title">🥖 Pandesal</h2>
 <div class="products">
 
-  <div class="card">
-    <h3>Classic Pandesal</h3>
-    <p>₱30</p>
-    <button onclick="addToCart('Classic Pandesal',30)">Add</button>
-  </div>
+<div class="card">
+<h3>Classic Pandesal</h3>
+<p>₱30</p>
+<button onclick="addToCart('Classic Pandesal',30)">Add</button>
+</div>
 
-  <div class="card">
-    <h3>Pan de Coco</h3>
-    <p>₱35</p>
-    <button onclick="addToCart('Pan de Coco',35)">Add</button>
-  </div>
+<div class="card">
+<h3>Pan de Coco</h3>
+<p>₱35</p>
+<button onclick="addToCart('Pan de Coco',35)">Add</button>
+</div>
 
-  <div class="card">
-    <h3>Pandesal de Coco</h3>
-    <p>₱35</p>
-    <button onclick="addToCart('Pandesal de Coco',35)">Add</button>
-  </div>
+<div class="card">
+<h3>Pandesal de Coco</h3>
+<p>₱35</p>
+<button onclick="addToCart('Pandesal de Coco',35)">Add</button>
+</div>
 
 </div>
 
-
-<!-- 🍕 PIZZA -->
+<!-- PIZZA -->
 <h2 class="section-title" id="pizza">🍕 Pizza Menu</h2>
+
 <div class="products">
 
-  <div class="card">
-    <img src="images/hawaiian-pizza.jpg" class="product-img">
-    <h3>Special Pizza</h3>
-    <p>₱299</p>
-    <button onclick="addToCart('Special Pizza',299)">Add</button>
-  </div>
+<div class="card">
+<span style="background:#5A3E2B;color:white;padding:3px 8px;border-radius:6px;font-size:12px;">
+New
+</span>
 
-  <div class="card">
-    <img src="images/cheese-brie-overload.jpg" class="product-img">
-    <h3>Cheese Brie Overload</h3>
-    <p>₱319</p>
-    <button onclick="addToCart('Cheese Brie Overload',319)">Add</button>
-  </div>
+<img src="images/hawaiian-pizza.jpg" class="product-img" alt="Special Pizza" loading="lazy">
 
-  <div class="card">
-    <img src="images/hawaiian.jpg" class="product-img">
-    <h3>Hawaiian Brie Pizza</h3>
-    <p>₱299</p>
-    <button onclick="addToCart('Hawaiian Brie Pizza',299)">Add</button>
-  </div>
+<h3>Special Pizza</h3>
+<p>₱299</p>
 
-  <div class="card">
-    <img src="images/classic-pizza.jpg" class="product-img">
-    <h3>Classic Pizza</h3>
-    <p>₱289</p>
-    <button onclick="addToCart('Classic Pizza',289)">Add</button>
-  </div>
-
-  <div class="card">
-    <img src="images/focaccia.jpg" class="product-img">
-    <h3>Focaccia Pizza</h3>
-    <p>₱309</p>
-    <button onclick="addToCart('Focaccia Pizza',309)">Add</button>
-  </div>
-
+<button onclick="addToCart('Special Pizza',299)">
+Add to Cart
+</button>
 </div>
 
+<div class="card">
+<img src="images/cheese-brie-overload.jpg" class="product-img">
+<h3>Cheese Brie Overload</h3>
+<p>₱319</p>
+<button onclick="addToCart('Cheese Brie Overload',319)">Add</button>
+</div>
 
-<!-- ☕ COFFEE -->
+<div class="card">
+    <img src="images/hawaiian.jpg" class="product-img">
+    <h3>Hawaiian Pizza</h3>
+    <img src="images/hawaiianbrie-pizza.jpg" class="product-img">
+    <h3>Hawaiian Brie Pizza</h3>
+<p>₱299</p>
+    <button onclick="addToCart('Hawaiian Pizza',299)">Add</button>
+    <button onclick="addToCart('Hawaiian Brie Pizza',299)">Add</button>
+</div>
+
+<div class="card">
+<img src="images/classic-pizza.jpg" class="product-img">
+<h3>Classic Pizza</h3>
+<p>₱289</p>
+<button onclick="addToCart('Classic Pizza',289)">Add</button>
+</div>
+
+<div class="card">
+<img src="images/focaccia.jpg" class="product-img">
+<h3>Focaccia Pizza</h3>
+<p>₱309</p>
+<button onclick="addToCart('Focaccia Pizza',309)">Add</button>
+</div>
+<!-- COFFEE -->
 <h2 class="section-title" id="coffee">☕ Coffee Menu</h2>
 <div class="products">
 
-  <div class="card">
-    <img src="images/americano.jpg" class="product-img">
-    <h3>Americano</h3>
-    <p>₱100</p>
-    <button onclick="addToCart('Americano',100)">Add</button>
-  </div>
+<div class="card">
+<img src="images/americano.jpg" class="product-img">
+<h3>Americano</h3>
+<p>₱100</p>
+<button onclick="addToCart('Americano',100)">Add</button>
+</div>
 
-  <div class="card">
-    <img src="images/latte.jpg" class="product-img">
-    <h3>Latte</h3>
-    <p>₱130</p>
-    <button onclick="addToCart('Latte',130)">Add</button>
-  </div>
+<div class="card">
+<img src="images/latte.jpg" class="product-img">
+<h3>Latte</h3>
+<p>₱130</p>
+<button onclick="addToCart('Latte',130)">Add</button>
+</div>
 
-  <div class="card">
-    <img src="images/mocha.jpg" class="product-img">
-    <h3>Mocha</h3>
-    <p>₱130</p>
-    <button onclick="addToCart('Mocha',130)">Add</button>
-  </div>
-
+<div class="card">
+<img src="images/mocha.jpg" class="product-img">
+<h3>Mocha</h3>
+<p>₱130</p>
+<button onclick="addToCart('Mocha',130)">Add</button>
 </div>
 
 </div>
-
 <!-- CART -->
-<div class="cart">
-  <h2>Your Cart</h2>
-  <div id="cartItems"></div>
-  <h3>Total: ₱<span id="total">0</span></h3>
+<div class="cart" id="cart">
+<h2>Your Cart</h2>
+<div id="cartItems"></div>
 
-  <input id="customerName" placeholder="Name">
-  <input id="customerPhone" placeholder="Phone">
+<h3>Total: ₱<span id="total">0</span></h3>
 
-  <button id="checkoutBtn">Checkout</button>
+<input type="text" id="customerName" placeholder="Full Name">
+<input type="tel" id="customerPhone" placeholder="Phone Number">
+
+<button id="checkoutBtn">Checkout via Messenger</button>
 </div>
 
 <!-- CONTACT -->
-<div class="cta">
-  <h2>Contact</h2>
-  <p>📍 West Rembo, Taguig</p>
-  <p>📞 0945 591 8913</p>
-</div>
+<div class="cta" id="visit">
+<h2>📍 Visit Us</h2>
 
-<!-- MAP -->
-<iframe
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.6847153055155!2d121.05932891185189!3d14.560013685862836!2m3!1f0!2f0!2f0!3m2!1i1024!2i768!4f13.1"
-width="100%" height="250"
-style="border:0;border-radius:10px;margin-top:15px;"
-loading="lazy">
-</iframe>
+<p><strong>Address:</strong> 31-H West Rembo, Taguig City</p>
+<p><strong>Phone:</strong> 09455918913</p>
+<p><strong>Tel:</strong> 02-86565869</p>
+<p><strong>Facebook:</strong> Brie Haus Bake Shop</p>
+</div>
 
 </div>
 
-<footer>© 2026 Brie Haus Bakery</footer>
+<footer>© 2026 Brie Haus Bake Shop</footer>
 
 <script>
 let cart = [];
 
-function addToCart(name, price, image="") {
-  cart.push({name, price, image});
-  renderCart();
+/* =========================
+  PRODUCT DATA
+========================= */
+const products = [
+{
+name: "Cheese Brie Overload",
+price: 319,
+image: "images/cheese-brie-overload.jpg"
+},
+{
+name: "Hawaiian Pizza",
+price: 299,
+image: "images/hawaiian.jpg"
+},
+{
+name: "Latte",
+price: 130,
+image: "images/latte.jpg"
+},
+{
+name: "Ube Bun",
+price: 45,
+image: "images/ube.jpg"
+},
+{
+name: "Cheese Roll",
+price: 35,
+image: "images/cheese.jpg"
+}
+];
+
+/* =========================
+  RENDER PRODUCTS
+========================= */
+function renderProducts() {
+const container = document.getElementById("productContainer");
+if (!container) return;
+
+container.innerHTML = "";
+
+products.forEach(p => {
+container.innerHTML += `
+     <div class="card">
+       <img src="${p.image}" class="product-img" alt="${p.name}" loading="lazy">
+       <h3>${p.name}</h3>
+       <p>₱${p.price}</p>
+       <button onclick="addToCart('${p.name}', ${p.price})">Add</button>
+     </div>
+   `;
+});
 }
 
-function renderCart() {
-  const el = document.getElementById("cartItems");
-  const totalEl = document.getElementById("total");
-
-  el.innerHTML = "";
-  let total = 0;
-
-  cart.forEach((item,i)=>{
-    total += item.price;
-    el.innerHTML += `
-      <div style="display:flex;justify-content:space-between;margin:5px 0;">
-        <span>${item.name}</span>
-        <span>₱${item.price}</span>
-      </div>
-    `;
-  });
-
-  totalEl.innerText = total;
+/* =========================
+  CART SYSTEM
+========================= */
+function addToCart(name, price){
+cart.push({name, price});
+renderCart();
 }
 
-document.getElementById("checkoutBtn").onclick = function(){
-  let msg = "Order:\n";
-  let total = 0;
+function renderCart(){
+const cartItems = document.getElementById("cartItems");
+const totalEl = document.getElementById("total");
 
-  cart.forEach(i=>{
-    total += i.price;
-    msg += i.name + " ₱" + i.price + "\n";
-  });
+cartItems.innerHTML = "";
+let total = 0;
 
-  msg += "Total: ₱" + total;
+cart.forEach((item, i) => {
+total += item.price;
 
-  window.open("https://m.me/briehaus?text=" + encodeURIComponent(msg));
+cartItems.innerHTML += `
+     <div style="display:flex;justify-content:space-between;margin:5px 0;">
+       <span>${item.name} - ₱${item.price}</span>
+       <button onclick="removeItem(${i})">X</button>
+     </div>
+   `;
+});
+
+totalEl.innerText = total;
+}
+
+function removeItem(i){
+cart.splice(i,1);
+renderCart();
+}
+
+/* =========================
+  CHECKOUT
+========================= */
+document.addEventListener("DOMContentLoaded", function(){
+
+renderProducts();
+
+const btn = document.getElementById("checkoutBtn");
+
+if(btn){
+btn.onclick = function(){
+
+const name = document.getElementById("customerName").value;
+const phone = document.getElementById("customerPhone").value;
+
+if(!name || !phone){
+alert("Please complete your details");
+return;
+}
+
+if(cart.length === 0){
+alert("Cart is empty");
+return;
+}
+
+let msg = "Hello! Order from Brie Haus Bake Shop:\n\n";
+let total = 0;
+
+cart.forEach(i=>{
+total += i.price;
+msg += `- ${i.name} ₱${i.price}\n`;
+});
+
+msg += `\nName: ${name}\nPhone: ${phone}\nTotal: ₱${total}`;
+
+window.open(
+"https://m.me/briehausbakeshop?text=" + encodeURIComponent(msg),
+"_blank"
+);
 };
+}
+
+});
 </script>
 
 </body>
