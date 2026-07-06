@@ -43,12 +43,8 @@ body {
 
 .hero img {
   max-width: 120px;
-  max-height: 120px;
-  width: auto;
-  height: auto;
   display: block;
   margin: 0 auto 10px;
-  object-fit: contain;
 }
 
 /* TITLE */
@@ -57,7 +53,7 @@ body {
   margin: 40px 0 20px;
 }
 
-/* GRID (IMPORTANT FIX) */
+/* GRID */
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -73,6 +69,7 @@ body {
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
+/* IMAGE FIX (NO STRETCH) */
 .product-img {
   width: 100%;
   height: 160px;
@@ -92,18 +89,13 @@ button {
   cursor: pointer;
 }
 
-/* CART + CTA */
-.cart,
-.cta {
+/* CART + CTA (STABLE ONLY) */
+.cart, .cta {
   background: white;
   padding: 20px;
   border-radius: 12px;
   margin-top: 25px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* FOOTER */
@@ -123,76 +115,38 @@ footer {
 
 <!-- HERO -->
 <header class="hero">
-  <img src="logo.png" alt="Logo">
+  <img src="logo.png">
   <h1>Brie Haus Bake Shop</h1>
   <p>Freshly Baked • Premium Coffee • Made With Heart</p>
 </header>
 
 <!-- ABOUT -->
-<section>
-  <h2 class="section-title">Welcome to Brie Haus</h2>
-  <p style="text-align:center;">We serve freshly baked breads, pastries, and coffee made daily.</p>
-</section>
+<h2 class="section-title">Welcome</h2>
+<p style="text-align:center;">We serve fresh bakery and coffee daily.</p>
 
-<!-- PRODUCTS (11 ITEMS RESTORED) -->
+<!-- BAKERY -->
 <h2 class="section-title">🍞 Bakery Favorites</h2>
-
 <div class="products">
 
   <div class="card">
     <img src="images/spring-in-the-city.jpg" class="product-img">
     <h3>Spring in the City</h3>
     <p>₱50</p>
-    <button onclick="addToCart('Spring in the City',50,'images/spring-in-the-city.jpg')">Add to Cart</button>
+    <button onclick="addToCart('Spring in the City',50,'images/spring-in-the-city.jpg')">Add</button>
   </div>
 
   <div class="card">
     <img src="images/ube.jpg" class="product-img">
     <h3>Ube Bun</h3>
     <p>₱45</p>
-    <button onclick="addToCart('Ube Bun',45,'images/ube.jpg')">Add to Cart</button>
+    <button onclick="addToCart('Ube Bun',45,'images/ube.jpg')">Add</button>
   </div>
 
   <div class="card">
     <img src="images/cheese.jpg" class="product-img">
     <h3>Cheese Roll</h3>
     <p>₱35</p>
-    <button onclick="addToCart('Cheese Roll',35,'images/cheese.jpg')">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <img src="images/coffee.jpg" class="product-img">
-    <h3>Coffee Bun</h3>
-    <p>₱50</p>
-    <button onclick="addToCart('Coffee Bun',50,'images/coffee.jpg')">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <img src="images/garlic.jpg" class="product-img">
-    <h3>Garlic Bread</h3>
-    <p>₱60</p>
-    <button onclick="addToCart('Garlic Bread',60,'images/garlic.jpg')">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <img src="images/pizza.jpg" class="product-img">
-    <h3>Pizza Bread</h3>
-    <p>₱55</p>
-    <button onclick="addToCart('Pizza Bread',55,'images/pizza.jpg')">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <img src="images/ham.jpg" class="product-img">
-    <h3>Ham & Cheese</h3>
-    <p>₱60</p>
-    <button onclick="addToCart('Ham & Cheese',60,'images/ham.jpg')">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <img src="images/polo.jpg" class="product-img">
-    <h3>Polo Pan</h3>
-    <p>₱40</p>
-    <button onclick="addToCart('Polo Pan',40,'images/polo.jpg')">Add to Cart</button>
+    <button onclick="addToCart('Cheese Roll',35,'images/cheese.jpg')">Add</button>
   </div>
 
 </div>
@@ -201,60 +155,44 @@ footer {
 <h2 class="section-title">🥖 Pandesal</h2>
 <div class="products">
 
-<div class="card">
-  <h3>Classic Pandesal</h3>
-  <p>₱30</p>
-  <button onclick="addToCart('Classic Pandesal',30)">Add to Cart</button>
-</div>
+  <div class="card">
+    <h3>Classic Pandesal</h3>
+    <p>₱30</p>
+    <button onclick="addToCart('Classic Pandesal',30)">Add</button>
+  </div>
 
-<div class="card">
-  <h3>Pan de Coco</h3>
-  <p>₱35</p>
-  <button onclick="addToCart('Pan de Coco',35)">Add to Cart</button>
-</div>
-
-<div class="card">
-  <h3>Pandesal de Coco</h3>
-  <p>₱35</p>
-  <button onclick="addToCart('Pandesal de Coco',35)">Add to Cart</button>
-</div>
+  <div class="card">
+    <h3>Pan de Coco</h3>
+    <p>₱35</p>
+    <button onclick="addToCart('Pan de Coco',35)">Add</button>
+  </div>
 
 </div>
 
 <!-- CART -->
 <div class="cart">
   <h2>Your Cart</h2>
-
   <div id="cartItems"></div>
-
   <h3>Total: ₱<span id="total">0</span></h3>
 
-  <h3>Customer Info</h3>
-  <input type="text" id="customerName" placeholder="Full Name">
-  <input type="tel" id="customerPhone" placeholder="Phone Number">
+  <input id="customerName" placeholder="Name">
+  <input id="customerPhone" placeholder="Phone">
 
-  <div class="checkout">
-    <button id="checkoutBtn" type="button">Checkout via Messenger</button>
-  </div>
+  <button id="checkoutBtn">Checkout</button>
 </div>
 
 <!-- CONTACT -->
 <div class="cta">
-  <h2>📍 Visit & Contact Us</h2>
-
-  <p>📍 31-H West Rembo, Taguig City</p>
-
-  <p>📞 Mobile: <a href="tel:09455918913">0945 591 8913</a></p>
-  <p>☎️ Landline: <a href="tel:0286565869">02-8656-5869</a></p>
-
-  <p>💬 Facebook: Brie Haus Bake Shop</p>
+  <h2>Contact</h2>
+  <p>📍 West Rembo, Taguig</p>
+  <p>📞 0945 591 8913</p>
 </div>
 
-<!-- MAP (FIXED) -->
+<!-- MAP -->
 <iframe
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.6847153055155!2d121.05932891185189!3d14.560013685862836!2m3!1f0!2f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c86182266eff%3A0xd4523629d890e208!2s31-H%20West%20Rembo%2C%20Taguig!5e0!3m2!1sen!2sph"
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.6847153055155!2d121.05932891185189!3d14.560013685862836!2m3!1f0!2f0!2f0!3m2!1i1024!2i768!4f13.1"
 width="100%" height="250"
-style="border:0; border-radius:10px; margin-top:15px;"
+style="border:0;border-radius:10px;margin-top:15px;"
 loading="lazy">
 </iframe>
 
@@ -265,34 +203,24 @@ loading="lazy">
 <script>
 let cart = [];
 
-function addToCart(name, price, image = "") {
-  cart.push({ name, price, image });
+function addToCart(name, price, image="") {
+  cart.push({name, price, image});
   renderCart();
 }
 
 function renderCart() {
-  const cartItems = document.getElementById("cartItems");
+  const el = document.getElementById("cartItems");
   const totalEl = document.getElementById("total");
 
-  cartItems.innerHTML = "";
+  el.innerHTML = "";
   let total = 0;
 
-  cart.forEach((item, index) => {
+  cart.forEach((item,i)=>{
     total += item.price;
-
-    cartItems.innerHTML += `
-      <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee;">
-
-        <div style="display:flex;align-items:center;gap:10px;">
-          <img src="${item.image}" style="width:45px;height:45px;border-radius:8px;object-fit:cover;">
-          <span>${item.name}</span>
-        </div>
-
-        <div>
-          ₱${item.price}
-          <button onclick="removeItem(${index})">X</button>
-        </div>
-
+    el.innerHTML += `
+      <div style="display:flex;justify-content:space-between;margin:5px 0;">
+        <span>${item.name}</span>
+        <span>₱${item.price}</span>
       </div>
     `;
   });
@@ -300,40 +228,19 @@ function renderCart() {
   totalEl.innerText = total;
 }
 
-function removeItem(index) {
-  cart.splice(index, 1);
-  renderCart();
-}
-
-function checkout() {
-  if (cart.length === 0) {
-    alert("Cart is empty");
-    return;
-  }
-
-  let message = "Hello! I want to order:\n\n";
+document.getElementById("checkoutBtn").onclick = function(){
+  let msg = "Order:\n";
   let total = 0;
 
-  cart.forEach(item => {
-    total += item.price;
-    message += "- " + item.name + " - ₱" + item.price + "\n";
+  cart.forEach(i=>{
+    total += i.price;
+    msg += i.name + " ₱" + i.price + "\n";
   });
 
-  message += "\nTotal: ₱" + total;
+  msg += "Total: ₱" + total;
 
-  const pageUsername = "briehaus"; // IMPORTANT: no space
-  const url = "https://m.me/" + pageUsername + "?text=" + encodeURIComponent(message);
-
-  window.open(url, "_blank");
-}
-
-// IMPORTANT: ensure button is connected
-document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("checkoutBtn");
-  if (btn) {
-    btn.onclick = checkout;
-  }
-});
+  window.open("https://m.me/briehaus?text=" + encodeURIComponent(msg));
+};
 </script>
 
 </body>
