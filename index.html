@@ -339,48 +339,31 @@ color: white;
 
 <div class="products">
 
-<h2 class="section-title" id="pizza">🍕 Pizza Menu</h2>
-
-<div class="products">
-
-  <!-- PIZZA -->
-<h2 class="section-title" id="pizza">🍕 Pizza Menu</h2>
-
-<div class="products">
-
-  <!-- Brie Haus Signature -->
   <div class="card">
-    <img src="images/hawaiianbrie-pizza.jpg" class="product-img" alt="Brie Haus Signature">
-
-    <span style="background:#5A3E2B;color:white;padding:4px 10px;border-radius:20px;font-size:12px;display:inline-block;margin-top:6px;">
-      ⭐ Best Seller
-    </span>
-
+    <img src="images/hawaiianbrie-pizza.jpg" class="product-img">
+    <span class="badge">⭐ Best Seller</span>
     <h3>Brie Haus Signature</h3>
     <p>Hawaiian Brie Pizza</p>
     <p>₱299</p>
     <button onclick="addToCart('Brie Haus Signature',299)">Add</button>
   </div>
 
-  <!-- Cheese Brie Overload -->
   <div class="card">
-    <img src="images/cheese-brie-overload.jpg" class="product-img" alt="Cheese Brie Overload">
+    <img src="images/cheese-brie-overload.jpg" class="product-img">
     <h3>Cheese Brie Overload</h3>
     <p>₱319</p>
     <button onclick="addToCart('Cheese Brie Overload',319)">Add</button>
   </div>
 
-  <!-- Classic Pizza -->
   <div class="card">
-    <img src="images/classic-pizza.jpg" class="product-img" alt="Classic Pizza">
+    <img src="images/classic-pizza.jpg" class="product-img">
     <h3>Classic Pizza</h3>
     <p>₱289</p>
     <button onclick="addToCart('Classic Pizza',289)">Add</button>
   </div>
 
-  <!-- Focaccia Pizza -->
   <div class="card">
-    <img src="images/focaccia.jpg" class="product-img" alt="Focaccia Pizza">
+    <img src="images/focaccia.jpg" class="product-img">
     <h3>Focaccia Pizza</h3>
     <p>₱309</p>
     <button onclick="addToCart('Focaccia Pizza',309)">Add</button>
@@ -390,60 +373,64 @@ color: white;
 
 <!-- COFFEE -->
 <h2 class="section-title" id="coffee">☕ Coffee Menu</h2>
+
 <div class="products">
 
-<div class="card">
-<img src="images/americano.jpg" class="product-img">
-<h3>Americano</h3>
-<p>₱100</p>
-<button onclick="addToCart('Americano',100)">Add</button>
+  <div class="card">
+    <img src="images/americano.jpg" class="product-img">
+    <h3>Americano</h3>
+    <p>₱100</p>
+    <button onclick="addToCart('Americano',100)">Add</button>
+  </div>
+
+  <div class="card">
+    <img src="images/latte.jpg" class="product-img">
+    <h3>Latte</h3>
+    <p>₱130</p>
+    <button onclick="addToCart('Latte',130)">Add</button>
+  </div>
+
+  <div class="card">
+    <img src="images/mocha.jpg" class="product-img">
+    <h3>Mocha</h3>
+    <p>₱130</p>
+    <button onclick="addToCart('Mocha',130)">Add</button>
+  </div>
+
 </div>
 
-<div class="card">
-<img src="images/latte.jpg" class="product-img">
-<h3>Latte</h3>
-<p>₱130</p>
-<button onclick="addToCart('Latte',130)">Add</button>
-</div>
-
-<div class="card">
-<img src="images/mocha.jpg" class="product-img">
-<h3>Mocha</h3>
-<p>₱130</p>
-<button onclick="addToCart('Mocha',130)">Add</button>
-</div>
-
-</div>
 <!-- CART -->
 <div class="cart" id="cart">
-<h2>Your Cart</h2>
-<div id="cartItems"></div>
+  <h2>Your Cart</h2>
+  <div id="cartItems"></div>
 
-<h3>Total: ₱<span id="total">0</span></h3>
+  <h3>Total: ₱<span id="total">0</span></h3>
 
-<input type="text" id="customerName" placeholder="Full Name">
-<input type="tel" id="customerPhone" placeholder="Phone Number">
+  <input type="text" id="customerName" placeholder="Full Name">
+  <input type="tel" id="customerPhone" placeholder="Phone Number">
 
-<button id="checkoutBtn">Checkout via Messenger</button>
+  <button id="checkoutBtn">Checkout via Messenger</button>
 </div>
 
 <!-- CONTACT -->
 <div class="cta" id="visit">
-<h2>📍 Visit Us</h2>
+  <h2>📍 Visit Us</h2>
 
-<p><strong>Address:</strong> 31-H West Rembo, Taguig City</p>
-<p><strong>Phone:</strong> 09455918913</p>
-<p><strong>Tel:</strong> 02-86565869</p>
-<div class="map">
+  <p><strong>Address:</strong> 31-H West Rembo, Taguig City</p>
+  <p><strong>Phone:</strong> 09455918913</p>
+  <p><strong>Tel:</strong> 02-86565869</p>
+
+ <div class="map">
   <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9214.186792794111!2d121.06161129600105!3d14.560499603423661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c861a36de715%3A0x1b06276a142a2f7b!2sWest%20Rembo%2C%20Taguig%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1783310352862!5m2!1sen!2sph"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9214.186792794111!2d121.06161129600105!3d14.560499603423661!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c861a36de715%3A0x1b06276a142a2f7b!2sWest%20Rembo%2C%20Taguig%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1783310352862!5m2!1sen!2sph"
     allowfullscreen=""
-    loading="lazy">
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin">
   </iframe>
 </div>
-<p><strong>Facebook:</strong> Brie Haus Bake Shop</p>
-</div>
 
+  <p><strong>Facebook:</strong> Brie Haus Bake Shop</p>
+</div>
 </div>
 
 <footer>© 2026 Brie Haus Bake Shop</footer>
