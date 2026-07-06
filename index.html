@@ -190,6 +190,19 @@ border: 1px solid #ddd;
 box-sizing: border-box;
 }
 
+.map {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.map iframe {
+  width: 100%;
+  height: 250px;
+  border: 0;
+  display: block;
+}
 /* FOOTER */
 footer {
 text-align: center;
@@ -376,7 +389,7 @@ Add to Cart
 <button onclick="addToCart('Focaccia Pizza',309)">Add</button>
 </div>
 </div>
-    
+
 <!-- COFFEE -->
 <h2 class="section-title" id="coffee">☕ Coffee Menu</h2>
 <div class="products">
@@ -423,6 +436,13 @@ Add to Cart
 <p><strong>Address:</strong> 31-H West Rembo, Taguig City</p>
 <p><strong>Phone:</strong> 09455918913</p>
 <p><strong>Tel:</strong> 02-86565869</p>
+<div class="map">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9214.186792794111!2d121.06161129600105!3d14.560499603423661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c861a36de715%3A0x1b06276a142a2f7b!2sWest%20Rembo%2C%20Taguig%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1783310352862!5m2!1sen!2sph"
+    allowfullscreen=""
+    loading="lazy">
+  </iframe>
+</div>
 <p><strong>Facebook:</strong> Brie Haus Bake Shop</p>
 </div>
 
@@ -434,132 +454,85 @@ Add to Cart
 let cart = [];
 
 /* =========================
-  PRODUCT DATA
+  CART FUNCTIONS
 ========================= */
 
-name: "Cheese Brie Overload",
-price: 319,
-image: "images/cheese-brie-overload.jpg"
-},
-{
-name: "Hawaiian Pizza",
-price: 299,
-image: "images/hawaiian.jpg"
-},
-{
-name: "Latte",
-price: 130,
-image: "images/latte.jpg"
-},
-{
-name: "Ube Bun",
-price: 45,
-image: "images/ube.jpg"
-},
-{
-name: "Cheese Roll",
-price: 35,
-image: "images/cheese.jpg"
-}
-];
-
-/* =========================
-  RENDER PRODUCTS
-========================= */
-
-const container = document.getElementById("productContainer");
-if (!container) return;
-
-container.innerHTML = "";
-
-products.forEach(p => {
-container.innerHTML += `
-     <div class="card">
-       <img src="${p.image}" class="product-img" alt="${p.name}" loading="lazy">
-       <h3>${p.name}</h3>
-       <p>₱${p.price}</p>
-       <button onclick="addToCart('${p.name}', ${p.price})">Add</button>
-     </div>
-   `;
-});
+function addToCart(name, price) {
+  cart.push({ name, price });
+  renderCart();
 }
 
-/* =========================
-  CART SYSTEM
-========================= */
-function addToCart(name, price){
-cart.push({name, price});
-renderCart();
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
 }
 
-function renderCart(){
-const cartItems = document.getElementById("cartItems");
-const totalEl = document.getElementById("total");
+function renderCart() {
+  const cartItems = document.getElementById("cartItems");
+  const totalEl = document.getElementById("total");
 
-cartItems.innerHTML = "";
-let total = 0;
+  cartItems.innerHTML = "";
 
-cart.forEach((item, i) => {
-total += item.price;
+  if (cart.length === 0) {
+    cartItems.innerHTML = "<p>Your cart is empty</p>";
+    totalEl.innerText = "0";
+    return;
+  }
 
-cartItems.innerHTML += `
-     <div style="display:flex;justify-content:space-between;margin:5px 0;">
-       <span>${item.name} - ₱${item.price}</span>
-       <button onclick="removeItem(${i})">X</button>
-     </div>
-   `;
-});
+  let total = 0;
 
-totalEl.innerText = total;
-}
+  cart.forEach((item, i) => {
+    total += item.price;
 
-function removeItem(i){
-cart.splice(i,1);
-renderCart();
+    cartItems.innerHTML += `
+      <div style="display:flex;justify-content:space-between;margin:5px 0;">
+        <span>${item.name} - ₱${item.price}</span>
+        <button onclick="removeItem(${i})">X</button>
+      </div>
+    `;
+  });
+
+  totalEl.innerText = total;
 }
 
 /* =========================
   CHECKOUT
 ========================= */
-document.addEventListener("DOMContentLoaded", function(){
 
-renderProducts();
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("checkoutBtn");
 
-const btn = document.getElementById("checkoutBtn");
+  btn.addEventListener("click", function () {
+    const name = document.getElementById("customerName").value;
+    const phone = document.getElementById("customerPhone").value;
 
-if(btn){
-btn.onclick = function(){
+    if (!name || !phone) {
+      alert("Please complete your details");
+      return;
+    }
 
-const name = document.getElementById("customerName").value;
-const phone = document.getElementById("customerPhone").value;
+    if (cart.length === 0) {
+      alert("Cart is empty");
+      return;
+    }
 
-if(!name || !phone){
-alert("Please complete your details");
-return;
-}
+    let msg = "Hello! Order from Brie Haus Bake Shop:\n\n";
+    let total = 0;
 
-if(cart.length === 0){
-alert("Cart is empty");
-return;
-}
+    cart.forEach(item => {
+      total += item.price;
+      msg += `- ${item.name} ₱${item.price}\n`;
+    });
 
-let msg = "Hello! Order from Brie Haus Bake Shop:\n\n";
-let total = 0;
+    msg += `\nName: ${name}\nPhone: ${phone}\nTotal: ₱${total}`;
 
-cart.forEach(i=>{
-total += i.price;
-msg += `- ${i.name} ₱${i.price}\n`;
-});
+    window.open(
+      "https://m.me/briehausbakeshop?text=" + encodeURIComponent(msg),
+      "_blank"
+    );
+  });
 
-msg += `\nName: ${name}\nPhone: ${phone}\nTotal: ₱${total}`;
-
-window.open(
-"https://m.me/briehausbakeshop?text=" + encodeURIComponent(msg),
-"_blank"
-);
-};
-}
-
+  renderCart();
 });
 </script>
 
