@@ -137,8 +137,7 @@ footer {
   <img src="images/spring-in-the-city.jpg" class="product-img">
   <h3>Spring in the City</h3>
   <p>₱50</p>
-  <button onclick="addToCart('Spring in the City',50)">Add to Cart</button>
-</div>
+ <button onclick="addToCart('Spring in the City',50,'images/spring-in-the-city.jpg')">Add to Cart</button>
 
 <div class="card">
   <img src="images/ube.jpg" class="product-img">
@@ -259,8 +258,8 @@ loading="lazy">
 <script>
 let cart = [];
 
-function addToCart(name, price) {
-  cart.push({ name, price });
+function addToCart(name, price, image = "") {
+  cart.push({ name, price, image });
   renderCart();
 }
 
