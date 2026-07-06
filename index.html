@@ -148,6 +148,9 @@ body {
   text-align: center;
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
+.card button {
+  width: 100%;
+}
 
 /* IMAGE */
 .product-img {
@@ -176,6 +179,9 @@ button {
   border-radius: 12px;
   margin-top: 25px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+.cta {
+  text-align: center;
 }
 
 /* INPUT */
@@ -238,63 +244,62 @@ footer {
 <div class="products">
 
   <div class="card">
-    <img src="images/spring.jpg" class="product-img">
+    <img src="images/spring-in-the-city.jpg" class="product-img">
     <h3>Spring in the City</h3>
     <p>₱50</p>
     <button onclick="addToCart('Spring in the City',50)">Add</button>
   </div>
 
-  <div class="card">
-    <img src="images/ube.jpg" class="product-img">
+<div class="card">
+    <img src="images/ube-bun.jpg" class="product-img">
     <h3>Ube Bun</h3>
     <p>₱45</p>
-    <button onclick="addToCart('Ube Bun',45)">Add</button>
+    <button onclick="addToCart('Ube Bun',45)">Add to Cart</button>
   </div>
 
   <div class="card">
-    <img src="images/cheese.jpg" class="product-img">
+    <img src="images/cheese-roll.jpg" class="product-img">
     <h3>Cheese Roll</h3>
     <p>₱35</p>
-    <button onclick="addToCart('Cheese Roll',35)">Add</button>
+    <button onclick="addToCart('Cheese Roll',35)">Add to Cart</button>
   </div>
 
   <div class="card">
-    <img src="images/coffee.jpg" class="product-img">
+    <img src="images/coffee-bun.jpg" class="product-img">
     <h3>Coffee Bun</h3>
     <p>₱50</p>
-    <button onclick="addToCart('Coffee Bun',50)">Add</button>
+    <button onclick="addToCart('Coffee Bun',50)">Add to Cart</button>
   </div>
 
   <div class="card">
-    <img src="images/garlic.jpg" class="product-img">
+    <img src="images/garlic-bread.jpg" class="product-img">
     <h3>Garlic Bread</h3>
     <p>₱60</p>
-    <button onclick="addToCart('Garlic Bread',60)">Add</button>
+    <button onclick="addToCart('Garlic Bread',60)">Add to Cart</button>
   </div>
 
   <div class="card">
-    <img src="images/pizza.jpg" class="product-img">
+    <img src="images/pizza-bread.jpg" class="product-img">
     <h3>Pizza Bread</h3>
     <p>₱55</p>
-    <button onclick="addToCart('Pizza Bread',55)">Add</button>
+    <button onclick="addToCart('Pizza Bread',55)">Add to Cart</button>
   </div>
 
   <div class="card">
-    <img src="images/ham.jpg" class="product-img">
+    <img src="images/ham-cheese.jpg" class="product-img">
     <h3>Ham & Cheese</h3>
     <p>₱60</p>
-    <button onclick="addToCart('Ham & Cheese',60)">Add</button>
+    <button onclick="addToCart('Ham & Cheese',60)">Add to Cart</button>
   </div>
 
   <div class="card">
-    <img src="images/polo.jpg" class="product-img">
+    <img src="images/polo-pan.jpg" class="product-img">
     <h3>Polo Pan</h3>
     <p>₱40</p>
-    <button onclick="addToCart('Polo Pan',40)">Add</button>
+    <button onclick="addToCart('Polo Pan',40)">Add to Cart</button>
   </div>
 
 </div>
-
 <!-- PANDESAL -->
 <h2 class="section-title">🥖 Pandesal</h2>
 <div class="products">
@@ -329,14 +334,10 @@ footer {
       New
     </span>
 
-    <img src="images/hawaiian-pizza.jpg" class="product-img" alt="Special Pizza" loading="lazy">
-
+    <img src="images/hawaiian-pizza.jpg" class="product-img">
     <h3>Special Pizza</h3>
     <p>₱299</p>
-
-    <button onclick="addToCart('Special Pizza',299)">
-      Add to Cart
-    </button>
+    <button onclick="addToCart('Special Pizza',299)">Add to Cart</button>
   </div>
 
   <div class="card">
@@ -347,16 +348,18 @@ footer {
   </div>
 
   <div class="card">
-    <img src="images/hawaiian-pizza.jpg" class="product-img">
-    <h3>Hawaiian Pizza</h3>
+    <img src="images/hawaiian.jpg" class="product-img">
+    <h3>Hawaiian Brie Pizza</h3>
     <p>₱299</p>
-    <button onclick="addToCart('Hawaiian Pizza',299)">Add</button>
+    <button onclick="addToCart('Hawaiian Pizza',299)">Add to Cart</button>
   </div>
-<div class="card">
+
+  <div class="card">
   <img src="images/hawaiian.jpg" class="product-img">
   <h3>Hawaiian Brie Pizza</h3>
   <p>₱299</p>
   <button onclick="addToCart('Hawaiian Pizza',299)">Add to Cart</button>
+</div>
 
   <div class="card">
     <img src="images/classic-pizza.jpg" class="product-img">
@@ -366,12 +369,13 @@ footer {
   </div>
 
   <div class="card">
-  <img src="images/focaccia.jpg" class="product-img">
-  <h3>Focaccia Pizza</h3>
-  <p>₱309</p>
-  <button onclick="addToCart('Focaccia Pizza',309)">Add</button>
-</div>
+    <img src="images/focaccia.jpg" class="product-img">
+    <h3>Focaccia Pizza</h3>
+    <p>₱309</p>
+    <button onclick="addToCart('Focaccia Pizza',309)">Add</button>
+  </div>
 
+</div>
 </div> <!-- THIS FIXES THE GRID -->
 
 <h2 class="section-title" id="coffee">☕ Coffee Menu</h2>
@@ -435,7 +439,6 @@ footer {
 </div>
 
 <footer>© 2026 Brie Haus Bake Shop</footer>
-
 <script>
 let cart = [];
 
