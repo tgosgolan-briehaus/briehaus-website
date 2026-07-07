@@ -6,173 +6,211 @@
 <title>Brie Haus Bake Shop</title>
 
 <style>
-
-.cta,
-.cart {
-  background: #ffffff !important;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  margin-top: 30px;
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background: #F7F1E8;
+color: #5A3E2B;
 }
 
-.checkout a {
-  display: inline-block;
-  width: auto;
-  padding: 12px 25px;
-  background: #5A3E2B;
-  color: white;
-  text-decoration: none;
+.container {
+max-width: 1100px;
+margin: auto;
+padding: 20px;
+}
+
+/* NAV */
+.navbar {
+position: sticky;
+top: 0;
+z-index: 999;
+background: #F7F1E8;
+border-bottom: 1px solid #E5D5C5;
+backdrop-filter: blur(6px);
+}
+
+.nav-container {
+max-width: 1100px;
+margin: auto;
+padding: 14px 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo {
+font-weight: bold;
+font-size: 18px;
+color: #5A3E2B;
+letter-spacing: 0.5px;
+}
+
+.nav-links {
+display: flex;
+gap: 18px;
+}
+
+.nav-links a {
+text-decoration: none;
+color: #5A3E2B;
+font-weight: 500;
+position: relative;
+transition: 0.2s ease;
+padding: 4px 2px;
+}
+
+/* hover underline effect */
+.nav-links a::after {
+content: "";
+position: absolute;
+left: 0;
+bottom: -3px;
+width: 0%;
+height: 2px;
+background: #5A3E2B;
+transition: 0.2s;
+}
+
+.nav-links a:hover::after {
+width: 100%;
+}
+
+.nav-links a:hover {
+color: #7A5138;
+}
+
+/* HERO */
+.hero {
+position: relative;
+text-align: center;
+padding: 70px 20px;
+color: #fff;
+background: url("https://images.unsplash.com/photo-1509440159596-0249088772ff") center/cover;
+border-radius: 12px;
+}
+
+.hero::before {
+content: "";
+position: absolute;
+inset: 0;
+background: rgba(0,0,0,0.5);
+}
+
+.hero * {
+position: relative;
+z-index: 2;
+}
+
+.hero {
+text-align: center;
+position: relative;
+padding: 70px 20px;
+color: #fff;
+background: url("https://images.unsplash.com/photo-1509440159596-0249088772ff") center/cover;
+border-radius: 12px;
+}
+
+/* FIX LOGO ALIGNMENT */
+.hero-logo {
+max-width: 120px;
+height: auto;
+display: block;
+margin: 0 auto 10px;
+}
+
+/* FIX TEXT SPACING */
+.hero h1 {
+margin: 0;
+font-size: 48px;
+}
+
+.hero p {
+margin-top: 8px;
+font-size: 18px;
+}
+/* SECTIONS */
+.section-title {
+text-align: center;
+margin: 40px 0 20px;
+}
+
+.products {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 20px;
+}
+
+/* CARD */
+.card {
+background: white;
+border-radius: 12px;
+padding: 15px;
+text-align: center;
+box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* IMAGE */
+.product-img {
+  width: 100%;
+  height: 160px;        /* keeps your current card height system */
+  object-fit: cover;    /* prevents stretching */
+  object-position: center;
   border-radius: 10px;
-  text-align: center;
-}
-
-.map{
- width:100%;
- margin-top:15px;
- border-radius:12px;
- overflow:hidden;
-}
-
-.map iframe{
- width:100%;
- height:250px;
- border:0;
-}
-
-<style>
-
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#F7F1E8;
-  color:#5A3E2B;
-  line-height:1.6;
-}
-
-/* MAIN LAYOUT WRAPPER */
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:20px;
-}
-
-/* HERO (FIRST UPGRADE STYLE) */
-.hero{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  padding:100px 20px;
-  color:#F5E9DD;
-  background-image:url("https://images.unsplash.com/photo-1509440159596-0249088772ff");
-  background-size:cover;
-  background-position:center;
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(75,46,42,0.75);
-}
-
-.hero img,
-.hero h1,
-.hero p{
-  position:relative;
-  z-index:2;
-}
-
-.hero img{
-  width:170px;
-  margin-bottom:10px;
-}
-
-.hero h1{
-  font-size:3rem;
-  margin:10px 0;
-}
-
-.hero p{
-  font-size:1.2rem;
-}
-.section-title{
-  text-align:center;
-  margin:90px 0 40px;
-  font-size:2rem;
-  font-weight:600;
-  letter-spacing:1px;
-
-}
-
-.cta{
-  max-width:900px;
-  margin:60px auto;
-  padding:20px;
-  text-align:center;
-}
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:35px;
-  max-width:1100px;
-  margin:0 auto 90px;
-  padding:0 25px;
-}
-.card{
-  background:white;
-  padding:25px;
-  border-radius:18px;
-  text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-
+  display: block;
 }
 
 /* BUTTON */
-button{
-  background:#5A3E2B;
-  color:white;
-  border:none;
-  padding:12px;
-  width:100%;
-  border-radius:10px;
-  margin-top:10px;
-  cursor:pointer;
+button {
+width: 100%;
+margin-top: 10px;
+padding: 10px;
+border: none;
+border-radius: 8px;
+background: #5A3E2B;
+color: white;
+cursor: pointer;
 }
 
 /* CART */
-.item{
-  display:flex;
-  justify-content:space-between;
-  padding:10px;
-  border-bottom:1px solid #eee;
+.cart, .cta {
+background: white;
+padding: 20px;
+border-radius: 12px;
+margin-top: 25px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
-.remove{
-  color:red;
-  cursor:pointer;
+/* INPUT */
+input {
+width: 100%;
+padding: 12px;
+margin: 8px 0;
+border-radius: 8px;
+border: 1px solid #ddd;
+box-sizing: border-box;
 }
 
-.checkout a{
-  display:block;
-  background:#5A3E2B;
-  color:white;
-  padding:15px;
-  text-decoration:none;
-  border-radius:10px;
+.map {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
+.map iframe {
+  width: 100%;
+  height: 250px;
+  border: 0;
+  display: block;
+}
 /* FOOTER */
-footer{
-  background:#4B2E2A;
-  color:#F5E9DD;
-  text-align:center;
-  padding:20px;
-  margin-top:50px;
+footer {
+text-align: center;
+padding: 20px;
+margin-top: 40px;
+background: #4B2E2A;
+color: white;
 }
-
 </style>
 </head>
 
@@ -180,426 +218,179 @@ footer{
 
 <!-- NAV -->
 <nav class="navbar">
-
-.navbar{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:#F7F1E8;
-  border-bottom:1px solid #E5D5C5;
-}
-
-.nav-container{
-  max-width:1100px;
-  margin:auto;
-  padding:14px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo{
-  font-weight:bold;
-  font-size:18px;
-  color:#5A3E2B;
-}
-
-.nav-links{
-  display:flex;
-  gap:18px;
-}
-
-.nav-links a{
-  text-decoration:none;
-  color:#5A3E2B;
-  font-weight:500;
-}
-
-  <div class="nav-container">
-
-    <div class="logo">
-      Brie Haus
-    </div>
-
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#bakery">Bakery</a>
-      <a href="#pizza">Pizza</a>
-      <a href="#coffee">Coffee</a>
-      <a href="#cart">Cart</a>
-      <a href="#visit">Contact</a>
-    </div>
-
-  </div>
-
+<div class="nav-container">
+<div class="logo">Brie Haus</div>
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#bakery">Bakery</a>
+<a href="#pizza">Pizza</a>
+<a href="#coffee">Coffee</a>
+<a href="#cart">Cart</a>
+<a href="#visit">Contact</a>
+</div>
+</div>
 </nav>
-
 
 <div class="container">
 
-  <!-- HERO -->
-  <header class="hero" id="home">
+<header class="hero" id="home">
 
-  <!-- HERO -->
-  <header class="hero">
-    <img src="logo.png">
-    <h1>Brie Haus Bake Shop</h1>
-    <p>Freshly Baked • Premium Coffee • Made With Heart</p>
-  </header>
+<img src="logo.png" alt="Brie Haus Logo" class="hero-logo">
 
-  <!-- ABOUT -->
-  <section class="about">
-    <h1 style="text-align:center;">Welcome to BrieHaus</h1>
-    <p>We serve freshly baked breads, pastries, and coffee made daily.</p>
-  </section>
+<h1>Brie Haus Bake Shop</h1>
+<p>Freshly Baked • Premium Coffee • Made With Heart</p>
 
-  <!-- BAKERY -->
-  <h2 class="section-title">🍞 Bakery Favorites</h2>
-  <h2 class="section-title" id="bakery">
+</header>
 
-  <div class="products">
+<!-- ABOUT -->
+<section>
+<h2 class="section-title">Welcome to Brie Haus</h2>
+<p style="text-align:center;">We serve freshly baked breads, pastries, and coffee made daily.</p>
+</section>
 
-  <div class="card">
-    <h3>Spring in the City</h3>
-    <p>₱50</p>
-    <button onclick="addToCart('Spring in the City',50)">Add to Cart</button>
-  </div>
+<!-- BAKERY -->
+<h2 class="section-title" id="bakery">🍞 Bakery Favorites</h2>
+<div class="products"></div>
 
-  <div class="card">
-    <h3>Ube Buns</h3>
-    <p>₱45</p>
-    <button onclick="addToCart('Ube Buns',45)">Add to Cart</button>
-  </div>
+<!-- PANDESAL -->
+<h2 class="section-title">🥖 Pandesal</h2>
+<div class="products"></div>
+
+<!-- PIZZA -->
+<h2 class="section-title" id="pizza">🍕 Pizza Menu</h2>
+<div class="products">
 
   <div class="card">
-    <h3>Monggo Buns</h3>
-    <p>₱40</p>
-    <button onclick="addToCart('Monggo Buns',40)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>Cheese Roll</h3>
-    <p>₱35</p>
-    <button onclick="addToCart('Cheese Roll',35)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>Pizza Bread</h3>
-    <p>₱55</p>
-    <button onclick="addToCart('Pizza Bread',55)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>Hot Dog Bun</h3>
-    <p>₱50</p>
-    <button onclick="addToCart('Hot Dog Bun',50)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>Ham and Cheese Bun</h3>
-    <p>₱60</p>
-    <button onclick="addToCart('Ham and Cheese Bun',60)">Add to Cart</button>
-  </div>
-
-<div class="card">
-  <h3>Coffee Bun</h3>
-  <p>₱45</p>
-  <button onclick="addToCart('Coffee Bun',45)">Add to Cart</button>
-</div>
-
-<div class="card">
-  <h3>Garlic Bun</h3>
-  <p>₱40</p>
-  <button onclick="addToCart('Garlic Bun',40)">Add to Cart</button>
-</div>
-
-  <div class="card">
-    <h3>Spanish Bread</h3>
-    <p>₱40</p>
-    <button onclick="addToCart('Spanish Bread',40)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>Pandesal de Coco</h3>
-    <p>₱35</p>
-    <button onclick="addToCart('Pandesal de Coco',35)">Add to Cart</button>
+    <img src="images/hawaiianbrie-pizza.jpg" class="product-img">
+    <h3>Brie Haus Signature</h3>
+    <p>₱299</p>
+    <button onclick="addToCart('Brie Haus Signature',299)">Add</button>
   </div>
 
 </div>
 
-  <!-- COFFEE -->
-  <h2 class="section-title">☕ Coffee Menu</h2>
+<!-- COFFEE -->
+<h2 class="section-title" id="coffee">☕ Coffee Menu</h2>
+<div class="products"></div>
 
-  <h2 class="section-title" id="coffee">
+<!-- CART -->
+<div class="cart" id="cart">
+  <h2>Your Cart</h2>
+  <div id="cartItems"></div>
 
- <div class="products">
+  <h3>Total: ₱<span id="total">0</span></h3>
 
-  <div class="card">
-    <h3>Americano (Hot)</h3>
-    <p>₱100</p>
-    <button onclick="addToCart('Americano (Hot)',100)">Add to Cart</button>
-  </div>
-  <div class="cart" id="cart">
-  <div class="card">
-    <h3>Americano (Cold)</h3>
-    <p>₱110</p>
-    <button onclick="addToCart('Americano (Cold)',110)">Add to Cart</button>
-  </div>
+  <input type="text" id="customerName" placeholder="Full Name">
+  <input type="tel" id="customerPhone" placeholder="Phone Number">
 
-  <div class="card">
-    <h3>Latte (Hot)</h3>
-    <p>₱120</p>
-    <button onclick="addToCart('Latte (Hot)',120)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>Latte (Cold)</h3>
-    <p>₱130</p>
-    <button onclick="addToCart('Latte (Cold)',130)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>Mocha (Hot)</h3>
-    <p>₱130</p>
-    <button onclick="addToCart('Mocha (Hot)',130)">Add to Cart</button>
-  </div>
-
-  <div class="card">
-    <h3>Mocha (Cold)</h3>
-    <p>₱140</p>
-    <button onclick="addToCart('Mocha (Cold)',140)">Add to Cart</button>
-  </div>
-
-<div class="card">
-  <h3>Flat White (Hot)</h3>
-  <p>₱120</p>
-  <button onclick="addToCart('Flat White (Hot)',120)">Add to Cart</button>
+  <button id="checkoutBtn">Checkout via Messenger</button>
 </div>
 
-<div class="card">
-  <h3>Flat White (Cold)</h3>
-  <p>₱130</p>
-  <button onclick="addToCart('Flat White (Cold)',130)">Add to Cart</button>
-</div>
+<!-- VISIT US -->
+<div class="cta" id="visit">
 
-</div>
+  <h2 style="text-align:center;">📍 Visit Us</h2>
 
-  <!-- CONTACT -->
- <div class="cta">
- <div class="cta" id="visit">
-  <h2>📍 Visit Us</h2>
-  <p>31-H West Rembo, Taguig City</p>
-  <p>📞 09455918913</p>
-  <p>☎️ 02-86565869</p>
-</div>
-
-<iframe
-  src="https://www.google.com/maps/embed?pb=YOUR_EMBED_CODE_HERE"
-  width="100%"
-  height="250"
-  style="border:0; border-radius:10px; margin-top:15px;"
-  loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade">
-</iframe>
-
-  <!-- CART -->
-  <!-- CART -->
-  <div class="cart">
-    <h2>Your Cart</h2>
-
-    <div id="cartItems"></div>
-
-    <h3>Total: ₱<span id="total">0</span></h3>
-
-    <div class="checkout">
-      <a href="javascript:void(0)" onclick="checkout()">
-  Checkout via Messenger
-</a>
-    </div>
+  <div style="text-align:center;">
+    <p><strong>Address:</strong> 31-H West Rembo, Taguig City</p>
+    <p><strong>Phone:</strong> 09455918913</p>
+    <p><strong>Tel:</strong> 02-86565869</p>
+    <p><strong>Facebook:</strong> Brie Haus Bake Shop</p>
   </div>
 
-</div> <!-- container end -->
+  <div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9214.186792794111!2d121.06161129600105!3d14.560499603423661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c861a36de715%3A0x1b06276a142a2f7b!2sWest%20Rembo%2C%20Taguig%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1783310352862!5m2!1sen!2sph"></iframe>
+  </div>
 
-<!-- FOOTER -->
-<footer>
-  © 2026 Brie Haus Bakery
-</footer>
+</div>
+  <p><strong>Facebook:</strong> Brie Haus Bake Shop</p>
+</div>
+<footer>© 2026 Brie Haus Bake Shop</footer>
 
 <script>
-
 let cart = [];
 
-function addItem(name, price){
-  addToCart(name, price);
-}
-
+/* =========================
+  CART FUNCTIONS
+========================= */
 
 function addToCart(name, price) {
-
-  cart.push({
-    name: name,
-    price: price
-  });
-
+  cart.push({ name, price });
   renderCart();
-
 }
 
-
-
-function removeItem(index){
-
-  cart.splice(index,1);
-
+function removeItem(index) {
+  cart.splice(index, 1);
   renderCart();
-
 }
 
-
-
-function renderCart(){
-
+function renderCart() {
   const cartItems = document.getElementById("cartItems");
-  const total = document.getElementById("total");
-
+  const totalEl = document.getElementById("total");
 
   cartItems.innerHTML = "";
 
-
-  if(cart.length === 0){
-
+  if (cart.length === 0) {
     cartItems.innerHTML = "<p>Your cart is empty</p>";
-    total.innerText = "0";
+    totalEl.innerText = "0";
     return;
-
   }
 
+  let total = 0;
 
-  let sum = 0;
-
-
-  cart.forEach((item,index)=>{
-
-    sum += item.price;
-
+  cart.forEach((item, i) => {
+    total += item.price;
 
     cartItems.innerHTML += `
-
-    <div style="display:flex;justify-content:space-between;align-items:center;margin:8px 0">
-
-      <span>
-      ${item.name} - ₱${item.price}
-      </span>
-
-      <button onclick="removeItem(${index})" style="width:auto;">
-      ✕
-      </button>
-
-    </div>
-
+      <div style="display:flex;justify-content:space-between;margin:5px 0;">
+        <span>${item.name} - ₱${item.price}</span>
+        <button onclick="removeItem(${i})">X</button>
+      </div>
     `;
-
   });
 
-
-  total.innerText = sum;
-
+  totalEl.innerText = total;
 }
 
-function checkout(){
+/* =========================
+  CHECKOUT
+========================= */
 
-  if(cart.length === 0){
-    alert("Cart is empty");
-    return;
-  }
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("checkoutBtn");
 
-  let message="Hello! Order from Brie Haus Bake Shop:\n\n";
-  let total=0;
-
-  cart.forEach(item=>{
-    message += `- ${item.name} ₱${item.price}\n`;
-    total += item.price;
-  });
-
-  message += `\nTotal: ₱${total}`;
-
-  window.open(
-    "https://m.me/briehausbakeshop?text="+encodeURIComponent(message),
-    "_blank"
-  );
-
-}
-
-
-document.addEventListener("DOMContentLoaded",function(){
-
-
-  renderCart();
-
-
-  const checkoutBtn = document.getElementById("checkoutBtn");
-
-
-  checkoutBtn.addEventListener("click",function(){
-
-
+  btn.addEventListener("click", function () {
     const name = document.getElementById("customerName").value;
     const phone = document.getElementById("customerPhone").value;
 
-
-
-    if(!name || !phone){
-
+    if (!name || !phone) {
       alert("Please complete your details");
       return;
-
     }
 
-
-    if(cart.length === 0){
-
+    if (cart.length === 0) {
       alert("Cart is empty");
       return;
-
     }
 
-
-
-    let message =
-    "Hello! Order from Brie Haus Bake Shop:\n\n";
-
-
+    let msg = "Hello! Order from Brie Haus Bake Shop:\n\n";
     let total = 0;
 
-
-    cart.forEach(item=>{
-
-      message += `- ${item.name} ₱${item.price}\n`;
-
+    cart.forEach(item => {
       total += item.price;
-
+      msg += `- ${item.name} ₱${item.price}\n`;
     });
 
-
-
-    message += `\nName: ${name}`;
-    message += `\nPhone: ${phone}`;
-    message += `\nTotal: ₱${total}`;
-
-
+    msg += `\nName: ${name}\nPhone: ${phone}\nTotal: ₱${total}`;
 
     window.open(
-      "https://m.me/briehausbakeshop?text=" + encodeURIComponent(message),
+      "https://m.me/briehausbakeshop?text=" + encodeURIComponent(msg),
       "_blank"
     );
-
-
   });
 
-
+  renderCart();
 });
-
-
 </script>
 
 </body>
