@@ -152,56 +152,6 @@ margin: 40px 0 20px;
   min-height: 330px;
 }
 
-.product-img,
-.coming-soon {
-  width: 100%;
-  height: 160px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-.coming-soon {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#eee;
-  color:#777;
-}
-
-.card h3 {
-  min-height: 45px;
-  margin: 15px 0 5px;
-}
-
-.card p {
-  margin: 5px 0;
-}
-
-.card button {
-  margin-top:auto;
-}
-
-@media(max-width:900px){
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:500px){
-  .products{
-    grid-template-columns:1fr;
-  }
-}
-
-/* CARD */
-.card {
-background: white;
-border-radius: 12px;
-padding: 15px;
-text-align: center;
-box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-
 /* IMAGE */
 .product-img {
   width: 100%;
@@ -222,6 +172,15 @@ border-radius: 8px;
 background: #5A3E2B;
 color: white;
 cursor: pointer;
+}
+
+.coming-soon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+  color: #777;
+  font-size: 14px;
 }
 
 /* CART */
@@ -303,16 +262,107 @@ color: white;
 
 <!-- BAKERY -->
 <h2 class="section-title" id="bakery">🍞 Bakery Favorites</h2>
-<div class="products"></div>
+<div class="products">
 
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Spring in the City</h3>
+<p>₱50</p>
+<button onclick="addToCart('Spring in the City',50)">Add</button>
+</div>
+
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Ube Bun</h3>
+<p>₱60</p>
+<button onclick="addToCart('Ube Bun',60)">Add</button>
+</div>
+
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Monggo Bun</h3>
+<p>₱55</p>
+<button onclick="addToCart('Monggo Bun',55)">Add</button>
+</div>
+
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Cheese Roll</h3>
+<p>₱45</p>
+<button onclick="addToCart('Cheese Roll',45)">Add</button>
+</div>
+
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Coffee Bun</h3>
+<p>₱70</p>
+<button onclick="addToCart('Coffee Bun',70)">Add</button>
+</div>
+
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Garlic Bread</h3>
+<p>₱80</p>
+<button onclick="addToCart('Garlic Bread',80)">Add</button>
+</div>
+
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Ham & Cheese Bread</h3>
+<p>₱85</p>
+<button onclick="addToCart('Ham & Cheese Bread',85)">Add</button>
+</div>
+
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Pizza Bread</h3>
+<p>₱75</p>
+<button onclick="addToCart('Pizza Bread',75)">Add</button>
+</div>
+
+</div>
 <!-- PANDESAL -->
 <h2 class="section-title">🥖 Pandesal</h2>
-<div class="products"></div>
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Ube Pandesal</h3>
+<p>₱80 / pack</p>
+<button onclick="addToCart('Ube Pandesal',80)">Add</button>
+</div>
 
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Pandesal de Coco</h3>
+<p>₱70 / pack</p>
+<button onclick="addToCart('Pandesal de Coco',70)">Add</button>
+</div>
+
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Pan de Coco</h3>
+<p>₱75 / pack</p>
+<button onclick="addToCart('Pan de Coco',75)">Add</button>
+</div>
+
+</div>
 <!-- PIZZA -->
 <h2 class="section-title" id="pizza">🍕 Pizza Menu</h2>
 <div class="products">
 
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Brie Haus Signature</h3>
+<p>₱299</p>
+<button onclick="addToCart('Brie Haus Signature',299)">Add</button>
+</div>
+
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Classic Pizza</h3>
+<p>₱249</p>
+<button onclick="addToCart('Classic Pizza',249)">Add</button>
+</div>
+
+</div>
   <div class="card">
     <img src="images/hawaiianbrie-pizza.jpg" class="product-img">
     <h3>Brie Haus Signature</h3>
@@ -324,8 +374,37 @@ color: white;
 
 <!-- COFFEE -->
 <h2 class="section-title" id="coffee">☕ Coffee Menu</h2>
-<div class="products"></div>
+<div class="products">
 
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Americano</h3>
+<p>₱120</p>
+<button onclick="addToCart('Americano',120)">Add</button>
+</div>
+
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Cappuccino</h3>
+<p>₱145</p>
+<button onclick="addToCart('Cappuccino',145)">Add</button>
+</div>
+
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Café Latte</h3>
+<p>₱150</p>
+<button onclick="addToCart('Cafe Latte',150)">Add</button>
+</div>
+
+<div class="card">
+<div class="product-img coming-soon">Photo Coming Soon</div>
+<h3>Café Mocha</h3>
+<p>₱165</p>
+<button onclick="addToCart('Cafe Mocha',165)">Add</button>
+</div>
+
+</div>
 <!-- CART -->
 <div class="cart" id="cart">
   <h2>Your Cart</h2>
