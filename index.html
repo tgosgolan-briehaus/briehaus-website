@@ -181,6 +181,40 @@ footer{
 <!-- NAV -->
 <nav class="navbar">
 
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:#F7F1E8;
+  border-bottom:1px solid #E5D5C5;
+}
+
+.nav-container{
+  max-width:1100px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-weight:bold;
+  font-size:18px;
+  color:#5A3E2B;
+}
+
+.nav-links{
+  display:flex;
+  gap:18px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#5A3E2B;
+  font-weight:500;
+}
+
   <div class="nav-container">
 
     <div class="logo">
@@ -221,6 +255,7 @@ footer{
 
   <!-- BAKERY -->
   <h2 class="section-title">🍞 Bakery Favorites</h2>
+  <h2 class="section-title" id="bakery">
 
   <div class="products">
 
@@ -295,6 +330,8 @@ footer{
   <!-- COFFEE -->
   <h2 class="section-title">☕ Coffee Menu</h2>
 
+  <h2 class="section-title" id="coffee">
+
  <div class="products">
 
   <div class="card">
@@ -302,7 +339,7 @@ footer{
     <p>₱100</p>
     <button onclick="addToCart('Americano (Hot)',100)">Add to Cart</button>
   </div>
-
+  <div class="cart" id="cart">
   <div class="card">
     <h3>Americano (Cold)</h3>
     <p>₱110</p>
@@ -349,6 +386,7 @@ footer{
 
   <!-- CONTACT -->
  <div class="cta">
+ <div class="cta" id="visit">
   <h2>📍 Visit Us</h2>
   <p>31-H West Rembo, Taguig City</p>
   <p>📞 09455918913</p>
