@@ -150,6 +150,19 @@ text-align: center;
 box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card h3 {
+  min-height: 45px;
+}
+
+.card button {
+  margin-top: auto;
+}
+
 /* IMAGE */
 .product-img {
   width: 100%;
@@ -159,7 +172,8 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.08);
   border-radius: 10px;
   display: block;
 }
- .coming-soon {
+
+.coming-soon {
   height: 160px;
   display: flex;
   align-items: center;
@@ -238,7 +252,6 @@ color: white;
 <!-- NAV -->
 <nav class="navbar">
 <div class="nav-container">
-<div class="logo">Brie Haus</div>
 <div class="nav-links">
   <a href="#home">Home</a>
   <a href="#bakery">Bakery</a>
@@ -336,7 +349,6 @@ color: white;
 </div>
 
 <div class="card">
-<div class="card">
   <img src="ham-cheese.jpg"
        alt="Ham & Cheese Bread"
        class="product-img">
@@ -344,11 +356,6 @@ color: white;
   <h3>Ham & Cheese Bread</h3>
   <p>₱85</p>
   <button onclick="addToCart('Ham & Cheese Bread',85)">Add</button>
-</div>
-
-<h3>Ham & Cheese Bread</h3>
-<p>₱85</p>
-<button onclick="addToCart('Ham & Cheese Bread',85)">Add</button>
 </div>
 
 <div class="card">
