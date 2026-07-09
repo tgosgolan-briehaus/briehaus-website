@@ -511,3 +511,35 @@ Checkout via Messenger
 <br>
 Freshly Baked • Premium Coffee • Made With Heart
 </footer>
+  <script>
+let cart = [];
+let total = 0;
+
+function addToCart(name, price) {
+  cart.push({
+    name: name,
+    price: price
+  });
+
+  total += price;
+
+  displayCart();
+}
+
+function displayCart() {
+  const cartItems = document.getElementById("cartItems");
+  const totalDisplay = document.getElementById("total");
+
+  cartItems.innerHTML = "";
+
+  cart.forEach((item, index) => {
+    cartItems.innerHTML += `
+      <p>
+        ${item.name} - ₱${item.price}
+      </p>
+    `;
+  });
+
+  totalDisplay.textContent = total;
+}
+</script>
