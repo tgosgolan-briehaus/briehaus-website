@@ -172,10 +172,15 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 /* IMAGE */
 .product-img {
   width: 100%;
-  height: 160px;        /* keeps your current card height system */
-  object-fit: cover;    /* prevents stretching */
-  object-position: center;
+  height: 160px;
   border-radius: 10px;
+  overflow: hidden;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -469,11 +474,13 @@ color: white;
   </div>
 
   <div class="card">
-    <div class="product-img coming-soon">Photo Coming Soon</div>
-    <h3>Classic Pepperoni Pizza</h3>
-    <p>₱249</p>
-    <button onclick="addToCart('Classic Pepperoni Pizza',249)">Add</button>
+  <div class="product-img">
+    <img src="classic-peperonipizza.jpg" alt="Classic Pepperoni Pizza">
   </div>
+  <h3>Classic Pepperoni Pizza</h3>
+  <p>₱249</p>
+  <button onclick="addToCart('Classic Pepperoni Pizza',249)">Add</button>
+</div>
 
 </div>
 
