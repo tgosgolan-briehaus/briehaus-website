@@ -451,7 +451,7 @@ font-size:14px;
 
 <input type="tel" id="customerPhone" placeholder="Phone Number">
 
-<button id="checkoutBtn">
+<button type="button" id="checkoutBtn">
 Checkout via Messenger
 </button>
 
@@ -588,9 +588,9 @@ document.getElementById("checkoutBtn").addEventListener("click", function(){
 
 
   window.open(
-    "https://m.me/yourfacebookpage?text=" + message,
-    "_blank"
-  );
+   "https://m.me/briehaus?text=" + message,
+   "_blank"
+);
 
 });
 
