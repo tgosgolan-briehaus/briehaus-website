@@ -348,14 +348,6 @@ transform:scale(1.12);
 
 }
 
-.card{
-    transition:transform .25s ease, box-shadow .25s ease;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 12px 25px rgba(0,0,0,.15);
-}
 
 /* =========================
       BUTTONS
@@ -406,7 +398,10 @@ box-shadow:0 5px 15px rgba(0,0,0,.08);
 
 height:auto;
 
+min-height:0;
+
 }
+
 
 .cta {
 
@@ -414,6 +409,29 @@ text-align:center;
 
 }
 
+
+/* Cart buttons only */
+
+#cartItems button {
+
+width:40px;
+
+height:35px;
+
+padding:5px;
+
+margin:5px 3px;
+
+}
+
+
+#checkoutBtn {
+
+width:auto;
+
+padding:12px 20px;
+
+}
 
 input {
 
@@ -855,7 +873,7 @@ Add
 
 </div>
 
-  <div class="card">
+<div class="card">
 
 <div class="product-img">
 
@@ -885,13 +903,7 @@ Add
 
 <!-- END BAKERY -->
 
-
-
-</div>
-
-<!-- END BAKERY -->
-
-  <!-- =========================
+<!-- =========================
         PANDESAL
 ========================= -->
 
@@ -1231,7 +1243,6 @@ Add
 </div>
 
 <!-- END COFFEE -->
-
 <!-- =========================
              CART
 ========================= -->
