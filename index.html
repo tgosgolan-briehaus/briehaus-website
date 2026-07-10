@@ -1388,59 +1388,32 @@ function displayCart(){
 
 
 
-document
-.getElementById("checkoutBtn")
-.addEventListener("click",function(){
+document.getElementById("checkoutBtn").addEventListener("click", function () {
 
+  let name = document.getElementById("customerName").value;
+  let phone = document.getElementById("customerPhone").value;
 
-let name =
-document.getElementById("customerName").value;
+  if (cart.length === 0) {
+    alert("Your cart is empty.");
+    return;
+  }
 
+  if (name === "" || phone === "") {
+    alert("Please enter your name and phone number.");
+    return;
+  }
 
-let phone =
-document.getElementById("customerPhone").value;
-
-
-
-if(cart.length === 0){
-
-alert("Your cart is empty.");
-
-return;
-
-}
-
-
-
-if(name === "" || phone === ""){
-
-alert("Please enter your name and phone number.");
-
-return;
-
-}
-
-
-
-let message = `Hello Brie Haus! 👋
+  let message = `Hello Brie Haus! 👋
 
 I would like to place an order for the following items:
 
 `;
 
+  cart.forEach(item => {
+    message += `${item.name} x ${item.qty} = ₱${item.price * item.qty}\n`;
+  });
 
-
-cart.forEach(item=>{
-
-
-message += `${item.name} x ${item.qty} = ₱${item.price * item.qty}\n`;
-
-
-});
-
-
-
-message += `
+  message += `
 
 Total: ₱${document.getElementById("total").textContent}
 
@@ -1448,22 +1421,12 @@ Customer Name: ${name}
 
 Phone Number: ${phone}
 
-Please let me know if my order is confirmed. Thank you! 😊
-`;
+Please let me know if my order is confirmed. Thank you! 😊`;
 
-
-
-
-window.open(
-
-"https://m.me/briehaus?text=" +
-encodeURIComponent(message),
-
-"_blank"
-
-);
-
-
+  window.open(
+    "https://m.me/briehaus?text=" + encodeURIComponent(message),
+    "_blank"
+  );
 
 });
 
