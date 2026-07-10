@@ -1212,3 +1212,205 @@ Freshly Baked • Premium Coffee • Made With Heart
 
 </footer>
 
+  <script>
+
+let cart = [];
+
+
+function addToCart(name, price) {
+
+  let item = cart.find(product => product.name === name);
+
+
+  if(item){
+
+    item.qty++;
+
+  } else {
+
+    cart.push({
+
+      name:name,
+
+      price:price,
+
+      qty:1
+
+    });
+
+  }
+
+
+  displayCart();
+
+}
+
+
+
+
+
+function changeQty(index, amount){
+
+
+  cart[index].qty += amount;
+
+
+  if(cart[index].qty <= 0){
+
+    cart.splice(index,1);
+
+  }
+
+
+  displayCart();
+
+}
+
+
+
+
+
+function displayCart(){
+
+
+  const cartItems = document.getElementById("cartItems");
+
+  const totalDisplay = document.getElementById("total");
+
+
+  cartItems.innerHTML = "";
+
+
+  let total = 0;
+
+
+
+  cart.forEach((item,index)=>{
+
+
+    total += item.price * item.qty;
+
+
+
+    cartItems.innerHTML += `
+
+    <div style="margin-bottom:10px;">
+
+    <strong>${item.name}</strong>
+
+    <br>
+
+    ₱${item.price} x ${item.qty}
+
+    <br>
+
+
+    <button onclick="changeQty(${index},1)">
+    +
+    </button>
+
+
+    <button onclick="changeQty(${index},-1)">
+    -
+    </button>
+
+
+    </div>
+
+    `;
+
+
+  });
+
+
+
+  totalDisplay.textContent = total;
+
+
+}
+
+
+
+
+
+document
+.getElementById("checkoutBtn")
+.addEventListener("click",function(){
+
+
+let name =
+document.getElementById("customerName").value;
+
+
+let phone =
+document.getElementById("customerPhone").value;
+
+
+
+if(cart.length === 0){
+
+alert("Your cart is empty.");
+
+return;
+
+}
+
+
+
+if(name === "" || phone === ""){
+
+alert("Please enter your name and phone number.");
+
+return;
+
+}
+
+
+
+let message = `Hello Brie Haus!
+
+Order:
+
+`;
+
+
+
+cart.forEach(item=>{
+
+
+message += `${item.name} x ${item.qty} = ₱${item.price * item.qty}\n`;
+
+
+});
+
+
+
+message += `
+
+Total: ₱${document.getElementById("total").textContent}
+
+Name: ${name}
+
+Phone: ${phone}
+
+`;
+
+
+
+window.open(
+
+"https://m.me/briehaus?text=" +
+encodeURIComponent(message),
+
+"_blank"
+
+);
+
+
+
+});
+
+
+
+</script>
+
