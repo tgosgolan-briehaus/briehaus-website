@@ -136,11 +136,9 @@ body {
 
 /* PRODUCTS GRID */
 .products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
-  gap: 20px;
-  justify-content: center;
-  align-items: start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
 }
 
 @media (max-width: 768px) {
@@ -155,9 +153,33 @@ body {
   }
 }
 
-/* CARD */
 .card {
-  height: auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+
+.card h3 {
+    margin: 12px 0 6px;
+}
+
+.card p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #5A3E2B;
+}
+
+.card button {
+    width: 100%;
+    margin-top: 10px;
 }
 
 /* IMAGE */
@@ -268,8 +290,6 @@ font-size:14px;
 
 <div class="products">
 
-
-</div>
 
   <div class="card">
     <div class="product-img">
@@ -550,40 +570,38 @@ function displayCart() {
 
 
 // CHECKOUT
-document.getElementById("checkoutBtn").addEventListener("click", function(){
+document.getElementById("checkoutBtn").addEventListener("click", function () {
 
-  let name = document.getElementById("customerName").value;
-  let phone = document.getElementById("customerPhone").value;
+  let name = document.getElementById("customerName").value.trim();
+  let phone = document.getElementById("customerPhone").value.trim();
 
-  if(cart.length === 0){
+  if (cart.length === 0) {
     alert("Your cart is empty.");
     return;
   }
 
-  if(name === "" || phone === ""){
+  if (name === "" || phone === "") {
     alert("Please enter your name and phone number.");
     return;
   }
 
-
-  let message = "Hello Brie Haus!%0A%0AOrder:%0A";
-
+  let order = "ORDER DETAILS\n\n";
 
   cart.forEach(item => {
-    message += `${item.name} x ${item.qty} = ₱${item.price * item.qty}%0A`;
+    order += `${item.name} x ${item.qty} = ₱${item.price * item.qty}\n`;
   });
 
+  order += `\nTotal: ₱${document.getElementById("total").textContent}`;
+  order += `\nName: ${name}`;
+  order += `\nPhone: ${phone}`;
 
-  message += `%0ATotal: ₱${document.getElementById("total").textContent}`;
-  message += `%0AName: ${name}`;
-  message += `%0APhone: ${phone}`;
+  alert(
+    "Your order has been prepared.\n\n" +
+    "Copy the order below and paste it into Messenger.\n\n" +
+    order
+  );
 
-
-  window.open(
-   "https://m.me/briehaus?text=" + message,
-   "_blank"
-);
-
+  window.open("https://m.me/briehaus", "_blank");
 });
 
 </script>
