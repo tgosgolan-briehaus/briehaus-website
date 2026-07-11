@@ -700,12 +700,25 @@ document.getElementById("checkoutBtn").addEventListener("click", function() {
 
     alert("Order received! Opening Messenger...");
 
-    window.open(
-      "https://m.me/briehaus",
-      "_blank"
-    );
+    .then(() => {
 
-  })
+  alert("Order received! Opening Messenger...");
+
+  let messengerMessage = 
+  "Hello Brie Haus!%0A%0A" +
+  "Order Details:%0A" +
+  orderText.replace(/\n/g, "%0A") +
+  "%0ATotal: ₱" + total +
+  "%0AName: " + name +
+  "%0APhone: " + phone;
+
+
+  window.open(
+    "https://m.me/briehaus?text=" + messengerMessage,
+    "_blank"
+  );
+
+})
 
  .catch(error => {
 
