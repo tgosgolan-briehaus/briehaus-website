@@ -626,25 +626,24 @@ window.changeQty = function(index, amount) {
 
 function displayCart() {
 
-  const cartItems = document.getElementById("cartItems");
-  const totalDisplay = document.getElementById("total");
+  let cartItems = document.getElementById("cartItems");
+  let totalDisplay = document.getElementById("total");
 
   cartItems.innerHTML = "";
 
   let total = 0;
 
-  cart.forEach((item, index) => {
+  cart.forEach((item,index)=>{
 
     total += item.price * item.qty;
 
     cartItems.innerHTML += `
-      <div style="margin-bottom:10px;">
-        <strong>${item.name}</strong><br>
-        ₱${item.price} x ${item.qty}
-        <br>
-        <button onclick="changeQty(${index},1)">+</button>
-        <button onclick="changeQty(${index},-1)">-</button>
-      </div>
+    <div>
+    <strong>${item.name}</strong><br>
+    ₱${item.price} x ${item.qty}<br>
+    <button onclick="changeQty(${index},1)">+</button>
+    <button onclick="changeQty(${index},-1)">-</button>
+    </div>
     `;
   });
 
@@ -652,51 +651,50 @@ function displayCart() {
 }
 
 
-// CHECKOUT TO GOOGLE SHEET + MESSENGER
 
-document.getElementById("checkoutBtn").addEventListener("click", function () {
+document.getElementById("checkoutBtn").addEventListener("click",function(){
 
-  let name = document.getElementById("customerName").value.trim();
-  let phone = document.getElementById("customerPhone").value.trim();
+  let name=document.getElementById("customerName").value.trim();
+  let phone=document.getElementById("customerPhone").value.trim();
 
-  if (cart.length === 0) {
+
+  if(cart.length===0){
     alert("Your cart is empty.");
     return;
   }
 
-  if (name === "" || phone === "") {
+
+  if(name==="" || phone===""){
     alert("Please enter your name and phone number.");
     return;
   }
 
-  let orderText = "";
 
-  cart.forEach(item => {
+  let orderText="";
+
+  cart.forEach(item=>{
     orderText += `${item.name} x ${item.qty} = ₱${item.price * item.qty}\n`;
   });
 
-  let total = document.getElementById("total").textContent;
+
+  let total=document.getElementById("total").textContent;
 
 
-  let orderData = {
-    name: name,
-    phone: phone,
-    order: orderText,
-    total: "₱" + total
+  let orderData={
+    name:name,
+    phone:phone,
+    order:orderText,
+    total:"₱"+total
   };
 
 
-  fetch("https://script.google.com/macros/s/AKfycbxpJsic0ZZE81edQk5wxZQBpNRIjkKolALRSMkZgf0JLH3BZ1SXH7q0h1CIb0U6W6Fm/exec", {
-
-    method: "POST",
-    body: JSON.stringify(orderData)
-
+  fetch("https://script.google.com/macros/s/AKfycbxpJsic0ZZE81edQk5wxZQBpNRIjkKolALRSMkZgf0JLH3BZ1SXH7q0h1CIb0U6W6Fm/exec",{
+    method:"POST",
+    body:JSON.stringify(orderData)
   })
 
-  .then(() => {
-
-    alert("Order received! Opening Messenger...");
-
+  .then(()=>{
+    
     window.open(
       "https://m.me/briehaus",
       "_blank"
@@ -704,13 +702,11 @@ document.getElementById("checkoutBtn").addEventListener("click", function () {
 
   })
 
-  .catch(error => {
-
+  .catch(error=>{
     console.log(error);
-
-    alert("Order failed. Please try again.");
-
+    alert("Order failed.");
   });
+
 
 });
 
