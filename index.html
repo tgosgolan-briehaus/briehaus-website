@@ -520,11 +520,10 @@ window.addToCart = function(name, price) {
   }
 
   displayCart();
-
 };
 
 
-function changeQty(index, amount) {
+window.changeQty = function(index, amount) {
 
   cart[index].qty += amount;
 
@@ -533,7 +532,7 @@ function changeQty(index, amount) {
   }
 
   displayCart();
-}
+};
 
 
 function displayCart() {
@@ -552,19 +551,13 @@ function displayCart() {
     cartItems.innerHTML += `
       <div style="margin-bottom:10px;">
         <strong>${item.name}</strong><br>
-
         ₱${item.price} x ${item.qty}
-
         <br>
-
         <button onclick="changeQty(${index},1)">+</button>
-
         <button onclick="changeQty(${index},-1)">-</button>
-
       </div>
     `;
   });
-
 
   totalDisplay.textContent = total;
 }
@@ -572,11 +565,8 @@ function displayCart() {
 
 // CHECKOUT TO GOOGLE SHEET + MESSENGER
 
-document.getElementById("checkoutBtn").addEventListener("click", function () {
+document.getElementById("checkoutBtn").addEventListener("click", function() {
 
-  alert("Checkout button clicked");
-
- 
   let name = document.getElementById("customerName").value.trim();
   let phone = document.getElementById("customerPhone").value.trim();
 
@@ -616,7 +606,6 @@ document.getElementById("checkoutBtn").addEventListener("click", function () {
     body: JSON.stringify(orderData)
 
   })
-
   .then(() => {
 
     alert("Order received! Opening Messenger...");
@@ -627,7 +616,6 @@ document.getElementById("checkoutBtn").addEventListener("click", function () {
     );
 
   })
-
   .catch(error => {
 
     console.log(error);
@@ -636,18 +624,8 @@ document.getElementById("checkoutBtn").addEventListener("click", function () {
 
   });
 
-
 });
-  .catch(error => {
 
-    console.log(error);
-
-    alert("Order failed. Please try again.");
-
-
-
-
-});
 
 console.log("Brie Haus JS is running");
 
