@@ -680,24 +680,22 @@ document.getElementById("checkoutBtn").addEventListener("click", function() {
   let total = document.getElementById("total").textContent;
 
 
-  sheet.appendRow([
-  new Date(),
-  data.name,
-  data.phone,
-  data.order,
-  data.total,
-  "Pending"
-]);
+  let orderData = {
+    name: name,
+    phone: phone,
+    order: orderText,
+    total: "₱" + total
+  };
 
 
- alert("Order is ready to send");
-return;
+  fetch("https://script.google.com/macros/s/AKfycbxpJsic0ZZE81edQk5wxZQBpNRIjkKolALRSMkZgf0JLH3BZ1SXH7q0h1CIb0U6W6Fm/exec", {
 
     method: "POST",
 
     body: JSON.stringify(orderData)
 
   })
+
   .then(() => {
 
     alert("Order received! Opening Messenger...");
@@ -708,6 +706,7 @@ return;
     );
 
   })
+
   .catch(error => {
 
     console.log(error);
