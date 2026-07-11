@@ -694,13 +694,22 @@ document.getElementById("checkoutBtn").addEventListener("click",function(){
   })
 
   .then(()=>{
-    
-    window.open(
-      "https://m.me/briehaus",
-      "_blank"
-    );
 
-  })
+  let messengerMessage =
+  "Hello Brie Haus!%0A%0A" +
+  "My Order:%0A" +
+  orderText.replace(/\n/g,"%0A") +
+  "%0ATotal: ₱" + total +
+  "%0AName: " + name +
+  "%0APhone: " + phone;
+
+
+  window.open(
+    "https://m.me/briehaus?text=" + messengerMessage,
+    "_blank"
+  );
+
+})
 
   .catch(error=>{
     console.log(error);
