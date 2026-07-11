@@ -647,7 +647,32 @@ document.getElementById("checkoutBtn").addEventListener("click", function () {
     order
   );
 
-  window.open("https://m.me/briehaus", "_blank");
+window.open(
+      "https://m.me/briehaus",
+      "_blank"
+    );
+
+  })
+
+  .catch(error => {
+
+    console.log(error);
+
+    alert("Order failed. Please try again.");
+
+  });
+
+
+});
+  .catch(error => {
+
+    console.log(error);
+
+    alert("Order failed. Please try again.");
+
+  });
+
+
 });
 
 console.log("Brie Haus JS is running");
