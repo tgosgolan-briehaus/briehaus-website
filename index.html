@@ -505,7 +505,7 @@ Freshly Baked • Premium Coffee • Made With Heart
 <script>
 let cart = [];
 
-function addToCart(name, price) {
+window.addToCart = function(name, price) {
 
   let item = cart.find(product => product.name === name);
 
@@ -520,7 +520,8 @@ function addToCart(name, price) {
   }
 
   displayCart();
-}
+
+};
 
 
 function changeQty(index, amount) {
@@ -633,32 +634,6 @@ document.getElementById("checkoutBtn").addEventListener("click", function () {
 
     alert("Order failed. Please try again.");
 
-
-
-});
-  order += `\nTotal: ₱${document.getElementById("total").textContent}`;
-  order += `\nName: ${name}`;
-  order += `\nPhone: ${phone}`;
-
-  alert(
-    "Your order has been prepared.\n\n" +
-    "Copy the order below and paste it into Messenger.\n\n" +
-    order
-  );
-
-window.open(
-      "https://m.me/briehaus",
-      "_blank"
-    );
-
-  })
-
-  .catch(error => {
-
-    console.log(error);
-
-    alert("Order failed. Please try again.");
-
   });
 
 
@@ -669,7 +644,7 @@ window.open(
 
     alert("Order failed. Please try again.");
 
-  });
+
 
 
 });
