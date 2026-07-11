@@ -595,12 +595,14 @@ document.getElementById("checkoutBtn").addEventListener("click", function() {
   let total = document.getElementById("total").textContent;
 
 
-  let orderData = {
-    name: name,
-    phone: phone,
-    order: orderText,
-    total: "₱" + total
-  };
+  sheet.appendRow([
+  new Date(),
+  data.name,
+  data.phone,
+  data.order,
+  data.total,
+  "Pending"
+]);
 
 
   fetch("https://script.google.com/macros/s/AKfycbxpJsic0ZZE81edQk5wxZQBpNRIjkKolALRSMkZgf0JLH3BZ1SXH7q0h1CIb0U6W6Fm/exec", {
