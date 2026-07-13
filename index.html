@@ -141,20 +141,20 @@ body {
 /* PRODUCTS GRID */
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-@media (max-width: 768px) {
-  .products {
-    grid-template-columns: repeat(2, 1fr);
-  }
+@media (max-width: 992px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-@media (max-width: 480px) {
-  .products {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 576px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
 }
 
 .card {
@@ -379,15 +379,13 @@ font-size:14px;
 
 </div>
 
-  <!-- PANDESAL -->
+ <!-- PANDESAL -->
 <h2 class="section-title" id="pandesal">🥖 Pandesal</h2>
 
 <div class="products">
 
   <div class="card">
-   <div class="product-img coming-soon">
-  Photo Coming Soon
-</div>
+    <div class="product-img">
       <img src="classic-pandesal.jpg" alt="Classic Pandesal">
     </div>
     <h3>Classic Pandesal</h3>
@@ -396,9 +394,7 @@ font-size:14px;
   </div>
 
   <div class="card">
-    <div class="product-img coming-soon">
-  Photo Coming Soon
-</div>
+    <div class="product-img">
       <img src="pandesal-de-coco.jpg" alt="Pandesal de Coco">
     </div>
     <h3>Pandesal de Coco</h3>
@@ -407,9 +403,7 @@ font-size:14px;
   </div>
 
   <div class="card">
-    <div class="product-img coming-soon">
-  Photo Coming Soon
-</div>
+    <div class="product-img">
       <img src="cheese-pandesal.jpg" alt="Cheese Pandesal">
     </div>
     <h3>Cheese Pandesal</h3>
@@ -418,9 +412,7 @@ font-size:14px;
   </div>
 
   <div class="card">
-    <div class="product-img coming-soon">
-  Photo Coming Soon
-</div>
+    <div class="product-img">
       <img src="ube-pandesal.jpg" alt="Ube Pandesal">
     </div>
     <h3>Ube Pandesal</h3>
