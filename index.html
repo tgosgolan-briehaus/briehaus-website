@@ -189,7 +189,7 @@ body {
 /* PRODUCT IMAGE */
 .product-img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 200px;
   border-radius: 10px;
   overflow: hidden;
   background: #eee;
@@ -202,9 +202,10 @@ body {
   display: block;
 }
 
-/* Tablet */
-@media (max-width: 768px) {
+/* Mobile */
+@media (max-width: 576px) {
   .product-img {
+    height: 100%;
     aspect-ratio: 1 / 1;
   }
 }
