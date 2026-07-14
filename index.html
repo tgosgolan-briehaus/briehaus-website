@@ -831,16 +831,16 @@ document.getElementById("checkoutBtn").addEventListener("click",function(){
   .then(()=>{
 
   let messengerMessage =
-  "Hello Brie Haus!%0A%0A" +
-  "My Order:%0A" +
-  orderText.replace(/\n/g,"%0A") +
-  "%0ATotal: ₱" + total +
-  "%0AName: " + name +
-  "%0APhone: " + phone;
+  "Hello Brie Haus!\n\n" +
+  "My Order:\n" +
+  orderText +
+  "\nTotal: ₱" + total +
+  "\nName: " + name +
+  "\nPhone: " + phone;
 
 
   window.open(
-    "https://m.me/briehaus?text=" + messengerMessage,
+    "https://m.me/briehaus",
     "_blank"
   );
 
