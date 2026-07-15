@@ -911,20 +911,22 @@ document.getElementById("checkoutBtn").addEventListener("click",function(){
   .then(()=>{
 
   let messengerMessage =
-  "Hello Brie Haus!\n\n" +
-  "My Order:\n" +
-  orderText +
-  "\nTotal: ₱" + total +
-  "\nName: " + name +
-  "\nPhone: " + phone;
+"Hello Brie Haus!\n\n" +
+"My Order:\n" +
+orderText +
+"\nTotal: ₱" + total +
+"\nName: " + name +
+"\nPhone: " + phone;
 
 
-  window.open(
-    "https://m.me/briehaus",
-    "_blank"
-  );
+let messengerURL =
+"https://m.me/briehaus?text=" + encodeURIComponent(messengerMessage);
 
-})
+
+window.open(
+  messengerURL,
+  "_blank"
+);
 
   .catch(error=>{
     console.log(error);
