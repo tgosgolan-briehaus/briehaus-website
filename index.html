@@ -189,7 +189,7 @@ body {
 /* PRODUCT IMAGE */
 .product-img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   border-radius: 10px;
   overflow: hidden;
   background: #eee;
@@ -202,13 +202,13 @@ body {
   display: block;
 }
 
-/* Mobile */
-@media (max-width: 576px) {
+/* Tablet */
+@media (max-width: 768px) {
   .product-img {
-    height: auto;
-    aspect-ratio: 1 / 1;
+    height: 170px;
   }
 }
+
 /* Mobile */
 @media (max-width: 480px) {
   .product-img {
@@ -340,7 +340,6 @@ font-size:14px;
       <a href="#home">Home</a>
       <a href="#bakery">Bakery</a>
       <a href="#pandesal">Pandesal</a>
-      <a href="#pastries">Pastries</a>
       <a href="#pizza">Pizza</a>
       <a href="#coffee">Coffee</a>
       <a href="#cart">Cart</a>
@@ -455,235 +454,85 @@ font-size:14px;
 
 </div>
 
-<!-- PANDESAL -->
+ <!-- PANDESAL -->
 <h2 class="section-title" id="pandesal">🥖 Pandesal</h2>
 
 <div class="products">
 
   <div class="card">
     <div class="product-img">
-      <img src="classic-pandesal.jpg" alt="Classic Pandesal" loading="lazy">
+      <img src="classic-pandesal.jpg" alt="Classic Pandesal">
     </div>
     <h3>Classic Pandesal</h3>
-    <p>₱5</p>
-    <button onclick="addToCart('Classic Pandesal',5)">Add</button>
+    <p>Price Coming Soon</p>
+    <button disabled>Coming Soon</button>
   </div>
-
 
   <div class="card">
     <div class="product-img">
-      <img src="pande-coco.jpg" alt="Pan de Coco" loading="lazy">
-    </div>
-    <h3>Pan de Coco</h3>
-    <p>₱6</p>
-    <button onclick="addToCart('Pan de Coco',6)">Add</button>
-  </div>
-
-
-  <div class="card">
-    <div class="product-img">
-      <img src="cheese-pandesal.jpg" alt="Cheese Pandesal" loading="lazy">
-    </div>
-    <h3>Cheese Pandesal</h3>
-    <p>₱6</p>
-    <button onclick="addToCart('Cheese Pandesal',6)">Add</button>
-  </div>
-
-
-  <div class="card">
-    <div class="product-img">
-      <img src="ube-pandesal.jpg" alt="Ube Pandesal" loading="lazy">
-    </div>
-    <h3>Ube Pandesal</h3>
-    <p>₱6</p>
-    <button onclick="addToCart('Ube Pandesal',6)">Add</button>
-  </div>
-
-
-  <div class="card">
-    <div class="product-img coming-soon">
-      Photo Coming Soon
+      <img src="pandesal-de-coco.jpg" alt="Pandesal de Coco">
     </div>
     <h3>Pandesal de Coco</h3>
     <p>Price Coming Soon</p>
     <button disabled>Coming Soon</button>
   </div>
 
-</div>
-
-<!-- PANDESAL -->
-<h2 class="section-title" id="pandesal">🥖 Pandesal</h2>
-
-<div class="products">
-
   <div class="card">
     <div class="product-img">
-      <img src="classic-pandesal.jpg" alt="Classic Pandesal" loading="lazy">
-    </div>
-    <h3>Classic Pandesal</h3>
-    <p>₱5</p>
-    <button onclick="addToCart('Classic Pandesal',5)">Add</button>
-  </div>
-
-
-  <div class="card">
-    <div class="product-img">
-      <img src="pande-coco.jpg" alt="Pan de Coco" loading="lazy">
-    </div>
-    <h3>Pan de Coco</h3>
-    <p>₱6</p>
-    <button onclick="addToCart('Pan de Coco',6)">Add</button>
-  </div>
-
-
-  <div class="card">
-    <div class="product-img">
-      <img src="cheese-pandesal.jpg" alt="Cheese Pandesal" loading="lazy">
+      <img src="cheese-pandesal.jpg" alt="Cheese Pandesal">
     </div>
     <h3>Cheese Pandesal</h3>
-    <p>₱6</p>
-    <button onclick="addToCart('Cheese Pandesal',6)">Add</button>
+    <p>Price Coming Soon</p>
+    <button disabled>Coming Soon</button>
   </div>
-
 
   <div class="card">
     <div class="product-img">
-      <img src="ube-pandesal.jpg" alt="Ube Pandesal" loading="lazy">
+      <img src="ube-pandesal.jpg" alt="Ube Pandesal">
     </div>
     <h3>Ube Pandesal</h3>
-    <p>₱6</p>
-    <button onclick="addToCart('Ube Pandesal',6)">Add</button>
-  </div>
-
-
-  <div class="card">
-    <div class="product-img coming-soon">
-      Photo Coming Soon
-    </div>
-    <h3>Pandesal de Coco</h3>
     <p>Price Coming Soon</p>
     <button disabled>Coming Soon</button>
   </div>
 
 </div>
-<!-- END PANDESAL -->
-
-<!-- =========================
-        CAKES • COOKIES • PASTRIES
-========================= -->
-
-<h2 class="section-title" id="pastries">
-🍰 Cakes • Cookies • Pastries
-</h2>
-
-<div class="products">
-
-
-<!-- COOKIES -->
-
-<div class="card">
-  <div class="product-img coming-soon">Photo Coming Soon</div>
-  <h3>Chocolate Chip Cookies (Box of 6)</h3>
-  <p>₱280</p>
-  <button onclick="addToCart('Chocolate Chip Cookies Box of 6',280)">Add</button>
-</div>
-
-<div class="card">
-  <div class="product-img coming-soon">Photo Coming Soon</div>
-  <h3>Chocolate Chip Cookies (Box of 12)</h3>
-  <p>₱520</p>
-  <button onclick="addToCart('Chocolate Chip Cookies Box of 12',520)">Add</button>
-</div>
-
-
-<div class="card">
-  <div class="product-img coming-soon">Photo Coming Soon</div>
-  <h3>Double Chocolate Cookies (Box of 6)</h3>
-  <p>₱320</p>
-  <button onclick="addToCart('Double Chocolate Cookies Box of 6',320)">Add</button>
-</div>
-
-<div class="card">
-  <div class="product-img coming-soon">Photo Coming Soon</div>
-  <h3>Double Chocolate Cookies (Box of 12)</h3>
-  <p>₱600</p>
-  <button onclick="addToCart('Double Chocolate Cookies Box of 12',600)">Add</button>
-</div>
-
-
-<div class="card">
-  <div class="product-img coming-soon">Photo Coming Soon</div>
-  <h3>Oatmeal Raisin Cookies (Box of 6)</h3>
-  <p>₱290</p>
-  <button onclick="addToCart('Oatmeal Raisin Cookies Box of 6',290)">Add</button>
-</div>
-
-<div class="card">
-  <div class="product-img coming-soon">Photo Coming Soon</div>
-  <h3>Oatmeal Raisin Cookies (Box of 12)</h3>
-  <p>₱550</p>
-  <button onclick="addToCart('Oatmeal Raisin Cookies Box of 12',550)">Add</button>
-</div>
-
-
-<div class="card">
-  <div class="product-img coming-soon">Photo Coming Soon</div>
-  <h3>Red Velvet Cookies (Box of 6)</h3>
-  <p>₱330</p>
-  <button onclick="addToCart('Red Velvet Cookies Box of 6',330)">Add</button>
-</div>
-
-<div class="card">
-  <div class="product-img coming-soon">Photo Coming Soon</div>
-  <h3>Red Velvet Cookies (Box of 12)</h3>
-  <p>₱620</p>
-  <button onclick="addToCart('Red Velvet Cookies Box of 12',620)">Add</button>
-</div>
-
-
-</div>
-<!-- END PASTRIES -->
 
 <!-- PIZZA -->
 <h2 class="section-title" id="pizza">🍕 Pizza Menu</h2>
 
 <div class="products">
 
-  <div class="card">
-    <div class="product-img">
-      <img src="bbqchicken-pizza.jpg" alt="BBQ Chicken Pizza" loading="lazy">
-    </div>
-    <h3>BBQ Chicken Pizza</h3>
-    <p>₱349</p>
-    <button onclick="addToCart('BBQ Chicken Pizza',349)">Add</button>
-  </div>
+ <div class="card">
+  <div class="product-img coming-soon">Photo Coming Soon</div>
+  <h3>BBQ Chicken Pizza</h3>
+  <p>₱349</p>
+  <button onclick="addToCart('BBQ Chicken Pizza',349)">Add</button>
+</div>
 
   <div class="card">
-    <div class="product-img">
-      <img src="cheese-overload-pizza.jpg" alt="Cheese Overload Pizza" loading="lazy">
-    </div>
+    <div class="product-img coming-soon">Photo Coming Soon</div>
     <h3>Cheese Overload Pizza</h3>
     <p>₱329</p>
     <button onclick="addToCart('Cheese Overload Pizza',329)">Add</button>
   </div>
 
   <div class="card">
-    <div class="product-img">
-      <img src="hawaiianbrie-pizza.jpg" alt="Hawaiian Brie Pizza" loading="lazy">
-    </div>
-    <h3>Hawaiian Brie Pizza</h3>
-    <p>₱299</p>
-    <button onclick="addToCart('Hawaiian Brie Pizza',299)">Add</button>
+  <div class="product-img">
+    <img src="hawaiianbrie-pizza.jpg" alt="Hawaiian Brie Pizza">
   </div>
+  <h3>Hawaiian Brie Pizza</h3>
+  <p>₱299</p>
+  <button onclick="addToCart('Hawaiian Brie Pizza',299)">Add</button>
+</div>
 
-  <div class="card">
-    <div class="product-img">
-      <img src="classic-peperonipizza.jpg" alt="Classic Pepperoni Pizza" loading="lazy">
-    </div>
-    <h3>Classic Pepperoni Pizza</h3>
-    <p>₱249</p>
-    <button onclick="addToCart('Classic Pepperoni Pizza',249)">Add</button>
+<div class="card">
+  <div class="product-img">
+    <img src="classic-peperonipizza.jpg" alt="Classic Pepperoni Pizza">
   </div>
+  <h3>Classic Pepperoni Pizza</h3>
+  <p>₱249</p>
+  <button onclick="addToCart('Classic Pepperoni Pizza',249)">Add</button>
+</div>
 
 </div>  <!-- ADD THIS LINE -->
 
@@ -973,22 +822,20 @@ document.getElementById("checkoutBtn").addEventListener("click",function(){
   .then(()=>{
 
   let messengerMessage =
-"Hello Brie Haus!\n\n" +
-"My Order:\n" +
-orderText +
-"\nTotal: ₱" + total +
-"\nName: " + name +
-"\nPhone: " + phone;
+  "Hello Brie Haus!%0A%0A" +
+  "My Order:%0A" +
+  orderText.replace(/\n/g,"%0A") +
+  "%0ATotal: ₱" + total +
+  "%0AName: " + name +
+  "%0APhone: " + phone;
 
 
-let messengerURL =
-"https://m.me/briehaus?text=" + encodeURIComponent(messengerMessage);
+  window.open(
+    "https://m.me/briehaus?text=" + messengerMessage,
+    "_blank"
+  );
 
-
-window.open(
-  messengerURL,
-  "_blank"
-);
+})
 
   .catch(error=>{
     console.log(error);
