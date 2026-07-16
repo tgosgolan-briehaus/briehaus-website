@@ -821,16 +821,6 @@ window.addToCart = function(name, price) {
 };
 
 
-window.changeQty = function(index, amount) {
-
-  cart[index].qty += amount;
-
-  if (cart[index].qty <= 0) {
-    cart.splice(index, 1);
-  }
-
-  displayCart();
-};
 
 
 function displayCart() {
@@ -851,7 +841,8 @@ function displayCart() {
     <strong>${item.name}</strong><br>
     ₱${item.price} x ${item.qty}<br>
     <button onclick="changeQty(${index},1)">+</button>
-    <button onclick="changeQty(${index},-1)">-</button>
+<button onclick="changeQty(${index},-1)">-</button>
+<button onclick="removeItem(${index})">Remove</button>
     </div>
     `;
   });
