@@ -870,11 +870,13 @@ document.getElementById("checkoutBtn").addEventListener("click",function(){
   }
 
 
-  let orderText="";
+  let orderText = "";
 
-  cart.forEach(item=>{
-    orderText += `${item.name} x ${item.qty} = ₱${item.price * item.qty}\n`;
-  });
+cart.forEach(item=>{
+  orderText += `${item.name} x ${item.qty} = ₱${item.price * item.qty}\n`;
+});
+
+orderText = orderText.trim();
 
 
   let total=document.getElementById("total").textContent;
