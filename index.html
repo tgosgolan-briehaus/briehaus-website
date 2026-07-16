@@ -400,16 +400,26 @@ font-size:14px;
 
 
  <div class="card">
-    <div class="bh-best-seller">🔥 BEST SELLER</div>
 
-    <div class="product-img">
-        <img src="cheese-roll.jpg" alt="Cheese Roll">
-    </div>
+  <div class="bh-best-seller">🔥 BEST SELLER</div>
 
-    <h3>Cheese Roll</h3>
-    <p>₱45</p>
-    <button onclick="addToCart('Cheese Roll',45)">Add</button>
+  <div class="product-img">
+    <img src="cheese-roll.jpg" alt="Cheese Roll">
   </div>
+
+  <h3>Cheese Roll</h3>
+
+  <select class="product-option">
+    <option value="45">Single - ₱45</option>
+    <option value="285">Box of 6 - ₱285</option>
+    <option value="545">Box of 12 - ₱545</option>
+  </select>
+
+  <button onclick="addBreadProduct(this,'Cheese Roll',45)">
+    Add
+  </button>
+
+</div>
 
   <div class="card">
   <div class="bh-best-seller">🏆 Best Seller</div>
@@ -683,7 +693,7 @@ font-size:14px;
   <button onclick="addToCart('Cheese Overload Pizza',329)">Add</button>
 </div>
 
- <div class="card">
+  <div class="card">
 
   <div class="bh-best-seller">🔥 BEST SELLER</div>
 
@@ -854,6 +864,19 @@ window.addToCart = function(name, price) {
     });
   }
 
+function addBreadProduct(button, productName, singlePrice) {
+
+    const card = button.closest(".card");
+    const select = card.querySelector("select");
+
+    const selectedOption = select.options[select.selectedIndex];
+
+    const price = Number(selectedOption.value);
+    const optionText = selectedOption.text;
+
+    addToCart(`${productName} (${optionText})`, price);
+
+}
   displayCart();
 };
 
