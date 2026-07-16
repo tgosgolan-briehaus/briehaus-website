@@ -186,7 +186,7 @@ body {
     margin-top: 10px;
 }
 
-  .card select {
+.card select {
   width:100%;
   padding:10px;
   margin-top:10px;
@@ -196,28 +196,27 @@ body {
   color:#5A3E2B;
 }
 
-  /* ===== BRIE HAUS BEST SELLER BADGE ===== */
+/* ===== BRIE HAUS BEST SELLER BADGE ===== */
 
 .card{
-  position:relative;
+    position:relative;
 }
 
 .bh-best-seller{
-  position:absolute;
-  top:10px;
-  left:10px;
-  background:#D4AF37;
-  color:#fff;
-  padding:6px 10px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:bold;
-  z-index:100;
-  box-shadow:0 3px 8px rgba(0,0,0,.25);
-  user-select:none;
-  pointer-events:none;
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:#C62828;
+    color:#fff;
+    font-size:11px;
+    font-weight:bold;
+    padding:6px 12px;
+    border-radius:20px;
+    z-index:50;
+    box-shadow:0 2px 8px rgba(0,0,0,.25);
+    pointer-events:none;
+    user-select:none;
 }
-
 /* PRODUCT IMAGE */
 .product-img {
   width: 100%;
@@ -230,7 +229,6 @@ body {
   height: 100%;
   object-fit: cover;
 }
-
 /* Tablet */
 @media (max-width: 768px) {
   .product-img {
@@ -366,8 +364,6 @@ font-size:14px;
   <div class="nav-container">
     <div class="logo">Brie Haus</div>
     <div class="nav-links">
-
-
   <a href="#home">Home</a>
   <a href="#bakery">Bakery</a>
   <a href="#pandesal">Pandesal</a>
@@ -403,18 +399,19 @@ font-size:14px;
 <div class="products">
 
 
-  <div class="card">
-  <div class="bh-best-seller">🏆 Best Seller</div>
+ <div class="card">
+    <div class="bh-best-seller">🔥 BEST SELLER</div>
 
-  <div class="product-img">
-    <img src="cheese-roll.jpg" alt="Cheese Roll">
-  </div>
+    <div class="product-img">
+        <img src="cheese-roll.jpg" alt="Cheese Roll">
+    </div>
+
     <h3>Cheese Roll</h3>
     <p>₱45</p>
     <button onclick="addToCart('Cheese Roll',45)">Add</button>
   </div>
 
- <div class="card">
+  <div class="card">
   <div class="bh-best-seller">🏆 Best Seller</div>
 
   <div class="product-img">
@@ -452,7 +449,7 @@ font-size:14px;
     <button onclick="addToCart('Pizza Bread',75)">Add</button>
   </div>
 
- <div class="card">
+  <div class="card">
   <div class="bh-best-seller">🏆 Best Seller</div>
 
   <div class="product-img">
@@ -491,7 +488,6 @@ font-size:14px;
   </div>
 
 </div>
-
  <!-- PANDESAL -->
 <h2 class="section-title" id="pandesal">🥖 Pandesal</h2>
 
@@ -639,7 +635,7 @@ font-size:14px;
 <!-- RED VELVET COOKIES -->
 <div class="card">
 
- <div class="bh-best-seller">🏆 Best Seller</div>
+  <div class="bh-best-seller">🔥 Best Seller</div>
 
 <div class="product-img">
   <img src="redvelvet-cookis.jpg" alt="Red Velvet Cookies">
@@ -669,7 +665,7 @@ font-size:14px;
 
 <div class="products">
 
-<div class="card">
+ <div class="card">
   <div class="product-img">
     <img src="bbqchicken-pizza.jpg" alt="BBQ Chicken Pizza">
   </div>
@@ -716,6 +712,8 @@ font-size:14px;
 </h2>
 
 <div class="products">
+
+  <div class="products">
 
 <!-- Americano -->
 <div class="card">
@@ -770,7 +768,6 @@ font-size:14px;
 </div>
 
 <!-- END COFFEE -->
-
 
 
 <!-- CART -->
@@ -912,7 +909,6 @@ function displayCart() {
 }
 
 
-
 document.getElementById("checkoutBtn").addEventListener("click",function(){
 
   let name=document.getElementById("customerName").value.trim();
@@ -1006,7 +1002,7 @@ popup.addEventListener("click", function(){
 
 });
 
-  function addSelectedProduct(button, productName) {
+function addSelectedProduct(button, productName) {
 
     const card = button.closest(".card");
     const select = card.querySelector("select");
