@@ -821,6 +821,25 @@ window.addToCart = function(name, price) {
 };
 
 
+window.changeQty = function(index, amount) {
+
+  cart[index].qty += amount;
+
+  if (cart[index].qty <= 0) {
+    cart.splice(index, 1);
+  }
+
+  displayCart();
+};
+
+
+window.removeItem = function(index) {
+
+  cart.splice(index, 1);
+
+  displayCart();
+
+};
 
 
 function displayCart() {
@@ -837,12 +856,22 @@ function displayCart() {
     total += item.price * item.qty;
 
     cartItems.innerHTML += `
-    <div>
-    <strong>${item.name}</strong><br>
-    ₱${item.price} x ${item.qty}<br>
-    <button onclick="changeQty(${index},1)">+</button>
-<button onclick="changeQty(${index},-1)">-</button>
-<button onclick="removeItem(${index})">Remove</button>
+    <div style="margin-bottom:15px;">
+      <strong>${item.name}</strong><br>
+      ₱${item.price} x ${item.qty}<br>
+
+      <button onclick="changeQty(${index},1)">
+        +
+      </button>
+
+      <button onclick="changeQty(${index},-1)">
+        -
+      </button>
+
+      <button onclick="removeItem(${index})">
+        Remove
+      </button>
+
     </div>
     `;
   });
