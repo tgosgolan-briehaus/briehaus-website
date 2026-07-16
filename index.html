@@ -505,7 +505,7 @@ font-size:14px;
 
 </div>
 
-  <!-- =========================
+<!-- =========================
         CAKES • COOKIES • PASTRIES
 ========================= -->
 
@@ -515,9 +515,7 @@ font-size:14px;
 
 <div class="products">
 
-
 <!-- CAKE -->
-
 <div class="card">
 
   <div class="product-img coming-soon">
@@ -526,26 +524,23 @@ font-size:14px;
 
   <h3>Custom Cake</h3>
 
-  <select>
-    <option>4 inch - ₱285</option>
-    <option>6 inch - ₱450</option>
-    <option>8 inch - ₱650</option>
-    <option>10 inch - ₱850</option>
-    <option>12 inch - ₱1100</option>
+  <select class="product-option">
+    <option value="285">4 inch - ₱285</option>
+    <option value="450">6 inch - ₱450</option>
+    <option value="650">8 inch - ₱650</option>
+    <option value="850">10 inch - ₱850</option>
+    <option value="1100">12 inch - ₱1100</option>
   </select>
 
   <p>Select size above</p>
 
-  <button>
+  <button onclick="addSelectedProduct(this,'Custom Cake')">
     Add
   </button>
 
 </div>
 
-
-
-<!-- COOKIES -->
-
+<!-- CHOCOLATE CHIP COOKIES -->
 <div class="card">
 
   <div class="product-img coming-soon">
@@ -554,21 +549,20 @@ font-size:14px;
 
   <h3>Chocolate Chip Cookies</h3>
 
-  <select>
-    <option>Box of 6 - ₱280</option>
-    <option>Box of 12 - ₱520</option>
+  <select class="product-option">
+    <option value="280">Box of 6 - ₱280</option>
+    <option value="520">Box of 12 - ₱520</option>
   </select>
 
   <p>Select size above</p>
 
-  <button>
+  <button onclick="addSelectedProduct(this,'Chocolate Chip Cookies')">
     Add
   </button>
 
 </div>
 
-
-
+<!-- DOUBLE CHOCOLATE COOKIES -->
 <div class="card">
 
   <div class="product-img coming-soon">
@@ -577,21 +571,20 @@ font-size:14px;
 
   <h3>Double Chocolate Cookies</h3>
 
-  <select>
-    <option>Box of 6 - ₱320</option>
-    <option>Box of 12 - ₱600</option>
+  <select class="product-option">
+    <option value="320">Box of 6 - ₱320</option>
+    <option value="600">Box of 12 - ₱600</option>
   </select>
 
   <p>Select size above</p>
 
-  <button>
+  <button onclick="addSelectedProduct(this,'Double Chocolate Cookies')">
     Add
   </button>
 
 </div>
 
-
-
+<!-- OATMEAL RAISIN COOKIES -->
 <div class="card">
 
   <div class="product-img coming-soon">
@@ -600,21 +593,20 @@ font-size:14px;
 
   <h3>Oatmeal Raisin Cookies</h3>
 
-  <select>
-    <option>Box of 6 - ₱290</option>
-    <option>Box of 12 - ₱550</option>
+  <select class="product-option">
+    <option value="290">Box of 6 - ₱290</option>
+    <option value="550">Box of 12 - ₱550</option>
   </select>
 
   <p>Select size above</p>
 
-  <button>
+  <button onclick="addSelectedProduct(this,'Oatmeal Raisin Cookies')">
     Add
   </button>
 
 </div>
 
-
-
+<!-- RED VELVET COOKIES -->
 <div class="card">
 
   <div class="product-img coming-soon">
@@ -623,19 +615,18 @@ font-size:14px;
 
   <h3>Red Velvet Cookies</h3>
 
-  <select>
-    <option>Box of 6 - ₱330</option>
-    <option>Box of 12 - ₱620</option>
+  <select class="product-option">
+    <option value="330">Box of 6 - ₱330</option>
+    <option value="620">Box of 12 - ₱620</option>
   </select>
 
   <p>Select size above</p>
 
-  <button>
+  <button onclick="addSelectedProduct(this,'Red Velvet Cookies')">
     Add
   </button>
 
 </div>
-
 
 </div>
 
@@ -960,6 +951,19 @@ popup.addEventListener("click", function(){
   popup.classList.remove("show");
 
 });
+
+  function addSelectedProduct(button, productName) {
+
+    const card = button.closest(".card");
+    const select = card.querySelector("select");
+
+    const selectedOption = select.options[select.selectedIndex];
+
+    const price = Number(selectedOption.value);
+    const optionText = selectedOption.text;
+
+    addToCart(`${productName} (${optionText})`, price);
+}
 </script>
 
 </body>
