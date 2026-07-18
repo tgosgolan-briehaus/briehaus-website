@@ -940,21 +940,56 @@ font-size:14px;
   <div class="product-img">
     <img src="bbqchicken-pizza.jpg" alt="BBQ Chicken Pizza">
   </div>
+  <!-- BBQ CHICKEN PIZZA -->
+<div class="card">
+
+  <div class="product-img">
+    <img src="bbqchicken-pizza.jpg" alt="BBQ Chicken Pizza">
+  </div>
+
   <h3>BBQ Chicken Pizza</h3>
-  <p>₱349</p>
-  <button onclick="addToCart('BBQ Chicken Pizza',349)">Add</button>
+
+  <select class="product-option">
+    <option value="249">Small - ₱249</option>
+    <option value="349">Medium - ₱349</option>
+    <option value="499">Large - ₱499</option>
+  </select>
+
+  <p>Select size above</p>
+
+  <button onclick="addSelectedProduct(this,'BBQ Chicken Pizza')">
+    Add
+  </button>
+
 </div>
 
-  <div class="card">
+
+<!-- CHEESE OVERLOAD PIZZA -->
+<div class="card">
+
   <div class="product-img">
     <img src="cheese-overload-pizza.jpg" alt="Cheese Overload Pizza">
   </div>
+
   <h3>Cheese Overload Pizza</h3>
-  <p>₱329</p>
-  <button onclick="addToCart('Cheese Overload Pizza',329)">Add</button>
+
+  <select class="product-option">
+    <option value="229">Small - ₱229</option>
+    <option value="329">Medium - ₱329</option>
+    <option value="479">Large - ₱479</option>
+  </select>
+
+  <p>Select size above</p>
+
+  <button onclick="addSelectedProduct(this,'Cheese Overload Pizza')">
+    Add
+  </button>
+
 </div>
 
-  <div class="card">
+
+<!-- HAWAIIAN BRIE PIZZA -->
+<div class="card">
 
   <div class="bh-best-seller">🔥 BEST SELLER</div>
 
@@ -963,11 +998,23 @@ font-size:14px;
   </div>
 
   <h3>Hawaiian Brie Pizza</h3>
-  <p>₱299</p>
-  <button onclick="addToCart('Hawaiian Brie Pizza',299)">Add</button>
+
+  <select class="product-option">
+    <option value="199">Small - ₱199</option>
+    <option value="299">Medium - ₱299</option>
+    <option value="449">Large - ₱449</option>
+  </select>
+
+  <p>Select size above</p>
+
+  <button onclick="addSelectedProduct(this,'Hawaiian Brie Pizza')">
+    Add
+  </button>
 
 </div>
 
+
+<!-- CLASSIC PEPPERONI PIZZA -->
 <div class="card">
 
   <div class="bh-best-seller">🔥 BEST SELLER</div>
@@ -977,8 +1024,18 @@ font-size:14px;
   </div>
 
   <h3>Classic Pepperoni Pizza</h3>
-  <p>₱249</p>
-  <button onclick="addToCart('Classic Pepperoni Pizza',249)">Add</button>
+
+  <select class="product-option">
+    <option value="249">Small - ₱249</option>
+    <option value="349">Medium - ₱349</option>
+    <option value="499">Large - ₱499</option>
+  </select>
+
+  <p>Select size above</p>
+
+  <button onclick="addSelectedProduct(this,'Classic Pepperoni Pizza')">
+    Add
+  </button>
 
 </div>
 
