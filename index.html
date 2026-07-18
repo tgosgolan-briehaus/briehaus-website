@@ -1002,19 +1002,6 @@ window.addToCart = function(name, price) {
     });
   }
 
-function addBreadProduct(button, productName, singlePrice) {
-
-    const card = button.closest(".card");
-    const select = card.querySelector("select");
-
-    const selectedOption = select.options[select.selectedIndex];
-
-    const price = Number(selectedOption.value);
-    const optionText = selectedOption.text;
-
-    addToCart(`${productName} (${optionText})`, price);
-
-}
   displayCart();
 };
 
@@ -1183,7 +1170,8 @@ function addSelectedProduct(button, productName) {
 
     addToCart(`${productName} (${optionText})`, price);
 }
-  function addBreadProduct(button, productName, singlePrice) {
+
+function addBreadProduct(button, productName, singlePrice) {
 
   const card = button.closest(".card");
   const select = card.querySelector("select");
@@ -1200,3 +1188,4 @@ function addSelectedProduct(button, productName) {
 
 </body>
 </html>
+
