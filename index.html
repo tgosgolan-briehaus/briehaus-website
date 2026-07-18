@@ -354,6 +354,24 @@ font-size:14px;
   object-fit:cover;
   display:block;
 }
+
+.cakes-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px;
+}
+
+@media (max-width: 992px) {
+    .cakes-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .cakes-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
 </style>
 </head>
 
@@ -835,7 +853,7 @@ font-size:14px;
 <!-- LEMON LOAF CAKE -->
 <div class="card">
 
-  <div class="product-img">
+  <div class="products cakes-grid">
     <img src="lemon-loaf-cake.jpg" alt="Lemon Loaf Cake" loading="lazy">
   </div>
 
