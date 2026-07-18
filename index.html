@@ -84,14 +84,6 @@ body {
 }
 
 /* HERO */
-.hero {
-  position: relative;
-  text-align: center;
-  padding: 70px 20px;
-  color: #fff;
-  background: url("https://images.unsplash.com/photo-1509440159596-0249088772ff") center/cover;
-  border-radius: 12px;
-}
 
 .hero::before {
   content: "";
@@ -354,7 +346,8 @@ font-size:14px;
 .product-img img {
   cursor: pointer;
 }
-  .product-img img {
+
+.product-img img {
   width:100%;
   height:100%;
   object-fit:cover;
@@ -689,12 +682,11 @@ font-size:14px;
         CAKES • COOKIES • PASTRIES
 ========================= -->
 
-</div>
-
-<!-- LOAF CAKES START HERE -->
+<h2 class="section-title" id="pastries">
+🍰 Cakes • Cookies • Pastries
+</h2>
 
 <div class="products">
-
 <!-- CAKE -->
 <div class="card">
 
@@ -792,7 +784,7 @@ font-size:14px;
   <div class="bh-best-seller">🔥 Best Seller</div>
 
   <div class="product-img">
-    <img src="redvelvet-cookis.jpg" alt="Red Velvet Cookies">
+    <img src="redvelvet-cookies.jpg" alt="Red Velvet Cookies">
   </div>
 
   <h3>Red Velvet Cookies</h3>
@@ -811,7 +803,7 @@ font-size:14px;
 </div>
 
 
-  <!-- LOAF CAKES START HERE -->
+<!-- LOAF CAKES START HERE -->
 
 <!-- BANANA BREAD CAKE -->
 <div class="card">
@@ -915,7 +907,6 @@ font-size:14px;
   </button>
 
 </div>
-
 <!-- END PASTRIES -->
 
 <!-- PIZZA -->
@@ -1214,9 +1205,12 @@ orderText = orderText.trim();
 
 
   fetch("https://script.google.com/macros/s/AKfycbxpJsic0ZZE81edQk5wxZQBpNRIjkKolALRSMkZgf0JLH3BZ1SXH7q0h1CIb0U6W6Fm/exec",{
-    method:"POST",
-    body:JSON.stringify(orderData)
-  })
+  method:"POST",
+  headers:{
+    "Content-Type":"application/json"
+  },
+  body:JSON.stringify(orderData)
+})
 
   .then(()=>{
 
@@ -1298,4 +1292,3 @@ function addBreadProduct(button, productName, singlePrice) {
 
 </body>
 </html>
-
