@@ -1351,6 +1351,68 @@ function addBreadProduct(button, productName, singlePrice) {
   addToCart(productName + " (" + optionText + ")", price);
 
 }
+
+
+// LOAD PRICES FROM GOOGLE SHEET ✅ PUT HERE
+
+const pricingAPI = "YOUR_GOOGLE_SCRIPT_URL_HERE";
+
+
+fetch(pricingAPI)
+.then(response => response.json())
+.then(products => {
+
+    products.forEach(product => {
+
+        const dropdownID = product.product
+            .replaceAll(" ", "-");
+
+        const dropdown = document.getElementById(
+            dropdownID + "-options"
+        );
+
+
+        if(dropdown){
+
+            dropdown.innerHTML = "";
+
+            product.options.forEach(option => {
+
+                dropdown.innerHTML += `
+                    <option value="${option.price}">
+                        ${option.name} - ₱${option.price}
+                    </option>
+                `;
+
+            });
+
+        }
+
+    });
+
+})
+.catch(error=>{
+    console.log("Price loading error:", error);
+});
+
+<script>
+
+const pricingAPI = "https://script.googleusercontent.com/macros/echo?...";
+
+fetch(pricingAPI)
+.then(response => response.json())
+.then(products => {
+
+    console.log("Google Sheet pricing loaded:");
+    console.log(products);
+
+})
+.catch(error => {
+
+    console.log("Pricing loading error:", error);
+
+});
+
 </script>
 
 </body>
