@@ -427,13 +427,15 @@ font-size:14px;
 
   <h3>Cheese Roll</h3>
 
-  <select>
-    <option value="45">Single - ₱45</option>
-    <option value="285">Box of 6 - ₱285</option>
-    <option value="545">Box of 12 - ₱545</option>
-  </select>
+ <select class="product-option">
+  <option value="45">Single - ₱45</option>
+  <option value="285">Box of 6 - ₱285</option>
+  <option value="545">Box of 12 - ₱545</option>
+</select>
 
-  <button onclick="addBreadProduct(this,'Cheese Roll',45)">Add</button>
+<button onclick="addSelectedProduct(this,'Cheese Roll')">
+  Add
+</button>
 
 </div>
 
@@ -1044,9 +1046,14 @@ font-size:14px;
   <div class="product-img">
     <img src="amercano-hot-cold.jpg" alt="Americano Hot and Cold">
   </div>
-  <h3>Americano</h3>
-  <p>₱120</p>
-  <button onclick="addToCart('Americano',120)">Add</button>
+ <select class="product-option">
+  <option value="120">Hot - ₱120</option>
+  <option value="130">Cold - ₱130</option>
+</select>
+
+<button onclick="addSelectedProduct(this,'Americano')">
+  Add
+</button>
 </div>
 
 
@@ -1059,11 +1066,14 @@ font-size:14px;
 
   <h3>Cappuccino</h3>
 
-  <p>₱145</p>
+ <select class="product-option">
+  <option value="145">Hot - ₱145</option>
+  <option value="155">Cold - ₱155</option>
+</select>
 
-  <button onclick="addToCart('Cappuccino',145)">
-    Add
-  </button>
+<button onclick="addSelectedProduct(this,'Cappuccino')">
+  Add
+</button>
 
 </div>
 
@@ -1074,8 +1084,14 @@ font-size:14px;
     <img src="caffeelatte-hot-cold.jpg" alt="Café Latte Hot and Cold">
   </div>
   <h3>Café Latte</h3>
-  <p>₱150</p>
-  <button onclick="addToCart('Café Latte',150)">Add</button>
+ <select class="product-option">
+  <option value="150">Hot - ₱150</option>
+  <option value="160">Cold - ₱160</option>
+</select>
+
+<button onclick="addSelectedProduct(this,'Café Latte')">
+  Add
+</button>
 </div>
 
 
@@ -1085,8 +1101,14 @@ font-size:14px;
     <img src="cafemocha-hot-cold.jpg" alt="Café Mocha Hot and Cold">
   </div>
   <h3>Café Mocha</h3>
-  <p>₱165</p>
-  <button onclick="addToCart('Café Mocha',165)">Add</button>
+  <select class="product-option">
+  <option value="165">Hot - ₱165</option>
+  <option value="175">Cold - ₱175</option>
+</select>
+
+<button onclick="addSelectedProduct(this,'Café Mocha')">
+  Add
+</button>
 </div>
 
 </div>
