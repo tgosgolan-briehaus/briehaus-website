@@ -1346,51 +1346,6 @@ function addBreadProduct(button, productName, singlePrice) {
 
 }
 
-
-// LOAD PRICES FROM GOOGLE SHEET ✅ PUT HERE
-
-const pricingAPI = "YOUR_GOOGLE_SCRIPT_URL_HERE";
-
-
-fetch(pricingAPI)
-.then(response => response.json())
-.then(products => {
-
-    products.forEach(product => {
-
-        const dropdownID = product.product
-            .replaceAll(" ", "-");
-
-        const dropdown = document.getElementById(
-            dropdownID + "-options"
-        );
-
-
-        if(dropdown){
-
-            dropdown.innerHTML = "";
-
-            product.options.forEach(option => {
-
-                dropdown.innerHTML += `
-                    <option value="${option.price}">
-                        ${option.name} - ₱${option.price}
-                    </option>
-                `;
-
-            });
-
-        }
-
-    });
-
-})
-.catch(error=>{
-    console.log("Price loading error:", error);
-});
-
-/* Google Sheet loader disabled temporarily */
-
 </script>
 
 </body>
