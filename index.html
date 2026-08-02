@@ -1457,8 +1457,10 @@ function displayCart() {
 
 document.getElementById("checkoutBtn").addEventListener("click",function(){
 
-  let name=document.getElementById("customerName").value.trim();
-  let phone=document.getElementById("customerPhone").value.trim();
+const customerName = document.getElementById("customerName").value.trim();
+const customerPhone = document.getElementById("customerPhone").value.trim();
+const customerAddress = document.getElementById("customerAddress").value.trim();
+const customerLandmark = document.getElementById("customerLandmark").value.trim();
 
 
   if(cart.length===0){
@@ -1467,17 +1469,24 @@ document.getElementById("checkoutBtn").addEventListener("click",function(){
   }
 
 
-  if(name==="" || phone===""){
-    alert("Please enter your name and phone number.");
-    return;
-  }
+ if (
+  customerName === "" ||
+  customerPhone === "" ||
+  customerAddress === ""
+) {
+  alert("Please enter your name, phone number, and complete address.");
+  return;
+}
 
 
-  let orderText = "";
-
-cart.forEach(item=>{
-  orderText += `${item.name} x ${item.qty} = ₱${item.price * item.qty}\n`;
-});
+  let orderData = {
+  name: customerName,
+  phone: customerPhone,
+  address: customerAddress,
+  landmark: customerLandmark,
+  order: orderText,
+  total: "₱" + total
+};
 
 orderText = orderText.trim();
 
@@ -1507,9 +1516,10 @@ orderText = orderText.trim();
   "Hello Brie Haus!%0A%0A" +
   "My Order:%0A" +
   orderText.replace(/\n/g,"%0A") +
-  "%0ATotal: ₱" + total +
-  "%0AName: " + name +
-  "%0APhone: " + phone;
+ "%0AName: " + customerName +
+"%0APhone: " + customerPhone +
+"%0AAddress: " + customerAddress +
+"%0ALandmark: " + customerLandmark;
 
 
   window.open(
