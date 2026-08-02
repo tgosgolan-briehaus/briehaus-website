@@ -237,14 +237,28 @@ body {
 }
 /* BUTTON */
 /* DEFAULT BUTTON (cart + checkout safe) */
-button {
-  margin-top: 10px;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  background: #5A3E2B;
-  color: white;
-  cursor: pointer;
+button{
+    width:100%;
+    margin-top:12px;
+    padding:12px 18px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#6B4226,#8B5E3C);
+    color:#fff;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:all .25s ease;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+button:active{
+    transform:scale(.98);
 }
 
 /* CART */
@@ -397,12 +411,26 @@ font-size:14px;
 <div class="container">
 
 <header class="hero" id="home">
+  <div class="hero-overlay">
+    <img src="logo.png" alt="Brie Haus Logo" class="hero-logo">
 
-  <img src="logo.png" alt="Brie Haus Logo" class="hero-logo">
+    <h1>Freshly Baked Every Day</h1>
 
-  <h1>Brie Haus Bake Shop</h1>
-  <p>Freshly Baked • Premium Coffee • Made With Heart</p>
+    <p>
+      Artisan Bread • Cakes • Pizza • Premium Coffee
+    </p>
 
+    <div class="hero-buttons">
+      <a href="#bakery" class="btn-primary">Order Now</a>
+      <a href="#bakery" class="btn-secondary">View Menu</a>
+    </div>
+
+    <div class="hero-features">
+      <span>🍞 Fresh Daily</span>
+      <span>⭐ Premium Ingredients</span>
+      <span>☕ Specialty Coffee</span>
+    </div>
+  </div>
 </header>
 
 <!-- ABOUT -->
