@@ -1381,19 +1381,25 @@ alert("JavaScript loaded");
 
 let cart = [];
 
+// ADD TO CART
 window.addToCart = function(name, price) {
+   ...
+};
 
-  let item = cart.find(product => product.name === name);
+// DISPLAY CART
+function displayCart() {
+   ...
+};
 
-  if (item) {
-    item.qty++;
-  } else {
-    cart.push({
-      name: name,
-      price: price,
-      qty: 1
-    });
-  }
+// CHECKOUT BUTTON
+document.getElementById("checkoutBtn").addEventListener("click", function(){
+   ...
+});
+
+// PRODUCT ADD BUTTON
+function addSelectedProduct(button, productName) {
+   ...
+}
 
   displayCart();
 };
