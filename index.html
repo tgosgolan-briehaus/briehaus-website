@@ -1455,90 +1455,71 @@ function displayCart() {
 }
 
 
-document.getElementById("checkoutBtn").addEventListener("click",function(){
+document.getElementById("checkoutBtn").addEventListener("click", function () {
 
-const customerName = document.getElementById("customerName").value.trim();
-const customerPhone = document.getElementById("customerPhone").value.trim();
-const customerAddress = document.getElementById("customerAddress").value.trim();
-const customerLandmark = document.getElementById("customerLandmark").value.trim();
+    const customerName = document.getElementById("customerName").value.trim();
+    const customerPhone = document.getElementById("customerPhone").value.trim();
+    const customerAddress = document.getElementById("customerAddress").value.trim();
+    const customerLandmark = document.getElementById("customerLandmark").value.trim();
 
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+    }
 
-  if(cart.length===0){
-    alert("Your cart is empty.");
-    return;
-  }
+    if (!customerName || !customerPhone || !customerAddress) {
+        alert("Please enter your name, phone number, and complete address.");
+        return;
+    }
 
+    let orderText = "";
 
- if (
-  customerName === "" ||
-  customerPhone === "" ||
-  customerAddress === ""
-) {
-  alert("Please enter your name, phone number, and complete address.");
-  return;
-}
+    cart.forEach(item => {
+        orderText += `${item.name} x${item.qty} - ₱${(item.price * item.qty).toFixed(2)}\n`;
+    });
 
+    const total = document.getElementById("total").textContent;
 
-  let orderData = {
-  name: customerName,
-  phone: customerPhone,
-  address: customerAddress,
-  landmark: customerLandmark,
-  order: orderText,
-  total: "₱" + total
-};
+    const orderData = {
+        name: customerName,
+        phone: customerPhone,
+        address: customerAddress,
+        landmark: customerLandmark,
+        order: orderText.trim(),
+        total: "₱" + total
+    };
 
-orderText = orderText.trim();
+    fetch("https://script.google.com/macros/s/AKfycbxpJsic0ZZE81edQk5wxZQBpNRIjkKolALRSMkZgf0JLH3BZ1SXH7q0h1CIb0U6W6Fm/exec", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(orderData)
+    })
+    .then(() => {
 
+        const messengerMessage =
+            "Hello Brie Haus!%0A%0A" +
+            "My Order:%0A" +
+            encodeURIComponent(orderText) +
+            "%0ATotal: ₱" + total +
+            "%0A%0AName: " + encodeURIComponent(customerName) +
+            "%0APhone: " + encodeURIComponent(customerPhone) +
+            "%0AAddress: " + encodeURIComponent(customerAddress) +
+            "%0ALandmark: " + encodeURIComponent(customerLandmark);
 
-  let total=document.getElementById("total").textContent;
+        window.open(
+            "https://m.me/briehaus?text=" + messengerMessage,
+            "_blank"
+        );
 
-
-  let orderData={
-    name:name,
-    phone:phone,
-    order:orderText,
-    total:"₱"+total
-  };
-
-
-  fetch("https://script.google.com/macros/s/AKfycbxpJsic0ZZE81edQk5wxZQBpNRIjkKolALRSMkZgf0JLH3BZ1SXH7q0h1CIb0U6W6Fm/exec",{
-  method:"POST",
-  headers:{
-    "Content-Type":"application/json"
-  },
-  body:JSON.stringify(orderData)
-})
-
-  .then(()=>{
-
-  let messengerMessage =
-  "Hello Brie Haus!%0A%0A" +
-  "My Order:%0A" +
-  orderText.replace(/\n/g,"%0A") +
- "%0AName: " + customerName +
-"%0APhone: " + customerPhone +
-"%0AAddress: " + customerAddress +
-"%0ALandmark: " + customerLandmark;
-
-
-  window.open(
-    "https://m.me/briehaus?text=" + messengerMessage,
-    "_blank"
-  );
-
-})
-
-  .catch(error=>{
-    console.log(error);
-    alert("Order failed.");
-  });
-
+    })
+    .catch(error => {
+        console.error(error);
+        alert("Order failed. Please try again.");
+    });
 
 });
-
-
-console.log("Brie Haus JS is running");
 
 const popup = document.getElementById("imagePopup");
 const popupImage = document.getElementById("popupImage");
