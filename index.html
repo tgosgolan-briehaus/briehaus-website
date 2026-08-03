@@ -1506,19 +1506,22 @@ let orderData = {
 .then(() => {
 
   let messengerMessage =
-"Hello Brie Haus!\n\n" +
-"My Order:\n" +
-orderText +
-"\nTotal: ₱" + total +
-"\nName: " + name +
-"\nPhone: " + phone +
-"\nAddress: " + address +
-"\nLandmark: " + landmark;
+  "Hello Brie Haus!\n\n" +
+  "My Order:\n" +
+  orderText +
+  "\nTotal: ₱" + total +
+  "\nName: " + name +
+  "\nPhone: " + phone +
+  "\nAddress: " + address +
+  "\nLandmark: " + landmark;
+
 
   window.open(
     "https://m.me/briehaus?text=" + encodeURIComponent(messengerMessage),
     "_blank"
   );
+
+})
 
 })
 .catch(error => {
