@@ -1455,76 +1455,70 @@ function displayCart() {
 }
 
 
-document.getElementById("checkoutBtn").addEventListener("click",function(){
+document.getElementById("checkoutBtn").addEventListener("click", function(){
 
-  let name=document.getElementById("customerName").value.trim();
-  let phone=document.getElementById("customerPhone").value.trim();
+  let name = document.getElementById("customerName").value.trim();
+  let phone = document.getElementById("customerPhone").value.trim();
+  let address = document.getElementById("customerAddress").value.trim();
+  let landmark = document.getElementById("customerLandmark").value.trim();
 
-
-  if(cart.length===0){
+  if(cart.length === 0){
     alert("Your cart is empty.");
     return;
   }
 
-
-  if(name==="" || phone===""){
+  if(name === "" || phone === ""){
     alert("Please enter your name and phone number.");
     return;
   }
 
-
   let orderText = "";
 
-cart.forEach(item=>{
-  orderText += `${item.name} x ${item.qty} = ₱${item.price * item.qty}\n`;
-});
+  cart.forEach(item => {
+    orderText += `${item.name} x ${item.qty} = ₱${item.price * item.qty}\n`;
+  });
 
-orderText = orderText.trim();
+  let total = document.getElementById("total").textContent;
 
-
-  let total=document.getElementById("total").textContent;
-
-
- let address = document.getElementById("customerAddress").value.trim();
-let landmark = document.getElementById("customerLandmark").value.trim();
-
-let orderData = {
-  name: name,
-  phone: phone,
-  address: address,
-  landmark: landmark,
-  order: orderText,
-  total: "₱" + total
-};
+  let orderData = {
+    name: name,
+    phone: phone,
+    address: address,
+    landmark: landmark,
+    order: orderText.trim(),
+    total: "₱" + total
+  };
 
 
- fetch("https://script.google.com/macros/s/AKfycbyP4uR0Nh2UgMoMUy0yHk1H6e337wHCjfc5DLYB2CrvRGGyFaT6NPUHuM7ijYi5vZU/exec", {
-  method: "POST",
-  mode: "no-cors",
-  body: JSON.stringify(orderData)
-})
-.then(() => {
+  fetch("https://script.google.com/macros/s/AKfycbyP4uR0Nh2UgMoMUy0yHk1H6e337wHCjfc5DLYB2CrvRGGyFaT6NPUHuM7ijYi5vZU/exec", {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify(orderData)
+  })
+  .then(() => {
 
-  let messengerMessage =
-  "Hello Brie Haus!\n\n" +
-  "My Order:\n" +
-  orderText +
-  "\nTotal: ₱" + total +
-  "\nName: " + name +
-  "\nPhone: " + phone +
-  "\nAddress: " + address +
-  "\nLandmark: " + landmark;
+    let messengerMessage =
+    "Hello Brie Haus!\n\n" +
+    "My Order:\n" +
+    orderText +
+    "\nTotal: ₱" + total +
+    "\nName: " + name +
+    "\nPhone: " + phone +
+    "\nAddress: " + address +
+    "\nLandmark: " + landmark;
 
 
-  window.open(
-    "https://m.me/briehaus?text=" + encodeURIComponent(messengerMessage),
-    "_blank"
-  );
+    window.open(
+      "https://m.me/briehaus?text=" + encodeURIComponent(messengerMessage),
+      "_blank"
+    );
 
-})
-.catch(error => {
-  console.error(error);
-  alert("Order failed.");
+  })
+  .catch(error => {
+    console.error(error);
+    alert("Order failed.");
+  });
+
 });
 
 
@@ -1565,7 +1559,6 @@ function addSelectedProduct(button, productName) {
 }
 
 function addBreadProduct(button, productName, singlePrice) {
-
   const card = button.closest(".card");
   const select = card.querySelector("select");
 
@@ -1575,7 +1568,6 @@ function addBreadProduct(button, productName, singlePrice) {
   const optionText = selectedOption.text;
 
   addToCart(productName + " (" + optionText + ")", price);
-
 }
 
 console.log("END OF SCRIPT");
