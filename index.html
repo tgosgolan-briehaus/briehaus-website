@@ -1525,9 +1525,9 @@ let orderData={
 })
 
   .catch(error=>{
-    console.log(error);
-    alert("Order failed.");
-  });
+    console.error("FETCH ERROR:", error);
+    alert("FETCH ERROR: " + error.message);
+});
 
 
 });
