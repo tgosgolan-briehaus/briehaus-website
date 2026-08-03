@@ -1514,10 +1514,10 @@ document.getElementById("checkoutBtn").addEventListener("click", function () {
         );
 
     })
-    .catch(error => {
-        console.error(error);
-        alert("Order failed. Please try again.");
-    });
+   .catch(error => {
+    console.error(error);
+    alert(error.message);
+});
 
 });
 
