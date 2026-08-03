@@ -1485,12 +1485,17 @@ orderText = orderText.trim();
   let total=document.getElementById("total").textContent;
 
 
-  let orderData={
+  let address=document.getElementById("customerAddress").value.trim();
+let landmark=document.getElementById("customerLandmark").value.trim();
+
+let orderData={
     name:name,
     phone:phone,
+    address:address,
+    landmark:landmark,
     order:orderText,
     total:"₱"+total
-  };
+};
 
 
   fetch("https://script.google.com/macros/s/AKfycbxpJsic0ZZE81edQk5wxZQBpNRIjkKolALRSMkZgf0JLH3BZ1SXH7q0h1CIb0U6W6Fm/exec",{
@@ -1513,9 +1518,9 @@ orderText = orderText.trim();
 
 
   window.open(
-    "https://m.me/briehaus?text=" + messengerMessage,
-    "_blank"
-  );
+  "https://m.me/briehaus?text=" + encodeURIComponent(messengerMessage),
+  "_blank"
+);
 
 })
 
