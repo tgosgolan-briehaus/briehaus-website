@@ -1396,14 +1396,6 @@ document.getElementById("checkoutBtn").addEventListener("click", function(){
   
 });
 
-// PRODUCT ADD BUTTON
-function addSelectedProduct(button, productName) {
-   
-}
-
-  displayCart();
-};
-
 
 window.changeQty = function(index, amount) {
 
@@ -1553,18 +1545,6 @@ popup.addEventListener("click", function(){
 
 console.log("Reached cart functions");
 
-function addSelectedProduct(button, productName) {
-
-    const card = button.closest(".card");
-    const select = card.querySelector("select");
-
-    const selectedOption = select.options[select.selectedIndex];
-
-    const price = Number(selectedOption.value);
-    const optionText = selectedOption.text;
-
-    addToCart(`${productName} (${optionText})`, price);
-}
 
 function addBreadProduct(button, productName, singlePrice) {
 
