@@ -1498,20 +1498,20 @@ document.getElementById("checkoutBtn").addEventListener("click", function () {
     })
     .then(() => {
 
-        const messengerMessage =
-            "Hello Brie Haus!%0A%0A" +
-            "My Order:%0A" +
-            encodeURIComponent(orderText) +
-            "%0ATotal: ₱" + total +
-            "%0A%0AName: " + encodeURIComponent(customerName) +
-            "%0APhone: " + encodeURIComponent(customerPhone) +
-            "%0AAddress: " + encodeURIComponent(customerAddress) +
-            "%0ALandmark: " + encodeURIComponent(customerLandmark);
+        let messengerMessage =
+"Hello Brie Haus!\n\n" +
+"My Order:\n" +
+orderText +
+"\nTotal: ₱" + total +
+"\n\nName: " + customerName +
+"\nPhone: " + customerPhone +
+"\nAddress: " + customerAddress +
+"\nLandmark: " + customerLandmark;
 
-        window.open(
-            "https://m.me/briehaus?text=" + messengerMessage,
-            "_blank"
-        );
+window.open(
+    "https://m.me/briehaus?text=" + encodeURIComponent(messengerMessage),
+    "_blank"
+);
 
     })
    .catch(error => {
