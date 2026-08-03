@@ -1498,35 +1498,31 @@ let orderData={
 };
 
 
-  fetch("https://script.google.com/macros/s/AKfycbxpJsic0ZZE81edQk5wxZQBpNRIjkKolALRSMkZgf0JLH3BZ1SXH7q0h1CIb0U6W6Fm/exec",{
-  method:"POST",
-  headers:{
-    "Content-Type":"application/json"
-  },
-  body:JSON.stringify(orderData)
+ fetch("https://script.google.com/macros/s/AKfycbyP4uR0Nh2UgMoMUy0yHk1H6e337wHCjfc5DLYB2CrvRGGyFaT6NPUHuM7ijYi5vZU/exec", {
+  method: "POST",
+  mode: "no-cors",
+  body: JSON.stringify(orderData)
 })
-
-  .then(()=>{
+.then(() => {
 
   let messengerMessage =
-  "Hello Brie Haus!%0A%0A" +
-  "My Order:%0A" +
-  orderText.replace(/\n/g,"%0A") +
-  "%0ATotal: ₱" + total +
-  "%0AName: " + name +
-  "%0APhone: " + phone;
+  "Hello Brie Haus!\n\n" +
+  "My Order:\n" +
+  orderText +
+  "\nTotal: ₱" + total +
+  "\nName: " + name +
+  "\nPhone: " + phone;
 
 
   window.open(
-  "https://m.me/briehaus?text=" + encodeURIComponent(messengerMessage),
-  "_blank"
-);
+    "https://m.me/briehaus?text=" + encodeURIComponent(messengerMessage),
+    "_blank"
+  );
 
 })
-
-  .catch(error=>{
-    console.error("FETCH ERROR:", error);
-    alert("FETCH ERROR: " + error.message);
+.catch(error => {
+  console.error("FETCH ERROR:", error);
+  alert("Order failed.");
 });
 
 
