@@ -1376,25 +1376,24 @@ Freshly Baked • Premium Coffee • Made With Heart
 
 
 <script>
-
-alert("JavaScript loaded");
-
 let cart = [];
 
-// ADD TO CART
 window.addToCart = function(name, price) {
-   
-};
 
-// DISPLAY CART
-function displayCart() {
-   
-};
+  let item = cart.find(product => product.name === name);
 
-// CHECKOUT BUTTON
-document.getElementById("checkoutBtn").addEventListener("click", function(){
-  
-});
+  if (item) {
+    item.qty++;
+  } else {
+    cart.push({
+      name: name,
+      price: price,
+      qty: 1
+    });
+  }
+
+  displayCart();
+};
 
 
 window.changeQty = function(index, amount) {
@@ -1456,71 +1455,80 @@ function displayCart() {
 }
 
 
-document.getElementById("checkoutBtn").addEventListener("click", function () {
+document.getElementById("checkoutBtn").addEventListener("click",function(){
 
-    const customerName = document.getElementById("customerName").value.trim();
-    const customerPhone = document.getElementById("customerPhone").value.trim();
-    const customerAddress = document.getElementById("customerAddress").value.trim();
-    const customerLandmark = document.getElementById("customerLandmark").value.trim();
+  let name=document.getElementById("customerName").value.trim();
+  let phone=document.getElementById("customerPhone").value.trim();
 
-    if (cart.length === 0) {
-        alert("Your cart is empty.");
-        return;
-    }
 
-    if (!customerName || !customerPhone || !customerAddress) {
-        alert("Please enter your name, phone number, and complete address.");
-        return;
-    }
+  if(cart.length===0){
+    alert("Your cart is empty.");
+    return;
+  }
 
-    let orderText = "";
 
-    cart.forEach(item => {
-        orderText += `${item.name} x${item.qty} - ₱${(item.price * item.qty).toFixed(2)}\n`;
-    });
+  if(name==="" || phone===""){
+    alert("Please enter your name and phone number.");
+    return;
+  }
 
-    const total = document.getElementById("total").textContent;
 
-    const orderData = {
-        name: customerName,
-        phone: customerPhone,
-        address: customerAddress,
-        landmark: customerLandmark,
-        order: orderText.trim(),
-        total: "₱" + total
-    };
+  let orderText = "";
 
-    fetch("https://script.google.com/macros/s/AKfycbzXDYEhc1MsQCvlhxP7ORLrHiI2b7w9LOurUVFB1vsfnmoGjvQL4ZKeEswIV3CLUZGQ/exec", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(orderData)
-    })
-    .then(() => {
-
-        let messengerMessage =
-"Hello Brie Haus!\n\n" +
-"My Order:\n" +
-orderText +
-"\nTotal: ₱" + total +
-"\n\nName: " + customerName +
-"\nPhone: " + customerPhone +
-"\nAddress: " + customerAddress +
-"\nLandmark: " + customerLandmark;
-
-window.open(
-    "https://m.me/briehaus?text=" + encodeURIComponent(messengerMessage),
-    "_blank"
-);
-
-    })
-   .catch(error => {
-    console.error(error);
-    alert(error.message);
+cart.forEach(item=>{
+  orderText += `${item.name} x ${item.qty} = ₱${item.price * item.qty}\n`;
 });
 
-}
+orderText = orderText.trim();
+
+
+  let total=document.getElementById("total").textContent;
+
+
+  let orderData={
+    name:name,
+    phone:phone,
+    order:orderText,
+    total:"₱"+total
+  };
+
+
+  fetch("https://script.google.com/macros/s/AKfycbxpJsic0ZZE81edQk5wxZQBpNRIjkKolALRSMkZgf0JLH3BZ1SXH7q0h1CIb0U6W6Fm/exec",{
+  method:"POST",
+  headers:{
+    "Content-Type":"application/json"
+  },
+  body:JSON.stringify(orderData)
+})
+
+  .then(()=>{
+
+  let messengerMessage =
+  "Hello Brie Haus!%0A%0A" +
+  "My Order:%0A" +
+  orderText.replace(/\n/g,"%0A") +
+  "%0ATotal: ₱" + total +
+  "%0AName: " + name +
+  "%0APhone: " + phone;
+
+
+  window.open(
+    "https://m.me/briehaus?text=" + messengerMessage,
+    "_blank"
+  );
+
+})
+
+  .catch(error=>{
+    console.log(error);
+    alert("Order failed.");
+  });
+
+
+});
+
+
+console.log("Brie Haus JS is running");
 
 const popup = document.getElementById("imagePopup");
 const popupImage = document.getElementById("popupImage");
@@ -1543,9 +1551,6 @@ popup.addEventListener("click", function(){
 
 });
 
-console.log("Reached cart functions");
-
-
 function addSelectedProduct(button, productName) {
 
     const card = button.closest(".card");
@@ -1557,21 +1562,6 @@ function addSelectedProduct(button, productName) {
     const optionText = selectedOption.text;
 
     addToCart(`${productName} (${optionText})`, price);
-}
-
-
-function addBreadProduct(button, productName, singlePrice) {
-
-  const card = button.closest(".card");
-  const select = card.querySelector("select");
-
-  const selectedOption = select.options[select.selectedIndex];
-
-  const price = Number(selectedOption.value);
-  const optionText = selectedOption.text;
-
-  addToCart(productName + " (" + optionText + ")", price);
-
 }
 
 function addBreadProduct(button, productName, singlePrice) {
