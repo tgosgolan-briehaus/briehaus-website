@@ -1489,12 +1489,12 @@ orderText = orderText.trim();
 let landmark=document.getElementById("customerLandmark").value.trim();
 
 let orderData={
-    name:name,
-    phone:phone,
-    address:address,
-    landmark:landmark,
-    order:orderText,
-    total:"₱"+total
+  name:name,
+  phone:phone,
+  address:address,
+  landmark:landmark,
+  order:orderText,
+  total:"₱"+total
 };
 
 
@@ -1505,13 +1505,15 @@ let orderData={
 })
 .then(() => {
 
-  let messengerMessage =
-  "Hello Brie Haus!\n\n" +
-  "My Order:\n" +
-  orderText +
-  "\nTotal: ₱" + total +
-  "\nName: " + name +
-  "\nPhone: " + phone;
+ let messengerMessage =
+"Hello Brie Haus!\n\n" +
+"My Order:\n" +
+orderText +
+"\nTotal: ₱" + total +
+"\nName: " + name +
+"\nPhone: " + phone +
+"\nAddress: " + address +
+"\nLandmark: " + landmark;
 
 
   window.open(
