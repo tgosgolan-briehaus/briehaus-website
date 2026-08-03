@@ -1503,22 +1503,17 @@ let orderData={
   mode: "no-cors",
   body: JSON.stringify(orderData)
 })
-  method: "POST",
-  mode: "no-cors",
-  body: JSON.stringify(orderData)
-})
 .then(() => {
 
- let messengerMessage =
-"Hello Brie Haus!\n\n" +
-"My Order:\n" +
-orderText +
-"\nTotal: ₱" + total +
-"\nName: " + name +
-"\nPhone: " + phone +
-"\nAddress: " + address +
-"\nLandmark: " + landmark;
-
+  let messengerMessage =
+    "Hello Brie Haus!\n\n" +
+    "My Order:\n" +
+    orderText +
+    "\nTotal: ₱" + total +
+    "\nName: " + name +
+    "\nPhone: " + phone +
+    "\nAddress: " + address +
+    "\nLandmark: " + landmark;
 
   window.open(
     "https://m.me/briehaus?text=" + encodeURIComponent(messengerMessage),
@@ -1527,7 +1522,7 @@ orderText +
 
 })
 .catch(error => {
-  console.error("FETCH ERROR:", error);
+  console.error(error);
   alert("Order failed.");
 });
 
